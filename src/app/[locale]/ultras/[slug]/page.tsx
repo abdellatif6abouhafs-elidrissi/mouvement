@@ -138,7 +138,7 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
         <div className="relative z-10 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-end pb-12">
           {/* Back Button */}
           <Link href={`/${locale}/ultras`} className="absolute top-8 left-4 sm:left-8">
-            <Button variant="ghost\" size="sm" leftIcon={<ArrowLeft className="h-4 w-4" />}>
+            <Button variant="ghost" size="sm" leftIcon={<ArrowLeft className="h-4 w-4" />}>
               {t('backToGroups')}
             </Button>
           </Link>
