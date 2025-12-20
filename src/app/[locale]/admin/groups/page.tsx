@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { useLocale } from 'next-intl';
+import { useSession } from 'next-auth/react';
+import { redirect } from 'next/navigation';
 import { motion } from 'framer-motion';
 import {
   ArrowLeft,
@@ -77,9 +79,27 @@ const mockGroups = [
 
 export default function AdminGroupsPage() {
   const locale = useLocale();
+  const { data: session, status } = useSession();
   const [searchQuery, setSearchQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState<'all' | 'verified' | 'pending'>('all');
   const [selectedGroups, setSelectedGroups] = useState<string[]>([]);
+
+  // Auth check
+  if (status === 'loading') {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-zinc-950">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-500"></div>
+      </div>
+    );
+  }
+
+  if (!session) {
+    redirect(`/${locale}/login?callbackUrl=/${locale}/admin/groups`);
+  }
+
+  if (session.user.role !== 'admin' && session.user.role !== 'moderator') {
+    redirect(`/${locale}?error=unauthorized`);
+  }
 
   const filteredGroups = mockGroups.filter((group) => {
     const matchesSearch =

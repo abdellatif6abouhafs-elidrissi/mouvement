@@ -56,17 +56,20 @@ export default function AdminDashboard() {
   // Redirect if not admin
   if (status === 'loading') {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-zinc-950">
         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-500"></div>
       </div>
     );
   }
 
-  // For demo purposes, allow access without session check
-  // In production, uncomment the following:
-  // if (!session || session.user.role !== 'admin') {
-  //   redirect(`/${locale}/login`);
-  // }
+  // Check if user is authenticated and is admin
+  if (!session) {
+    redirect(`/${locale}/login?callbackUrl=/${locale}/admin`);
+  }
+
+  if (session.user.role !== 'admin' && session.user.role !== 'moderator') {
+    redirect(`/${locale}?error=unauthorized`);
+  }
 
   return (
     <div className="min-h-screen bg-zinc-950">
