@@ -137,7 +137,7 @@ The story of GREEN BOYS is not just about football – it's about youth, creativ
   // Simple markdown-like rendering for paragraphs and headers
   const renderContent = (content: string) => {
     const lines = content.split('\n');
-    const elements: JSX.Element[] = [];
+    const elements: React.ReactNode[] = [];
     let inBlockquote = false;
     let blockquoteContent = '';
 
