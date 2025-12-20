@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
       .createHash('sha256')
       .update(resetToken)
       .digest('hex');
-    user.resetPasswordExpiry = resetTokenExpiry;
+    user.resetPasswordExpires = resetTokenExpiry;
     await user.save();
 
     // Create reset URL

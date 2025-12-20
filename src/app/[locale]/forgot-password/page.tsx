@@ -64,7 +64,7 @@ export default function ForgotPasswordPage() {
             <div className="space-y-3">
               <Button
                 variant="outline"
-                fullWidth
+                className="w-full"
                 onClick={() => {
                   setIsSuccess(false);
                   setEmail('');
@@ -72,8 +72,8 @@ export default function ForgotPasswordPage() {
               >
                 Try Another Email
               </Button>
-              <Link href={`/${locale}/login`}>
-                <Button variant="ghost" fullWidth leftIcon={<ArrowLeft className="h-4 w-4" />}>
+              <Link href={`/${locale}/login`} className="block">
+                <Button variant="ghost" className="w-full" leftIcon={<ArrowLeft className="h-4 w-4" />}>
                   Back to Login
                 </Button>
               </Link>
@@ -127,7 +127,7 @@ export default function ForgotPasswordPage() {
 
             <Button
               type="submit"
-              fullWidth
+              className="w-full"
               disabled={isLoading}
               leftIcon={isLoading ? <Loader2 className="h-5 w-5 animate-spin" /> : undefined}
             >
