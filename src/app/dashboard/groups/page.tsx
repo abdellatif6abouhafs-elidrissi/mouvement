@@ -1,5 +1,4 @@
 'use client';
-
 import { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -17,7 +16,6 @@ import {
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import Card, { CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
-
 const groups = [
   {
     id: '1',
@@ -75,11 +73,9 @@ const groups = [
     createdAt: '2024-01-08',
   },
 ];
-
 export default function GroupsPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedStatus, setSelectedStatus] = useState('all');
-
   const filteredGroups = groups.filter((group) => {
     const matchesSearch =
       group.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -88,7 +84,6 @@ export default function GroupsPage() {
       selectedStatus === 'all' || group.status === selectedStatus;
     return matchesSearch && matchesStatus;
   });
-
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'published':
@@ -101,7 +96,6 @@ export default function GroupsPage() {
         return 'bg-zinc-600/10 text-zinc-400 border-zinc-600/20';
     }
   };
-
   return (
     <div className="space-y-6">
       {/* Page Header */}
@@ -116,7 +110,6 @@ export default function GroupsPage() {
           <Button leftIcon={<Plus className="h-4 w-4" />}>Add Group</Button>
         </Link>
       </div>
-
       {/* Filters */}
       <Card>
         <CardContent className="p-4">
@@ -147,7 +140,6 @@ export default function GroupsPage() {
           </div>
         </CardContent>
       </Card>
-
       {/* Groups Table */}
       <Card>
         <CardContent className="p-0">
@@ -241,7 +233,6 @@ export default function GroupsPage() {
               </tbody>
             </table>
           </div>
-
           {filteredGroups.length === 0 && (
             <div className="text-center py-12">
               <Flag className="h-12 w-12 text-zinc-700 mx-auto mb-4" />

@@ -1,5 +1,4 @@
 'use client';
-
 import { motion } from 'framer-motion';
 import {
   Users,
@@ -12,7 +11,6 @@ import {
   ArrowDownRight,
 } from 'lucide-react';
 import Card, { CardContent, CardHeader, CardTitle } from '@/components/ui/Card';
-
 const stats = [
   {
     name: 'Total Groups',
@@ -43,7 +41,6 @@ const stats = [
     icon: MessageSquare,
   },
 ];
-
 const recentActivity = [
   {
     id: 1,
@@ -86,7 +83,6 @@ const recentActivity = [
     time: '2 hours ago',
   },
 ];
-
 const topGroups = [
   { name: 'Ultras Eagles', views: 45200, country: 'Morocco' },
   { name: 'Curva Sud Milano', views: 38900, country: 'Italy' },
@@ -94,7 +90,6 @@ const topGroups = [
   { name: 'La Doce', views: 32100, country: 'Argentina' },
   { name: 'Winners', views: 28400, country: 'Morocco' },
 ];
-
 export default function DashboardPage() {
   return (
     <div className="space-y-8">
@@ -105,7 +100,6 @@ export default function DashboardPage() {
           Welcome back! Here&apos;s what&apos;s happening with Mouvement.
         </p>
       </div>
-
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {stats.map((stat, index) => (
@@ -143,7 +137,6 @@ export default function DashboardPage() {
           </motion.div>
         ))}
       </div>
-
       {/* Main Content Grid */}
       <div className="grid lg:grid-cols-3 gap-6">
         {/* Recent Activity */}
@@ -178,7 +171,6 @@ export default function DashboardPage() {
             </CardContent>
           </Card>
         </div>
-
         {/* Top Groups */}
         <div>
           <Card>

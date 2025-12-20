@@ -1,5 +1,4 @@
 'use client';
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
@@ -17,7 +16,6 @@ import {
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import Card, { CardContent } from '@/components/ui/Card';
-
 const users = [
   {
     id: '1',
@@ -65,11 +63,9 @@ const users = [
     createdAt: '2024-01-01',
   },
 ];
-
 export default function UsersPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedRole, setSelectedRole] = useState('all');
-
   const filteredUsers = users.filter((user) => {
     const matchesSearch =
       user.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -77,7 +73,6 @@ export default function UsersPage() {
     const matchesRole = selectedRole === 'all' || user.role === selectedRole;
     return matchesSearch && matchesRole;
   });
-
   const getRoleColor = (role: string) => {
     switch (role) {
       case 'admin':
@@ -90,7 +85,6 @@ export default function UsersPage() {
         return 'bg-zinc-600/10 text-zinc-400 border-zinc-600/20';
     }
   };
-
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'active':
@@ -101,7 +95,6 @@ export default function UsersPage() {
         return 'text-zinc-400';
     }
   };
-
   return (
     <div className="space-y-6">
       {/* Page Header */}
@@ -114,7 +107,6 @@ export default function UsersPage() {
         </div>
         <Button leftIcon={<UserPlus className="h-4 w-4" />}>Invite User</Button>
       </div>
-
       {/* Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
         <Card>
@@ -170,7 +162,6 @@ export default function UsersPage() {
           </CardContent>
         </Card>
       </div>
-
       {/* Filters */}
       <Card>
         <CardContent className="p-4">
@@ -201,7 +192,6 @@ export default function UsersPage() {
           </div>
         </CardContent>
       </Card>
-
       {/* Users Table */}
       <Card>
         <CardContent className="p-0">
@@ -299,7 +289,6 @@ export default function UsersPage() {
               </tbody>
             </table>
           </div>
-
           {filteredUsers.length === 0 && (
             <div className="text-center py-12">
               <Users className="h-12 w-12 text-zinc-700 mx-auto mb-4" />

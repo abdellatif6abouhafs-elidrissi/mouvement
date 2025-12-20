@@ -1,5 +1,4 @@
 'use client';
-
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
@@ -15,7 +14,6 @@ import {
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import Card, { CardContent } from '@/components/ui/Card';
-
 const comments = [
   {
     id: '1',
@@ -68,11 +66,9 @@ const comments = [
     createdAt: '2024-01-14 16:20',
   },
 ];
-
 export default function CommentsPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedStatus, setSelectedStatus] = useState('pending');
-
   const filteredComments = comments.filter((comment) => {
     const matchesSearch =
       comment.content.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -81,7 +77,6 @@ export default function CommentsPage() {
       selectedStatus === 'all' || comment.status === selectedStatus;
     return matchesSearch && matchesStatus;
   });
-
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'approved':
@@ -96,7 +91,6 @@ export default function CommentsPage() {
         return 'bg-zinc-600/10 text-zinc-400 border-zinc-600/20';
     }
   };
-
   const getStatusIcon = (status: string) => {
     switch (status) {
       case 'approved':
@@ -111,9 +105,7 @@ export default function CommentsPage() {
         return null;
     }
   };
-
   const pendingCount = comments.filter((c) => c.status === 'pending').length;
-
   return (
     <div className="space-y-6">
       {/* Page Header */}
@@ -133,7 +125,6 @@ export default function CommentsPage() {
           </div>
         )}
       </div>
-
       {/* Filters */}
       <Card>
         <CardContent className="p-4">
@@ -169,7 +160,6 @@ export default function CommentsPage() {
           </div>
         </CardContent>
       </Card>
-
       {/* Comments List */}
       <div className="space-y-4">
         {filteredComments.map((comment, index) => (
@@ -192,7 +182,6 @@ export default function CommentsPage() {
                       <p className="text-xs text-zinc-500">{comment.createdAt}</p>
                     </div>
                   </div>
-
                   {/* Content */}
                   <div className="flex-1">
                     <p className="text-zinc-300 leading-relaxed">
@@ -218,7 +207,6 @@ export default function CommentsPage() {
                       </span>
                     </div>
                   </div>
-
                   {/* Status & Actions */}
                   <div className="flex items-center gap-3 lg:flex-col lg:items-end">
                     <span
@@ -229,7 +217,6 @@ export default function CommentsPage() {
                       {getStatusIcon(comment.status)}
                       {comment.status}
                     </span>
-
                     {comment.status === 'pending' && (
                       <div className="flex items-center gap-2">
                         <Button size="sm" variant="ghost" className="text-green-500 hover:bg-green-600/10">
@@ -248,7 +235,6 @@ export default function CommentsPage() {
             </Card>
           </motion.div>
         ))}
-
         {filteredComments.length === 0 && (
           <div className="text-center py-12">
             <MessageSquare className="h-12 w-12 text-zinc-700 mx-auto mb-4" />

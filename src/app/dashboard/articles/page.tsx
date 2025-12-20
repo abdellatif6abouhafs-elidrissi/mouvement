@@ -1,5 +1,4 @@
 'use client';
-
 import { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
@@ -17,7 +16,6 @@ import {
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import Card, { CardContent } from '@/components/ui/Card';
-
 const articles = [
   {
     id: '1',
@@ -70,12 +68,10 @@ const articles = [
     publishedAt: '2024-01-01',
   },
 ];
-
 export default function ArticlesPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedStatus, setSelectedStatus] = useState('all');
   const [selectedCategory, setSelectedCategory] = useState('all');
-
   const filteredArticles = articles.filter((article) => {
     const matchesSearch = article.title
       .toLowerCase()
@@ -86,7 +82,6 @@ export default function ArticlesPage() {
       selectedCategory === 'all' || article.category === selectedCategory;
     return matchesSearch && matchesStatus && matchesCategory;
   });
-
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'published':
@@ -99,7 +94,6 @@ export default function ArticlesPage() {
         return 'bg-zinc-600/10 text-zinc-400 border-zinc-600/20';
     }
   };
-
   const getCategoryColor = (category: string) => {
     const colors: Record<string, string> = {
       history: 'bg-blue-600/10 text-blue-400',
@@ -111,7 +105,6 @@ export default function ArticlesPage() {
     };
     return colors[category] || 'bg-zinc-600/10 text-zinc-400';
   };
-
   return (
     <div className="space-y-6">
       {/* Page Header */}
@@ -126,7 +119,6 @@ export default function ArticlesPage() {
           <Button leftIcon={<Plus className="h-4 w-4" />}>New Article</Button>
         </Link>
       </div>
-
       {/* Filters */}
       <Card>
         <CardContent className="p-4">
@@ -157,7 +149,6 @@ export default function ArticlesPage() {
           </div>
         </CardContent>
       </Card>
-
       {/* Articles Table */}
       <Card>
         <CardContent className="p-0">
@@ -261,7 +252,6 @@ export default function ArticlesPage() {
               </tbody>
             </table>
           </div>
-
           {filteredArticles.length === 0 && (
             <div className="text-center py-12">
               <BookOpen className="h-12 w-12 text-zinc-700 mx-auto mb-4" />
