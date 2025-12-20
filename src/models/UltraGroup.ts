@@ -219,7 +219,7 @@ const ultraGroupSchema = new Schema<IUltraGroupDocument>(
 );
 
 // Generate slug before saving
-ultraGroupSchema.pre('save', function (next) {
+ultraGroupSchema.pre('save', function () {
   if (this.isModified('name')) {
     this.slug = this.name
       .toLowerCase()
@@ -228,7 +228,7 @@ ultraGroupSchema.pre('save', function (next) {
       .replace(/-+/g, '-')
       .trim();
   }
-  next();
+
 });
 
 // Indexes
