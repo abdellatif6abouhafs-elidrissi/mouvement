@@ -82,20 +82,20 @@ export default function ContactPage() {
 
               <div className="space-y-6 mb-12">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-red-600/10 flex items-center justify-center flex-shrink-0">
-                    <Mail className="h-6 w-6 text-red-500" />
+                  <div className="w-12 h-12 rounded-xl bg-green-600/10 flex items-center justify-center flex-shrink-0">
+                    <Mail className="h-6 w-6 text-green-500" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-white mb-1">{t('email')}</h3>
-                    <a href="mailto:contact@mouvement.com" className="text-zinc-400 hover:text-red-500 transition-colors">
+                    <a href="mailto:contact@mouvement.com" className="text-zinc-400 hover:text-green-500 transition-colors">
                       contact@mouvement.com
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-red-600/10 flex items-center justify-center flex-shrink-0">
-                    <MapPin className="h-6 w-6 text-red-500" />
+                  <div className="w-12 h-12 rounded-xl bg-green-600/10 flex items-center justify-center flex-shrink-0">
+                    <MapPin className="h-6 w-6 text-green-500" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-white mb-1">{t('location')}</h3>
@@ -104,8 +104,8 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-red-600/10 flex items-center justify-center flex-shrink-0">
-                    <MessageCircle className="h-6 w-6 text-red-500" />
+                  <div className="w-12 h-12 rounded-xl bg-green-600/10 flex items-center justify-center flex-shrink-0">
+                    <MessageCircle className="h-6 w-6 text-green-500" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-white mb-1">{t('social')}</h3>
@@ -114,7 +114,7 @@ export default function ContactPage() {
                         <a
                           key={social}
                           href="#"
-                          className="text-zinc-400 hover:text-red-500 transition-colors"
+                          className="text-zinc-400 hover:text-green-500 transition-colors"
                         >
                           {social}
                         </a>
@@ -127,7 +127,7 @@ export default function ContactPage() {
               {/* FAQs */}
               <div>
                 <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                  <HelpCircle className="h-5 w-5 text-red-500" />
+                  <HelpCircle className="h-5 w-5 text-green-500" />
                   {t('commonQuestions')}
                 </h3>
                 <div className="space-y-4">
@@ -227,7 +227,7 @@ export default function ContactPage() {
                           onChange={handleChange}
                           rows={5}
                           required
-                          className="w-full px-4 py-3 rounded-xl bg-zinc-800 border border-zinc-700 text-white placeholder:text-zinc-500 focus:outline-none focus:border-red-600 resize-none"
+                          className="w-full px-4 py-3 rounded-xl bg-zinc-800 border border-zinc-700 text-white placeholder:text-zinc-500 focus:outline-none focus:border-green-500 resize-none"
                         />
                       </div>
 

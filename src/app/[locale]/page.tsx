@@ -78,8 +78,8 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-[url('/images/hero-pattern.svg')] opacity-5" />
 
         {/* Animated orbs */}
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-600/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-red-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '200ms' }} />
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-green-600/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-green-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '200ms' }} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
@@ -88,7 +88,7 @@ export default function HomePage() {
             transition={{ duration: 0.8 }}
           >
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-600/10 border border-red-600/20 text-red-500 text-sm font-medium mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-600/10 border border-green-600/20 text-green-500 text-sm font-medium mb-8">
               <Flame className="h-4 w-4" />
               {t('badge')}
             </div>
@@ -130,7 +130,7 @@ export default function HomePage() {
                 key={stat.label}
                 className="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800 backdrop-blur-sm"
               >
-                <stat.icon className="h-6 w-6 text-red-500 mb-3 mx-auto" />
+                <stat.icon className="h-6 w-6 text-green-500 mb-3 mx-auto" />
                 <div className="text-3xl font-bold text-white mb-1">{stat.value}</div>
                 <div className="text-zinc-400 text-sm">{stat.label}</div>
               </div>
@@ -149,7 +149,7 @@ export default function HomePage() {
             <motion.div
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 1.5, repeat: Infinity }}
-              className="w-1.5 h-1.5 rounded-full bg-red-500"
+              className="w-1.5 h-1.5 rounded-full bg-green-500"
             />
           </div>
         </motion.div>
@@ -190,7 +190,7 @@ export default function HomePage() {
                     {/* Image */}
                     <div className="relative h-48 bg-zinc-800">
                       <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent z-10" />
-                      <div className="absolute inset-0 bg-red-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
+                      <div className="absolute inset-0 bg-green-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
                       <div className="w-full h-full bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center">
                         <Flag className="h-12 w-12 text-zinc-700" />
                       </div>
@@ -209,7 +209,7 @@ export default function HomePage() {
                         <span className="text-xs text-zinc-500">
                           {group.members} members
                         </span>
-                        <ArrowRight className="h-4 w-4 text-zinc-600 group-hover:text-red-500 transition-colors" />
+                        <ArrowRight className="h-4 w-4 text-zinc-600 group-hover:text-green-500 transition-colors" />
                       </div>
                     </CardContent>
                   </Card>
@@ -226,11 +226,11 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="relative rounded-3xl bg-zinc-900 border border-zinc-800 overflow-hidden">
             <div className="absolute inset-0 bg-[url('/images/world-map.svg')] opacity-5" />
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-red-600/10 to-transparent" />
+            <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-green-600/10 to-transparent" />
 
             <div className="relative z-10 p-8 sm:p-12 lg:p-16 flex flex-col lg:flex-row items-center gap-12">
               <div className="flex-1">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-600/10 border border-red-600/20 text-red-500 text-xs font-medium mb-6">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-600/10 border border-green-600/20 text-green-500 text-xs font-medium mb-6">
                   <Globe className="h-3.5 w-3.5" />
                   {t('interactiveMap')}
                 </div>
@@ -253,9 +253,9 @@ export default function HomePage() {
                   <Globe className="h-24 w-24 text-zinc-700" />
                 </div>
                 {/* Floating markers */}
-                <div className="absolute top-1/4 left-1/3 w-3 h-3 bg-red-500 rounded-full animate-ping" />
-                <div className="absolute top-1/2 right-1/4 w-3 h-3 bg-red-500 rounded-full animate-ping" style={{ animationDelay: '200ms' }} />
-                <div className="absolute bottom-1/3 left-1/2 w-3 h-3 bg-red-500 rounded-full animate-ping" style={{ animationDelay: '400ms' }} />
+                <div className="absolute top-1/4 left-1/3 w-3 h-3 bg-green-500 rounded-full animate-ping" />
+                <div className="absolute top-1/2 right-1/4 w-3 h-3 bg-green-500 rounded-full animate-ping" style={{ animationDelay: '200ms' }} />
+                <div className="absolute bottom-1/3 left-1/2 w-3 h-3 bg-green-500 rounded-full animate-ping" style={{ animationDelay: '400ms' }} />
               </div>
             </div>
           </div>
@@ -318,14 +318,14 @@ export default function HomePage() {
                     </div>
                     {/* Category Badge */}
                     <div className="absolute top-4 left-4 z-20">
-                      <span className="px-3 py-1 rounded-full bg-red-600/90 text-white text-xs font-medium">
+                      <span className="px-3 py-1 rounded-full bg-green-600/90 text-white text-xs font-medium">
                         {article.category}
                       </span>
                     </div>
                   </div>
 
                   <CardContent>
-                    <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-red-500 transition-colors">
+                    <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-green-500 transition-colors">
                       {article.title}
                     </h3>
                     <div className="flex items-center gap-4 text-sm text-zinc-500">

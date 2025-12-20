@@ -112,7 +112,7 @@ export default function CommunityPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-600/10 border border-red-600/20 text-red-500 text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-600/10 border border-green-600/20 text-green-500 text-sm font-medium mb-6">
               <Users className="h-4 w-4" />
               Stories
             </div>
@@ -133,7 +133,7 @@ export default function CommunityPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 border-b border-zinc-800">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center gap-3 mb-8">
-            <Heart className="h-6 w-6 text-red-500" />
+            <Heart className="h-6 w-6 text-green-500" />
             <h2 className="text-2xl font-bold text-white">{t('featured')}</h2>
           </div>
 
@@ -148,7 +148,7 @@ export default function CommunityPage() {
               <div className="relative h-80 lg:h-auto bg-zinc-800">
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent to-zinc-900/80 z-10 hidden lg:block" />
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent z-10 lg:hidden" />
-                <div className="w-full h-full bg-gradient-to-br from-red-600/20 to-zinc-800 flex items-center justify-center">
+                <div className="w-full h-full bg-gradient-to-br from-green-600/20 to-zinc-800 flex items-center justify-center">
                   <Users className="h-24 w-24 text-zinc-700" />
                 </div>
               </div>
@@ -172,7 +172,7 @@ export default function CommunityPage() {
                 <h3 className="text-3xl font-bold text-white mb-4">{mainStory.title}</h3>
                 <p className="text-zinc-400 mb-6">{mainStory.excerpt}</p>
                 <div className="flex items-center gap-2 mb-6">
-                  <div className="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center text-white font-bold">
+                  <div className="w-10 h-10 rounded-full bg-green-600 flex items-center justify-center text-white font-bold">
                     {mainStory.author.charAt(0)}
                   </div>
                   <div>
@@ -181,7 +181,7 @@ export default function CommunityPage() {
                   </div>
                 </div>
                 <div className="flex items-center gap-6">
-                  <button className="flex items-center gap-2 text-zinc-400 hover:text-red-500 transition-colors">
+                  <button className="flex items-center gap-2 text-zinc-400 hover:text-green-500 transition-colors">
                     <Heart className="h-5 w-5" />
                     {mainStory.likes}
                   </button>
@@ -230,7 +230,7 @@ export default function CommunityPage() {
                       <span>-</span>
                       <span>{story.country}</span>
                     </div>
-                    <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-red-500 transition-colors">
+                    <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-green-500 transition-colors">
                       {story.title}
                     </h3>
                     <p className="text-zinc-400 text-sm mb-4 line-clamp-2">{story.excerpt}</p>
@@ -282,14 +282,14 @@ export default function CommunityPage() {
                 viewport={{ once: true }}
                 className="relative p-8 rounded-2xl bg-zinc-900 border border-zinc-800"
               >
-                <Quote className="absolute top-6 left-6 h-8 w-8 text-red-600/30" />
+                <Quote className="absolute top-6 left-6 h-8 w-8 text-green-600/30" />
                 <blockquote className="relative z-10 text-xl text-white italic mb-4 pl-6">
                   &ldquo;{item.quote}&rdquo;
                 </blockquote>
                 <div className="pl-6 flex items-center gap-2 text-zinc-400">
                   <span className="font-medium">{item.author}</span>
                   <span>-</span>
-                  <span className="text-red-500">{item.group}</span>
+                  <span className="text-green-500">{item.group}</span>
                 </div>
               </motion.div>
             ))}
@@ -304,9 +304,9 @@ export default function CommunityPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="p-12 rounded-3xl bg-gradient-to-r from-red-600/20 to-zinc-900 border border-red-600/30"
+            className="p-12 rounded-3xl bg-gradient-to-r from-green-600/20 to-zinc-900 border border-green-600/30"
           >
-            <PenSquare className="h-16 w-16 text-red-500 mx-auto mb-6" />
+            <PenSquare className="h-16 w-16 text-green-500 mx-auto mb-6" />
             <h2 className="text-3xl font-bold text-white mb-4">{t('submit')}</h2>
             <p className="text-zinc-400 mb-8 max-w-lg mx-auto">
               Every Ultra has a story. Share your experiences, memories, and passion with the global community.

@@ -55,14 +55,14 @@ export default function LanguageSwitcher() {
               onClick={() => switchLocale(loc)}
               className={`w-full flex items-center gap-3 px-4 py-2.5 text-left text-sm transition-colors ${
                 loc === locale
-                  ? 'bg-red-600/10 text-red-500'
+                  ? 'bg-green-600/10 text-green-500'
                   : 'text-zinc-300 hover:bg-zinc-800'
               }`}
             >
               <span className="text-lg">{localeFlags[loc]}</span>
               <span>{localeNames[loc]}</span>
               {loc === locale && (
-                <span className="ml-auto w-2 h-2 rounded-full bg-red-500" />
+                <span className="ml-auto w-2 h-2 rounded-full bg-green-500" />
               )}
             </button>
           ))}

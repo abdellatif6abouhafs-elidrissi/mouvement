@@ -71,7 +71,7 @@ export default function CulturalPoll({ poll = defaultPoll }: CulturalPollProps) 
           {/* Header */}
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-2">
-              <Vote className="h-5 w-5 text-red-500" />
+              <Vote className="h-5 w-5 text-green-500" />
               <span className="font-semibold text-white">{t('culturalPoll')}</span>
             </div>
             <span className="text-xs text-zinc-500">{t('thisWeek')}</span>
@@ -95,14 +95,14 @@ export default function CulturalPoll({ poll = defaultPoll }: CulturalPollProps) 
                     hasVoted
                       ? 'border-zinc-700 bg-zinc-800/50'
                       : isSelected
-                      ? 'border-red-600 bg-red-600/10'
+                      ? 'border-green-600 bg-green-600/10'
                       : 'border-zinc-700 bg-zinc-800/50 hover:border-zinc-600'
                   }`}
                 >
                   {/* Progress bar (shown after voting) */}
                   {hasVoted && (
                     <div
-                      className="absolute inset-0 rounded-xl bg-red-600/10 transition-all"
+                      className="absolute inset-0 rounded-xl bg-green-600/10 transition-all"
                       style={{ width: `${percentage}%` }}
                     />
                   )}
@@ -110,12 +110,12 @@ export default function CulturalPoll({ poll = defaultPoll }: CulturalPollProps) 
                   <div className="relative flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       {isSelected && !hasVoted && (
-                        <div className="w-5 h-5 rounded-full bg-red-600 flex items-center justify-center">
+                        <div className="w-5 h-5 rounded-full bg-green-600 flex items-center justify-center">
                           <CheckCircle className="h-4 w-4 text-white" />
                         </div>
                       )}
                       {hasVoted && isSelected && (
-                        <CheckCircle className="h-5 w-5 text-red-500" />
+                        <CheckCircle className="h-5 w-5 text-green-500" />
                       )}
                       <span className={`text-sm ${isSelected ? 'text-white' : 'text-zinc-300'}`}>
                         {option.text}

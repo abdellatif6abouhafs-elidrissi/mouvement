@@ -91,9 +91,7 @@ export default function RegisterPage() {
         {/* Header */}
         <div className="text-center mb-8">
           <Link href={`/${locale}`} className="inline-flex items-center gap-2 mb-8">
-            <div className="w-12 h-12 bg-gradient-to-br from-red-600 to-red-700 rounded-xl flex items-center justify-center">
-              <span className="text-white font-bold text-2xl">M</span>
-            </div>
+            <img src="/logo.svg" alt="Mouvement" className="w-12 h-12" />
           </Link>
           <h1 className="text-3xl font-bold text-white mb-2">{t('joinMouvement')}</h1>
           <p className="text-zinc-400">{t('createAccountSubtitle')}</p>
@@ -204,15 +202,15 @@ export default function RegisterPage() {
                   name="agreeTerms"
                   checked={formData.agreeTerms}
                   onChange={handleChange}
-                  className="w-4 h-4 mt-1 rounded border-zinc-700 bg-zinc-800 text-red-600 focus:ring-red-600"
+                  className="w-4 h-4 mt-1 rounded border-zinc-700 bg-zinc-800 text-green-600 focus:ring-green-600"
                 />
                 <span className="text-sm text-zinc-400">
                   {t('agreeTerms')}{' '}
-                  <Link href={`/${locale}/terms`} className="text-red-500 hover:text-red-400">
+                  <Link href={`/${locale}/terms`} className="text-green-500 hover:text-green-400">
                     {t('termsOfService')}
                   </Link>{' '}
                   {t('and')}{' '}
-                  <Link href={`/${locale}/privacy`} className="text-red-500 hover:text-red-400">
+                  <Link href={`/${locale}/privacy`} className="text-green-500 hover:text-green-400">
                     {t('privacyPolicy')}
                   </Link>
                 </span>
@@ -235,7 +233,7 @@ export default function RegisterPage() {
         {/* Sign In Link */}
         <p className="mt-8 text-center text-zinc-400">
           {t('haveAccount')}{' '}
-          <Link href={`/${locale}/login`} className="text-red-500 hover:text-red-400 font-medium">
+          <Link href={`/${locale}/login`} className="text-green-500 hover:text-green-400 font-medium">
             {t('signInLink')}
           </Link>
         </p>

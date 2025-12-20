@@ -76,7 +76,7 @@ export default function UsersPage() {
   const getRoleColor = (role: string) => {
     switch (role) {
       case 'admin':
-        return 'bg-red-600/10 text-red-500 border-red-600/20';
+        return 'bg-green-600/10 text-green-500 border-green-600/20';
       case 'contributor':
         return 'bg-blue-600/10 text-blue-400 border-blue-600/20';
       case 'user':
@@ -124,8 +124,8 @@ export default function UsersPage() {
         </Card>
         <Card>
           <CardContent className="p-4 flex items-center gap-4">
-            <div className="w-10 h-10 rounded-lg bg-red-600/10 flex items-center justify-center">
-              <Shield className="h-5 w-5 text-red-500" />
+            <div className="w-10 h-10 rounded-lg bg-green-600/10 flex items-center justify-center">
+              <Shield className="h-5 w-5 text-green-500" />
             </div>
             <div>
               <p className="text-2xl font-bold text-white">
@@ -181,7 +181,7 @@ export default function UsersPage() {
                   onClick={() => setSelectedRole(role)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium capitalize transition-colors ${
                     selectedRole === role
-                      ? 'bg-red-600 text-white'
+                      ? 'bg-green-600 text-white'
                       : 'bg-zinc-800 text-zinc-400 hover:text-white'
                   }`}
                 >
@@ -230,7 +230,7 @@ export default function UsersPage() {
                   >
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-red-600 to-red-700 flex items-center justify-center">
+                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-600 to-green-700 flex items-center justify-center">
                           <span className="text-white font-medium">
                             {user.name.charAt(0)}
                           </span>

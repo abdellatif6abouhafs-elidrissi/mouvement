@@ -106,7 +106,7 @@ export default function ChantsPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-600/10 border border-red-600/20 text-red-500 text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-600/10 border border-green-600/20 text-green-500 text-sm font-medium mb-6">
               <Music className="h-4 w-4" />
               Heritage
             </div>
@@ -125,7 +125,7 @@ export default function ChantsPage() {
         <section className="py-16 px-4 sm:px-6 lg:px-8 border-b border-zinc-800">
           <div className="max-w-7xl mx-auto">
             <div className="flex items-center gap-3 mb-8">
-              <Volume2 className="h-6 w-6 text-red-500" />
+              <Volume2 className="h-6 w-6 text-green-500" />
               <h2 className="text-2xl font-bold text-white">Featured Chant</h2>
             </div>
 
@@ -133,13 +133,13 @@ export default function ChantsPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-red-600/20 to-zinc-900 border border-red-600/30 p-8"
+              className="relative rounded-3xl overflow-hidden bg-gradient-to-r from-green-600/20 to-zinc-900 border border-green-600/30 p-8"
             >
               <div className="flex flex-col lg:flex-row gap-8 items-center">
                 {/* Play Button */}
                 <button
                   onClick={() => togglePlay(featuredChant.id)}
-                  className="flex-shrink-0 w-32 h-32 rounded-full bg-red-600 flex items-center justify-center hover:scale-105 transition-transform shadow-lg shadow-red-600/30"
+                  className="flex-shrink-0 w-32 h-32 rounded-full bg-green-600 flex items-center justify-center hover:scale-105 transition-transform shadow-lg shadow-green-600/30"
                 >
                   {playingId === featuredChant.id ? (
                     <Pause className="h-12 w-12 text-white" />
@@ -151,7 +151,7 @@ export default function ChantsPage() {
                 {/* Info */}
                 <div className="flex-1 text-center lg:text-left">
                   <h3 className="text-3xl font-bold text-white mb-2">{featuredChant.title}</h3>
-                  <p className="text-red-400 font-medium mb-4">{featuredChant.group} - {featuredChant.club}</p>
+                  <p className="text-green-400 font-medium mb-4">{featuredChant.group} - {featuredChant.club}</p>
 
                   {/* Waveform placeholder */}
                   <div className="h-16 bg-zinc-800/50 rounded-xl mb-4 flex items-center px-4 gap-1">
@@ -159,7 +159,7 @@ export default function ChantsPage() {
                       <div
                         key={i}
                         className={`w-1 rounded-full transition-all ${
-                          playingId === featuredChant.id ? 'bg-red-500 animate-pulse' : 'bg-zinc-600'
+                          playingId === featuredChant.id ? 'bg-green-500 animate-pulse' : 'bg-zinc-600'
                         }`}
                         style={{ height: `${Math.random() * 40 + 20}%` }}
                       />
@@ -202,7 +202,7 @@ export default function ChantsPage() {
                 transition={{ delay: index * 0.05 }}
                 className={`group p-4 rounded-xl border transition-colors cursor-pointer ${
                   selectedChant?.id === chant.id
-                    ? 'bg-red-600/10 border-red-600/30'
+                    ? 'bg-green-600/10 border-green-600/30'
                     : 'bg-zinc-900 border-zinc-800 hover:border-zinc-700'
                 }`}
                 onClick={() => setSelectedChant(selectedChant?.id === chant.id ? null : chant)}
@@ -214,7 +214,7 @@ export default function ChantsPage() {
                       e.stopPropagation();
                       togglePlay(chant.id);
                     }}
-                    className="flex-shrink-0 w-12 h-12 rounded-full bg-zinc-800 group-hover:bg-red-600 flex items-center justify-center transition-colors"
+                    className="flex-shrink-0 w-12 h-12 rounded-full bg-zinc-800 group-hover:bg-green-600 flex items-center justify-center transition-colors"
                   >
                     {playingId === chant.id ? (
                       <Pause className="h-5 w-5 text-white" />
@@ -269,7 +269,7 @@ export default function ChantsPage() {
           {/* Submit CTA */}
           <div className="mt-16 text-center">
             <div className="inline-flex flex-col items-center p-8 rounded-2xl bg-zinc-900 border border-zinc-800">
-              <Upload className="h-12 w-12 text-red-500 mb-4" />
+              <Upload className="h-12 w-12 text-green-500 mb-4" />
               <h3 className="text-xl font-bold text-white mb-2">{t('submit')}</h3>
               <p className="text-zinc-400 mb-6 max-w-md">
                 Share your group&apos;s chants and preserve the heritage for future generations

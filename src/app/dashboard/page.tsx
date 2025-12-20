@@ -112,8 +112,8 @@ export default function DashboardPage() {
             <Card>
               <CardContent className="p-6">
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-lg bg-red-600/10 border border-red-600/20 flex items-center justify-center">
-                    <stat.icon className="h-6 w-6 text-red-500" />
+                  <div className="w-12 h-12 rounded-lg bg-green-600/10 border border-green-600/20 flex items-center justify-center">
+                    <stat.icon className="h-6 w-6 text-green-500" />
                   </div>
                   <div
                     className={`flex items-center gap-1 text-sm ${
@@ -144,7 +144,7 @@ export default function DashboardPage() {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <TrendingUp className="h-5 w-5 text-red-500" />
+                <TrendingUp className="h-5 w-5 text-green-500" />
                 Recent Activity
               </CardTitle>
             </CardHeader>
@@ -176,7 +176,7 @@ export default function DashboardPage() {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Eye className="h-5 w-5 text-red-500" />
+                <Eye className="h-5 w-5 text-green-500" />
                 Top Groups
               </CardTitle>
             </CardHeader>

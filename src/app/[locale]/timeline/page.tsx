@@ -109,7 +109,7 @@ export default function TimelinePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-600/10 border border-red-600/20 text-red-500 text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-600/10 border border-green-600/20 text-green-500 text-sm font-medium mb-6">
               <Clock className="h-4 w-4" />
               {t('title')} <span className="gradient-text">{t('titleHighlight')}</span>
             </div>
@@ -138,7 +138,7 @@ export default function TimelinePage() {
                   onClick={() => setSelectedRegion(region.key)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                     selectedRegion === region.key
-                      ? 'bg-red-600 text-white'
+                      ? 'bg-green-600 text-white'
                       : 'bg-zinc-800 text-zinc-400 hover:bg-zinc-700'
                   }`}
                 >
@@ -171,7 +171,7 @@ export default function TimelinePage() {
                   }`}
                 >
                   {/* Timeline Dot */}
-                  <div className="absolute left-8 md:left-1/2 w-4 h-4 -translate-x-1/2 md:-translate-x-2 rounded-full bg-red-600 border-4 border-zinc-950 z-10" />
+                  <div className="absolute left-8 md:left-1/2 w-4 h-4 -translate-x-1/2 md:-translate-x-2 rounded-full bg-green-600 border-4 border-zinc-950 z-10" />
 
                   {/* Year Badge */}
                   <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 -top-2 md:-top-8 px-3 py-1 rounded-full bg-zinc-800 text-white text-sm font-bold">
@@ -182,7 +182,7 @@ export default function TimelinePage() {
                   <div className={`flex-1 ml-16 md:ml-0 ${index % 2 === 0 ? 'md:pr-16' : 'md:pl-16'}`}>
                     <div className={`p-6 rounded-2xl border ${
                       event.highlight
-                        ? 'bg-red-600/10 border-red-600/30'
+                        ? 'bg-green-600/10 border-green-600/30'
                         : 'bg-zinc-900 border-zinc-800'
                     }`}>
                       {/* Image */}
@@ -192,7 +192,7 @@ export default function TimelinePage() {
                           <Flag className="h-12 w-12 text-zinc-600" />
                         </div>
                         {event.highlight && (
-                          <div className="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-red-600 text-white text-xs font-bold">
+                          <div className="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-green-600 text-white text-xs font-bold">
                             Pioneer
                           </div>
                         )}
@@ -210,7 +210,7 @@ export default function TimelinePage() {
                         </span>
                       </div>
 
-                      <h3 className={`text-xl font-bold mb-2 ${event.highlight ? 'text-red-500' : 'text-white'}`}>
+                      <h3 className={`text-xl font-bold mb-2 ${event.highlight ? 'text-green-500' : 'text-white'}`}>
                         {event.title}
                       </h3>
                       <p className="text-zinc-400 mb-4">{event.description}</p>

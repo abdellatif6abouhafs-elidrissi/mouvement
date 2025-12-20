@@ -53,9 +53,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link href={`/${locale}`} className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">M</span>
-              </div>
+              <img src="/logo.svg" alt="Mouvement" className="w-10 h-10" />
               <span className="text-xl font-bold text-white">Mouvement</span>
             </Link>
             <p className="mt-4 text-zinc-400 text-sm leading-relaxed">
@@ -67,7 +65,7 @@ export default function Footer() {
                 <a
                   key={social.name}
                   href={social.href}
-                  className="w-10 h-10 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-white hover:border-red-600 transition-colors"
+                  className="w-10 h-10 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-white hover:border-green-500 transition-colors"
                   aria-label={social.name}
                 >
                   <social.icon className="h-5 w-5" />
@@ -161,7 +159,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Mouvement. {t('rights')}
           </p>
           <p className="flex items-center gap-1 text-zinc-500 text-sm">
-            {t('madeWith')} <Heart className="h-4 w-4 text-red-500 fill-red-500" /> {t('forUltraCulture')}
+            {t('madeWith')} <Heart className="h-4 w-4 text-green-500 fill-green-500" /> {t('forUltraCulture')}
           </p>
         </div>
       </div>

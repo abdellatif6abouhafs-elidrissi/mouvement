@@ -144,7 +144,7 @@ export default function CommentsPage() {
                   onClick={() => setSelectedStatus(status)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium capitalize whitespace-nowrap transition-colors ${
                     selectedStatus === status
-                      ? 'bg-red-600 text-white'
+                      ? 'bg-green-600 text-white'
                       : 'bg-zinc-800 text-zinc-400 hover:text-white'
                   }`}
                 >
@@ -191,7 +191,7 @@ export default function CommentsPage() {
                       <span className="text-zinc-500">On:</span>
                       <a
                         href="#"
-                        className="text-red-500 hover:text-red-400 flex items-center gap-1"
+                        className="text-green-500 hover:text-green-400 flex items-center gap-1"
                       >
                         {comment.targetTitle}
                         <ExternalLink className="h-3 w-3" />

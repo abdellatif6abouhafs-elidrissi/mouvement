@@ -73,9 +73,7 @@ export default function Header() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href={`/${locale}`} className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">M</span>
-            </div>
+            <img src="/logo.svg" alt="Mouvement" className="w-10 h-10" />
             <span className="text-xl font-bold text-white hidden sm:block">
               Mouvement
             </span>
@@ -90,7 +88,7 @@ export default function Header() {
                 className={cn(
                   'text-sm font-medium transition-colors duration-200',
                   isActive(item.href)
-                    ? 'text-red-500'
+                    ? 'text-green-500'
                     : 'text-zinc-400 hover:text-white'
                 )}
               >
@@ -115,7 +113,7 @@ export default function Header() {
                       className={cn(
                         'flex items-center gap-3 px-4 py-3 text-sm transition-colors',
                         isActive(item.href)
-                          ? 'bg-red-600/10 text-red-500'
+                          ? 'bg-green-600/10 text-green-500'
                           : 'text-zinc-400 hover:text-white hover:bg-zinc-800'
                       )}
                     >
@@ -155,7 +153,7 @@ export default function Header() {
                       className="w-8 h-8 rounded-full object-cover"
                     />
                   ) : (
-                    <div className="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-full bg-green-600 flex items-center justify-center">
                       <span className="text-sm font-medium text-white">
                         {session.user.name?.charAt(0).toUpperCase()}
                       </span>
@@ -195,7 +193,7 @@ export default function Header() {
                     </Link>
                     <button
                       onClick={() => signOut()}
-                      className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-red-500 hover:bg-red-600/10 transition-colors"
+                      className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-red-400 hover:bg-red-600/10 transition-colors"
                     >
                       <LogOut className="h-4 w-4" />
                       {t('signOut')}
@@ -245,7 +243,7 @@ export default function Header() {
                     className={cn(
                       'flex items-center gap-3 px-4 py-3 rounded-lg transition-colors',
                       isActive(item.href)
-                        ? 'bg-red-600/10 text-red-500'
+                        ? 'bg-green-600/10 text-green-500'
                         : 'text-zinc-400 hover:text-white hover:bg-zinc-800'
                     )}
                   >
@@ -282,7 +280,7 @@ export default function Header() {
                   type="text"
                   placeholder={t('search') || 'Search...'}
                   autoFocus
-                  className="w-full pl-12 pr-4 py-4 rounded-xl bg-zinc-900 border border-zinc-800 text-white text-lg placeholder:text-zinc-500 focus:outline-none focus:border-red-600"
+                  className="w-full pl-12 pr-4 py-4 rounded-xl bg-zinc-900 border border-zinc-800 text-white text-lg placeholder:text-zinc-500 focus:outline-none focus:border-green-500"
                 />
               </div>
               <p className="mt-4 text-center text-zinc-500 text-sm">

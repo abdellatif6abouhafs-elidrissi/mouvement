@@ -167,7 +167,7 @@ export default function UltrasPage() {
                   onClick={() => setViewMode('grid')}
                   className={`p-2 rounded-md transition-colors ${
                     viewMode === 'grid'
-                      ? 'bg-red-600 text-white'
+                      ? 'bg-green-600 text-white'
                       : 'text-zinc-400 hover:text-white'
                   }`}
                 >
@@ -177,7 +177,7 @@ export default function UltrasPage() {
                   onClick={() => setViewMode('map')}
                   className={`p-2 rounded-md transition-colors ${
                     viewMode === 'map'
-                      ? 'bg-red-600 text-white'
+                      ? 'bg-green-600 text-white'
                       : 'text-zinc-400 hover:text-white'
                   }`}
                 >
@@ -216,7 +216,7 @@ export default function UltrasPage() {
                     onClick={() => setSelectedCountry(null)}
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                       !selectedCountry
-                        ? 'bg-red-600 text-white'
+                        ? 'bg-green-600 text-white'
                         : 'bg-zinc-800 text-zinc-400 hover:text-white'
                     }`}
                   >
@@ -228,7 +228,7 @@ export default function UltrasPage() {
                       onClick={() => setSelectedCountry(country.code)}
                       className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors flex items-center gap-2 ${
                         selectedCountry === country.code
-                          ? 'bg-red-600 text-white'
+                          ? 'bg-green-600 text-white'
                           : 'bg-zinc-800 text-zinc-400 hover:text-white'
                       }`}
                     >
@@ -265,11 +265,11 @@ export default function UltrasPage() {
                     transition={{ delay: index * 0.05 }}
                   >
                     <Link href={`/${locale}/ultras/${group.slug}`}>
-                      <Card hoverable className={`h-full group ${group.highlight ? 'ring-2 ring-red-600' : ''}`}>
+                      <Card hoverable className={`h-full group ${group.highlight ? 'ring-2 ring-green-600' : ''}`}>
                         {/* Image placeholder */}
                         <div className="relative h-48 bg-zinc-800">
                           <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent z-10" />
-                          <div className="absolute inset-0 bg-red-600/20 opacity-0 group-hover:opacity-100 transition-opacity z-10" />
+                          <div className="absolute inset-0 bg-green-600/20 opacity-0 group-hover:opacity-100 transition-opacity z-10" />
                           <div className="w-full h-full bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center">
                             <Flag className="h-16 w-16 text-zinc-700" />
                           </div>
@@ -280,7 +280,7 @@ export default function UltrasPage() {
                             </span>
                           </div>
                           {group.highlight && (
-                            <div className="absolute top-4 left-4 z-20 px-2 py-1 rounded bg-red-600 text-white text-xs font-bold">
+                            <div className="absolute top-4 left-4 z-20 px-2 py-1 rounded bg-green-600 text-white text-xs font-bold">
                               Pioneer
                             </div>
                           )}
@@ -291,7 +291,7 @@ export default function UltrasPage() {
                             <MapPin className="h-3 w-3" />
                             {group.city}, {group.country}
                           </div>
-                          <h3 className={`text-xl font-semibold mb-1 group-hover:text-red-500 transition-colors ${group.highlight ? 'text-red-500' : 'text-white'}`}>
+                          <h3 className={`text-xl font-semibold mb-1 group-hover:text-green-500 transition-colors ${group.highlight ? 'text-green-500' : 'text-white'}`}>
                             {group.name}
                           </h3>
                           <p className="text-sm text-zinc-400 mb-3">{group.club}</p>
@@ -310,7 +310,7 @@ export default function UltrasPage() {
                                 {t('founded')} {group.yearFounded}
                               </span>
                             </div>
-                            <ArrowRight className="h-4 w-4 text-zinc-600 group-hover:text-red-500 transition-colors" />
+                            <ArrowRight className="h-4 w-4 text-zinc-600 group-hover:text-green-500 transition-colors" />
                           </div>
                         </CardContent>
                       </Card>

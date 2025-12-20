@@ -97,7 +97,7 @@ export default function AboutPage() {
                 transition={{ delay: index * 0.1 }}
                 className="p-6 rounded-xl bg-zinc-900 border border-zinc-800 text-center"
               >
-                <div className="text-3xl font-bold text-red-500 mb-2">{stat.value}</div>
+                <div className="text-3xl font-bold text-green-500 mb-2">{stat.value}</div>
                 <div className="text-zinc-400">{stat.label}</div>
               </motion.div>
             ))}
@@ -128,8 +128,8 @@ export default function AboutPage() {
               >
                 <Card className="h-full text-center">
                   <CardContent className="pt-8">
-                    <div className="w-16 h-16 rounded-2xl bg-red-600/10 flex items-center justify-center mx-auto mb-6">
-                      <value.icon className="h-8 w-8 text-red-500" />
+                    <div className="w-16 h-16 rounded-2xl bg-green-600/10 flex items-center justify-center mx-auto mb-6">
+                      <value.icon className="h-8 w-8 text-green-500" />
                     </div>
                     <h3 className="text-xl font-semibold text-white mb-3">{value.title}</h3>
                     <p className="text-zinc-400">{value.description}</p>
@@ -163,11 +163,11 @@ export default function AboutPage() {
                 transition={{ delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-red-600 to-red-700 flex items-center justify-center mx-auto mb-4">
+                <div className="w-24 h-24 rounded-full bg-gradient-to-br from-green-600 to-green-700 flex items-center justify-center mx-auto mb-4">
                   <span className="text-3xl font-bold text-white">{member.name.charAt(0)}</span>
                 </div>
                 <h3 className="text-lg font-semibold text-white">{member.name}</h3>
-                <p className="text-red-500 text-sm mb-1">{member.role}</p>
+                <p className="text-green-500 text-sm mb-1">{member.role}</p>
                 <p className="text-zinc-500 text-sm">{member.location}</p>
               </motion.div>
             ))}

@@ -137,7 +137,7 @@ export default function ArticlesPage() {
                   onClick={() => setSelectedCategory(category)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                     selectedCategory === category
-                      ? 'bg-red-600 text-white'
+                      ? 'bg-green-600 text-white'
                       : 'bg-zinc-800 text-zinc-400 hover:text-white'
                   }`}
                 >
@@ -154,8 +154,8 @@ export default function ArticlesPage() {
         <section className="py-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <div className="flex items-center gap-2 mb-6">
-              <Tag className="h-5 w-5 text-red-500" />
-              <span className="text-sm font-medium text-red-500">{t('featured')}</span>
+              <Tag className="h-5 w-5 text-green-500" />
+              <span className="text-sm font-medium text-green-500">{t('featured')}</span>
             </div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -168,11 +168,11 @@ export default function ArticlesPage() {
                     {/* Image */}
                     <div className="relative h-80 lg:h-auto bg-zinc-800">
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent to-zinc-900/50 z-10" />
-                      <div className="w-full h-full bg-gradient-to-br from-red-600/20 to-zinc-800 flex items-center justify-center">
+                      <div className="w-full h-full bg-gradient-to-br from-green-600/20 to-zinc-800 flex items-center justify-center">
                         <BookOpen className="h-24 w-24 text-zinc-700" />
                       </div>
                       <div className="absolute top-6 left-6 z-20">
-                        <span className="px-3 py-1 rounded-full bg-red-600 text-white text-sm font-medium">
+                        <span className="px-3 py-1 rounded-full bg-green-600 text-white text-sm font-medium">
                           {featuredArticle.category}
                         </span>
                       </div>
@@ -180,7 +180,7 @@ export default function ArticlesPage() {
 
                     {/* Content */}
                     <CardContent className="p-8 lg:p-12 flex flex-col justify-center">
-                      <h2 className="text-3xl font-bold text-white mb-4 group-hover:text-red-500 transition-colors">
+                      <h2 className="text-3xl font-bold text-white mb-4 group-hover:text-green-500 transition-colors">
                         {featuredArticle.title}
                       </h2>
                       <p className="text-zinc-400 mb-6">{featuredArticle.excerpt}</p>
@@ -232,14 +232,14 @@ export default function ArticlesPage() {
                             <BookOpen className="h-12 w-12 text-zinc-600" />
                           </div>
                           <div className="absolute top-4 left-4 z-20">
-                            <span className="px-3 py-1 rounded-full bg-red-600/90 text-white text-xs font-medium">
+                            <span className="px-3 py-1 rounded-full bg-green-600/90 text-white text-xs font-medium">
                               {article.category}
                             </span>
                           </div>
                         </div>
 
                         <CardContent>
-                          <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-red-500 transition-colors line-clamp-2">
+                          <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-green-500 transition-colors line-clamp-2">
                             {article.title}
                           </h3>
                           <p className="text-zinc-400 text-sm mb-4 line-clamp-2">{article.excerpt}</p>

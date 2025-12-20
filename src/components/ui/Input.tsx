@@ -37,7 +37,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
               'w-full rounded-lg border border-zinc-700 bg-zinc-800/50 px-4 py-2.5',
               'text-white placeholder:text-zinc-500',
               'transition-colors duration-200',
-              'focus:border-red-600 focus:outline-none focus:ring-2 focus:ring-red-600/20',
+              'focus:border-green-500 focus:outline-none focus:ring-2 focus:ring-green-500/20',
               'disabled:cursor-not-allowed disabled:opacity-50',
               leftIcon && 'pl-10',
               rightIcon && 'pr-10',

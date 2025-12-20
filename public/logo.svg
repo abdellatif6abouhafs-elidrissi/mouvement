@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <!-- Gradient for flames -->
+    <linearGradient id="flameGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#16a34a"/>
+      <stop offset="50%" style="stop-color:#22c55e"/>
+      <stop offset="100%" style="stop-color:#a3e635"/>
+    </linearGradient>
+    <!-- Gradient for ball -->
+    <linearGradient id="ballGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fafafa"/>
+      <stop offset="100%" style="stop-color:#d4d4d8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer circle - black background -->
+  <circle cx="100" cy="100" r="95" fill="#0a0a0a" stroke="#22c55e" stroke-width="3"/>
+
+  <!-- Flames behind ball -->
+  <g transform="translate(100,100)">
+    <!-- Left flame -->
+    <path d="M-35,20 Q-50,-10 -30,-40 Q-35,-20 -25,-30 Q-30,0 -20,10 Q-30,15 -35,20" fill="url(#flameGradient)" opacity="0.9"/>
+    <!-- Center flame -->
+    <path d="M0,15 Q-15,-25 0,-55 Q5,-35 10,-45 Q5,-20 15,-30 Q10,0 0,15" fill="url(#flameGradient)"/>
+    <!-- Right flame -->
+    <path d="M35,20 Q50,-10 30,-40 Q35,-20 25,-30 Q30,0 20,10 Q30,15 35,20" fill="url(#flameGradient)" opacity="0.9"/>
+  </g>
+
+  <!-- Old school football (soccer ball) -->
+  <g transform="translate(100,110)">
+    <!-- Ball base -->
+    <circle cx="0" cy="0" r="40" fill="url(#ballGradient)" stroke="#18181b" stroke-width="2"/>
+
+    <!-- Pentagon pattern (old school style) -->
+    <polygon points="0,-20 10,-10 6,5 -6,5 -10,-10" fill="#18181b"/>
+    <polygon points="-25,-8 -18,-18 -8,-15 -12,-2 -22,2" fill="#18181b"/>
+    <polygon points="25,-8 18,-18 8,-15 12,-2 22,2" fill="#18181b"/>
+    <polygon points="-18,18 -22,8 -12,2 -2,10 -8,22" fill="#18181b"/>
+    <polygon points="18,18 22,8 12,2 2,10 8,22" fill="#18181b"/>
+  </g>
+
+  <!-- Adidas-style 3 stripes - left -->
+  <g transform="translate(20,60)">
+    <rect x="0" y="0" width="8" height="35" rx="2" fill="#a3e635" transform="rotate(-20)"/>
+    <rect x="12" y="0" width="8" height="35" rx="2" fill="#22c55e" transform="rotate(-20)"/>
+    <rect x="24" y="0" width="8" height="35" rx="2" fill="#16a34a" transform="rotate(-20)"/>
+  </g>
+
+  <!-- Adidas-style 3 stripes - right (mirrored) -->
+  <g transform="translate(180,60) scale(-1,1)">
+    <rect x="0" y="0" width="8" height="35" rx="2" fill="#a3e635" transform="rotate(-20)"/>
+    <rect x="12" y="0" width="8" height="35" rx="2" fill="#22c55e" transform="rotate(-20)"/>
+    <rect x="24" y="0" width="8" height="35" rx="2" fill="#16a34a" transform="rotate(-20)"/>
+  </g>
+
+  <!-- Text: MOUVEMENT -->
+  <text x="100" y="175" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="16" font-weight="900" fill="#a3e635" letter-spacing="2">MOUVEMENT</text>
+</svg>

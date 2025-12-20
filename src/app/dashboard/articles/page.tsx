@@ -100,7 +100,7 @@ export default function ArticlesPage() {
       culture: 'bg-purple-600/10 text-purple-400',
       tifo: 'bg-orange-600/10 text-orange-400',
       interview: 'bg-green-600/10 text-green-400',
-      documentary: 'bg-red-600/10 text-red-400',
+      documentary: 'bg-emerald-600/10 text-emerald-400',
       analysis: 'bg-cyan-600/10 text-cyan-400',
     };
     return colors[category] || 'bg-zinc-600/10 text-zinc-400';
@@ -138,7 +138,7 @@ export default function ArticlesPage() {
                   onClick={() => setSelectedStatus(status)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium capitalize transition-colors ${
                     selectedStatus === status
-                      ? 'bg-red-600 text-white'
+                      ? 'bg-green-600 text-white'
                       : 'bg-zinc-800 text-zinc-400 hover:text-white'
                   }`}
                 >

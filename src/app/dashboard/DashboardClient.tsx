@@ -52,7 +52,7 @@ export default function DashboardClient({
   if (status === 'loading') {
     return (
       <div className="min-h-screen bg-zinc-950 flex items-center justify-center">
-        <div className="w-8 h-8 border-2 border-red-600 border-t-transparent rounded-full animate-spin" />
+        <div className="w-8 h-8 border-2 border-green-500 border-t-transparent rounded-full animate-spin" />
       </div>
     );
   }
@@ -72,9 +72,7 @@ export default function DashboardClient({
         <div className="h-16 flex items-center justify-between px-4 border-b border-zinc-800">
           {!sidebarCollapsed && (
             <Link href="/dashboard" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">M</span>
-              </div>
+              <img src="/logo.svg" alt="Mouvement" className="w-8 h-8" />
               <span className="text-lg font-bold text-white">Admin</span>
             </Link>
           )}
@@ -102,7 +100,7 @@ export default function DashboardClient({
                 className={cn(
                   'flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors',
                   isActive
-                    ? 'bg-red-600/10 text-red-500 border border-red-600/20'
+                    ? 'bg-green-600/10 text-green-500 border border-green-600/20'
                     : 'text-zinc-400 hover:text-white hover:bg-zinc-800'
                 )}
               >
@@ -122,7 +120,7 @@ export default function DashboardClient({
                 className="w-10 h-10 rounded-full object-cover"
               />
             ) : (
-              <div className="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-full bg-green-600 flex items-center justify-center">
                 <span className="text-white font-medium">
                   {session.user.name?.charAt(0).toUpperCase()}
                 </span>
@@ -162,7 +160,7 @@ export default function DashboardClient({
               <input
                 type="text"
                 placeholder="Search..."
-                className="w-full pl-10 pr-4 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-white text-sm placeholder:text-zinc-500 focus:outline-none focus:border-red-600"
+                className="w-full pl-10 pr-4 py-2 rounded-lg bg-zinc-900 border border-zinc-800 text-white text-sm placeholder:text-zinc-500 focus:outline-none focus:border-green-500"
               />
             </div>
           </div>
@@ -170,7 +168,7 @@ export default function DashboardClient({
           <div className="flex items-center gap-4">
             <button className="relative p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors">
               <Bell className="h-5 w-5" />
-              <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full" />
+              <span className="absolute top-1 right-1 w-2 h-2 bg-green-500 rounded-full" />
             </button>
             <Link href="/">
               <Button variant="outline" size="sm">
