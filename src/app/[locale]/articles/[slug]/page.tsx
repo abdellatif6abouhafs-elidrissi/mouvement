@@ -253,7 +253,7 @@ The story of GREEN BOYS is not just about football – it's about youth, creativ
             <div className="flex flex-wrap items-center gap-6 text-zinc-400">
               <span className="flex items-center gap-2">
                 <User className="h-4 w-4" />
-                {typeof displayArticle.author === 'object' ? displayArticle.author.name : 'Unknown Author'}
+                {typeof displayArticle.author === 'object' && 'name' in displayArticle.author ? displayArticle.author.name : 'Unknown Author'}
               </span>
               <span className="flex items-center gap-2">
                 <Calendar className="h-4 w-4" />
@@ -339,12 +339,12 @@ The story of GREEN BOYS is not just about football – it's about youth, creativ
             {/* Sidebar */}
             <aside className="lg:col-span-4 space-y-6">
               {/* Author Card */}
-              {typeof displayArticle.author === 'object' && (
+              {typeof displayArticle.author === 'object' && 'name' in displayArticle.author && (
                 <Card className="p-6">
                   <h3 className="text-lg font-bold text-white mb-4">About the Author</h3>
                   <div className="flex items-start gap-4">
                     <div className="w-16 h-16 rounded-full bg-zinc-800 overflow-hidden flex-shrink-0">
-                      {displayArticle.author.image ? (
+                      {'image' in displayArticle.author && displayArticle.author.image ? (
                         <img
                           src={displayArticle.author.image}
                           alt={displayArticle.author.name}
@@ -358,7 +358,7 @@ The story of GREEN BOYS is not just about football – it's about youth, creativ
                     </div>
                     <div>
                       <h4 className="font-semibold text-white">{displayArticle.author.name}</h4>
-                      <p className="text-zinc-400 text-sm mt-1">{displayArticle.author.bio}</p>
+                      <p className="text-zinc-400 text-sm mt-1">{'bio' in displayArticle.author ? displayArticle.author.bio : ''}</p>
                     </div>
                   </div>
                 </Card>
