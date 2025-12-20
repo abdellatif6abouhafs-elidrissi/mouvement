@@ -32,18 +32,19 @@ export const ultraGroupsData = [
       facebook: 'GreenBoys2005',
       youtube: 'GreenBoys2005TV'
     },
+    image: '/images/groups/green-boys-2005.webp',
     tifos: [
       {
         title: 'African Glory',
         description: 'Tifo géant célébrant la victoire en Coupe de la CAF',
-        image: '/images/tifos/gb-african-glory.webp',
+        image: '/images/tifos/tifo-1.webp',
         date: new Date('2023-05-15'),
         match: 'Raja vs Al Ahly'
       }
     ],
     gallery: [
-      { type: 'image', url: '/images/gallery/gb-1.webp', caption: 'Derby de Casablanca 2024' },
-      { type: 'image', url: '/images/gallery/gb-2.webp', caption: 'Tifo Record 2023' }
+      { type: 'image', url: '/images/gallery/gallery-1.webp', caption: 'Derby de Casablanca 2024' },
+      { type: 'image', url: '/images/gallery/gallery-2.webp', caption: 'Tifo Record 2023' }
     ]
   },
   {
@@ -69,6 +70,7 @@ export const ultraGroupsData = [
       instagram: 'winners_official',
       facebook: 'WinnersUltras'
     },
+    image: '/images/groups/wydad-winners.webp',
     tifos: [],
     gallery: []
   },
@@ -96,11 +98,12 @@ export const ultraGroupsData = [
       instagram: 'curvasudmilano',
       twitter: 'CurvaSudMilano'
     },
+    image: '/images/groups/curva-sud-milano.webp',
     tifos: [
       {
         title: 'Champions League Night',
         description: 'Chorégraphie complète pour le match de Ligue des Champions',
-        image: '/images/tifos/csm-cl.webp',
+        image: '/images/tifos/tifo-2.webp',
         date: new Date('2023-04-11'),
         match: 'Milan vs Napoli'
       }
@@ -127,6 +130,7 @@ export const ultraGroupsData = [
     isFeatured: false,
     isVerified: true,
     socialLinks: {},
+    image: '/images/groups/brigata-curva-sud.webp',
     tifos: [],
     gallery: []
   },
@@ -150,6 +154,7 @@ export const ultraGroupsData = [
     isFeatured: true,
     isVerified: true,
     socialLinks: {},
+    image: '/images/groups/brigata-curva-sud.webp',
     tifos: [],
     gallery: []
   },
@@ -174,11 +179,12 @@ export const ultraGroupsData = [
     isFeatured: true,
     isVerified: true,
     socialLinks: {},
+    image: '/images/groups/yellow-wall.webp',
     tifos: [
       {
         title: 'Yellow Wave',
         description: 'Vague jaune coordonnée de 25,000 personnes',
-        image: '/images/tifos/bvb-wave.webp',
+        image: '/images/tifos/tifo-3.webp',
         date: new Date('2023-03-18'),
         match: 'BVB vs Bayern'
       }
@@ -229,11 +235,12 @@ export const ultraGroupsData = [
     isFeatured: true,
     isVerified: true,
     socialLinks: {},
+    image: '/images/groups/la-12.webp',
     tifos: [
       {
         title: 'La Bombonera Explodes',
         description: 'Tifo complet pour le Superclásico',
-        image: '/images/tifos/boca-superclasico.webp',
+        image: '/images/tifos/tifo-4.webp',
         date: new Date('2023-09-24'),
         match: 'Boca vs River'
       }
@@ -284,6 +291,7 @@ export const ultraGroupsData = [
     isFeatured: true,
     isVerified: true,
     socialLinks: {},
+    image: '/images/groups/ultras-ahlawy.webp',
     tifos: [],
     gallery: []
   },
