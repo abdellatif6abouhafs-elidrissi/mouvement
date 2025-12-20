@@ -114,7 +114,25 @@
     "socialLinks": "Social Links",
     "groupOfWeek": "Group of the Week",
     "map": "Interactive Map",
-    "viewOnMap": "View on Map"
+    "viewOnMap": "View on Map",
+    "search": "Search groups, clubs, cities...",
+    "filters": "Filters",
+    "showing": "Showing {count} groups",
+    "noGroups": "No groups found",
+    "adjustFilters": "Try adjusting your search or filters",
+    "backToGroups": "Back to Groups"
+  },
+  "articles": {
+    "title": "Culture",
+    "titleHighlight": "Stories",
+    "subtitle": "Explore in-depth articles about Ultra culture, history, and communities worldwide.",
+    "search": "Search articles...",
+    "featured": "Featured Article",
+    "allArticles": "All Articles",
+    "noArticles": "No articles found",
+    "loadMore": "Load More",
+    "readTime": "read",
+    "backToArticles": "Back to Articles"
   },
   "tifos": {
     "title": "Tifo",

@@ -35,7 +35,7 @@ const ultraGroups = [
   {
     id: '0',
     name: 'GREEN BOYS 2005',
-    slug: 'green-boys',
+    slug: 'green-boys-2005',
     club: 'Raja Casablanca',
     city: 'Casablanca',
     country: 'Morocco',
@@ -43,6 +43,7 @@ const ultraGroups = [
     yearFounded: 2005,
     members: '60K+',
     description: 'The FIRST Ultra group in Morocco - Pioneers of the North African Ultra movement.',
+    image: '/images/groups/green-boys-2005.webp',
     highlight: true,
   },
   {
@@ -56,6 +57,7 @@ const ultraGroups = [
     yearFounded: 2005,
     members: '50K+',
     description: 'One of the most passionate Ultra groups in Africa, known for spectacular tifos.',
+    image: '/images/gallery/gallery-1.webp',
   },
   {
     id: '2',
@@ -68,6 +70,7 @@ const ultraGroups = [
     yearFounded: 2005,
     members: '45K+',
     description: 'Iconic group representing the Red tradition of Wydad Athletic Club.',
+    image: '/images/gallery/gallery-2.webp',
   },
   {
     id: '3',
@@ -80,6 +83,7 @@ const ultraGroups = [
     yearFounded: 1968,
     members: '100K+',
     description: 'Historic curve supporting AC Milan with decades of Ultra tradition.',
+    image: '/images/groups/curva-sud-milano.webp',
   },
   {
     id: '4',
@@ -92,18 +96,20 @@ const ultraGroups = [
     yearFounded: 1974,
     members: '80K+',
     description: 'The famous Südtribüne, largest standing terrace in Europe.',
+    image: '/images/groups/yellow-wall.webp',
   },
   {
     id: '5',
-    name: 'La Doce',
-    slug: 'la-doce',
+    name: 'La 12',
+    slug: 'la-12',
     club: 'Boca Juniors',
     city: 'Buenos Aires',
     country: 'Argentina',
     countryCode: 'AR',
-    yearFounded: 1925,
+    yearFounded: 1968,
     members: '70K+',
     description: 'The legendary Barra Brava of La Bombonera.',
+    image: '/images/groups/la-12.webp',
   },
 ];
 
@@ -266,13 +272,15 @@ export default function UltrasPage() {
                   >
                     <Link href={`/${locale}/ultras/${group.slug}`}>
                       <Card hoverable className={`h-full group ${group.highlight ? 'ring-2 ring-green-600' : ''}`}>
-                        {/* Image placeholder */}
+                        {/* Group Image */}
                         <div className="relative h-48 bg-zinc-800">
                           <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent z-10" />
                           <div className="absolute inset-0 bg-green-600/20 opacity-0 group-hover:opacity-100 transition-opacity z-10" />
-                          <div className="w-full h-full bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center">
-                            <Flag className="h-16 w-16 text-zinc-700" />
-                          </div>
+                          <img
+                            src={group.image}
+                            alt={group.name}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
                           {/* Country badge */}
                           <div className="absolute top-4 right-4 z-20">
                             <span className="text-2xl">
