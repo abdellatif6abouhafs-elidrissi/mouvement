@@ -78,25 +78,4 @@ export const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
 };
 
-// Extend NextAuth types
-declare module 'next-auth' {
-  interface User {
-    role?: string;
-  }
-  interface Session {
-    user: {
-      id: string;
-      name: string;
-      email: string;
-      image?: string;
-      role: string;
-    };
-  }
-}
-
-declare module 'next-auth/jwt' {
-  interface JWT {
-    id: string;
-    role: string;
-  }
-}
+// Types are declared in src/types/next-auth.d.ts
