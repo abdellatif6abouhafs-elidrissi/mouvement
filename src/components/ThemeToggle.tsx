@@ -32,7 +32,7 @@ export default function ThemeToggle({ showLabel = false, className = '' }: Theme
     { value: 'system', label: 'System', icon: Monitor },
   ] as const;
 
-  const currentIcon = resolvedTheme === 'dark' ? Moon : Sun;
+  const CurrentIcon = resolvedTheme === 'dark' ? Moon : Sun;
 
   return (
     <div className={`relative ${className}`}>
@@ -50,7 +50,7 @@ export default function ThemeToggle({ showLabel = false, className = '' }: Theme
             exit={{ rotate: 90, opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <currentIcon className="h-5 w-5 text-zinc-400 group-hover:text-green-500 transition-colors" />
+            <CurrentIcon className="h-5 w-5 text-zinc-400 group-hover:text-green-500 transition-colors" />
           </motion.div>
         </AnimatePresence>
       </button>
