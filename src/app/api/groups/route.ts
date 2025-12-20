@@ -3,6 +3,7 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import { connectDB } from '@/lib/db';
 import UltraGroup from '@/models/UltraGroup';
+import { createGroupSchema, validateRequest } from '@/lib/validations';
 
 // GET all groups with filtering and pagination
 export async function GET(request: NextRequest) {
@@ -16,14 +17,14 @@ export async function GET(request: NextRequest) {
     const search = searchParams.get('search');
     const featured = searchParams.get('featured');
 
-    const query: Record<string, unknown> = { status: 'published' };
+    const query: Record<string, unknown> = { isActive: true };
 
     if (country) {
       query.country = country;
     }
 
     if (featured === 'true') {
-      query.featured = true;
+      query.isFeatured = true;
     }
 
     if (search) {
@@ -76,10 +77,19 @@ export async function POST(request: NextRequest) {
 
     const body = await request.json();
 
+    // Zod Validation
+    const validation = validateRequest(createGroupSchema, body);
+    if (!validation.success) {
+      return NextResponse.json(
+        { error: validation.error },
+        { status: 400 }
+      );
+    }
+
     const group = new UltraGroup({
-      ...body,
-      createdBy: session.user.id,
-      status: session.user.role === 'admin' ? 'published' : 'pending',
+      ...validation.data,
+      author: session.user.id,
+      isActive: session.user.role === 'admin',
     });
 
     await group.save();

@@ -3,6 +3,7 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import { connectDB } from '@/lib/db';
 import Article from '@/models/Article';
+import { createArticleSchema, validateRequest } from '@/lib/validations';
 
 // GET all articles with filtering and pagination
 export async function GET(request: NextRequest) {
@@ -24,7 +25,7 @@ export async function GET(request: NextRequest) {
     }
 
     if (featured === 'true') {
-      query.featured = true;
+      query.isFeatured = true;
     }
 
     if (author) {
@@ -86,10 +87,19 @@ export async function POST(request: NextRequest) {
 
     const body = await request.json();
 
+    // Zod Validation
+    const validation = validateRequest(createArticleSchema, body);
+    if (!validation.success) {
+      return NextResponse.json(
+        { error: validation.error },
+        { status: 400 }
+      );
+    }
+
     const article = new Article({
-      ...body,
+      ...validation.data,
       author: session.user.id,
-      status: session.user.role === 'admin' ? body.status || 'draft' : 'pending',
+      status: session.user.role === 'admin' ? validation.data.status || 'draft' : 'pending',
     });
 
     await article.save();

@@ -3,6 +3,7 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import { connectDB } from '@/lib/db';
 import Comment from '@/models/Comment';
+import { createCommentSchema, validateRequest } from '@/lib/validations';
 
 // GET comments for a specific target (article or group)
 export async function GET(request: NextRequest) {
@@ -23,8 +24,8 @@ export async function GET(request: NextRequest) {
     }
 
     const query = {
-      targetType,
-      targetId,
+      'target.type': targetType,
+      'target.id': targetId,
       status: 'approved',
       parentComment: null, // Only get top-level comments
     };
@@ -77,20 +78,29 @@ export async function POST(request: NextRequest) {
 
     const body = await request.json();
 
+    // Zod Validation
+    const validation = validateRequest(createCommentSchema, body);
+    if (!validation.success) {
+      return NextResponse.json(
+        { error: validation.error },
+        { status: 400 }
+      );
+    }
+
+    const { content, targetType, targetId, parentComment } = validation.data;
+
     const comment = new Comment({
-      ...body,
+      content,
+      target: {
+        type: targetType,
+        id: targetId,
+      },
+      parentComment: parentComment || undefined,
       author: session.user.id,
       status: 'pending', // All comments go through moderation
     });
 
     await comment.save();
-
-    // If this is a reply, add it to parent's replies array
-    if (body.parentComment) {
-      await Comment.findByIdAndUpdate(body.parentComment, {
-        $push: { replies: comment._id },
-      });
-    }
 
     const populatedComment = await Comment.findById(comment._id)
       .populate('author', 'name image')

@@ -82,6 +82,17 @@ commentSchema.pre('save', function () {
 
 });
 
+// Virtual for replies (child comments)
+commentSchema.virtual('replies', {
+  ref: 'Comment',
+  localField: '_id',
+  foreignField: 'parentComment',
+});
+
+// Ensure virtuals are included in JSON output
+commentSchema.set('toJSON', { virtuals: true });
+commentSchema.set('toObject', { virtuals: true });
+
 // Indexes
 commentSchema.index({ 'target.type': 1, 'target.id': 1, status: 1 });
 commentSchema.index({ author: 1 });

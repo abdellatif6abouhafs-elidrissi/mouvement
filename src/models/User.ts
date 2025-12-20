@@ -12,6 +12,7 @@ export interface IUser {
   favoriteGroups: mongoose.Types.ObjectId[];
   isVerified: boolean;
   verificationToken?: string;
+  verificationTokenExpiry?: Date;
   resetPasswordToken?: string;
   resetPasswordExpires?: Date;
   createdAt: Date;
@@ -70,6 +71,7 @@ const userSchema = new Schema<IUserDocument>(
       default: false,
     },
     verificationToken: String,
+    verificationTokenExpiry: Date,
     resetPasswordToken: String,
     resetPasswordExpires: Date,
   },
