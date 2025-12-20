@@ -26,7 +26,7 @@ const educationSections = [
     titleKey: 'whatIsUltra',
     description: 'Understanding the Ultra identity and what sets them apart from regular supporters.',
     articles: 5,
-    image: '/images/education/ultra-identity.jpg',
+    image: '/images/gallery/gallery-1.webp',
   },
   {
     id: 'history',
@@ -34,7 +34,7 @@ const educationSections = [
     titleKey: 'history',
     description: 'From Italian stadiums in the 1960s to a global phenomenon - trace the evolution.',
     articles: 12,
-    image: '/images/education/history.jpg',
+    image: '/images/timeline/1968-milan.webp',
   },
   {
     id: 'values',
@@ -42,7 +42,7 @@ const educationSections = [
     titleKey: 'values',
     description: 'Loyalty, passion, independence - the core principles that guide Ultra groups.',
     articles: 8,
-    image: '/images/education/values.jpg',
+    image: '/images/gallery/gallery-2.webp',
   },
   {
     id: 'art-forms',
@@ -50,7 +50,7 @@ const educationSections = [
     titleKey: 'artForms',
     description: 'Tifos, choreographies, banners, and pyrotechnics - the visual language of ultras.',
     articles: 15,
-    image: '/images/education/art.jpg',
+    image: '/images/tifos/tifo-1.webp',
   },
   {
     id: 'global-movement',
@@ -58,7 +58,7 @@ const educationSections = [
     titleKey: 'globalMovement',
     description: 'How Ultra culture spread across continents and adapted to local traditions.',
     articles: 10,
-    image: '/images/education/global.jpg',
+    image: '/images/gallery/gallery-3.webp',
   },
   {
     id: 'glossary',
@@ -66,7 +66,7 @@ const educationSections = [
     titleKey: 'glossary',
     description: 'Key terms, expressions, and vocabulary used in Ultra culture worldwide.',
     articles: 1,
-    image: '/images/education/glossary.jpg',
+    image: '/images/gallery/gallery-4.webp',
   },
 ];
 

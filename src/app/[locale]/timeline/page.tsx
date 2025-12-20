@@ -15,7 +15,7 @@ const timelineEvents = [
     titleKey: 'birth',
     location: 'Milan, Italy',
     description: 'The first organized Ultra groups emerge in Italian football stadiums, establishing the foundations of modern supporter culture.',
-    image: '/images/timeline/1968-milan.jpg',
+    image: '/images/timeline/1968-milan.webp',
     group: 'Fossa dei Leoni',
   },
   {
@@ -25,7 +25,7 @@ const timelineEvents = [
     title: 'Curva Sud Milano Founded',
     location: 'Milan, Italy',
     description: 'AC Milan supporters form Curva Sud, one of the most influential Ultra groups in history.',
-    image: '/images/timeline/1969-curva.jpg',
+    image: '/images/timeline/1968-milan.webp',
     group: 'Curva Sud Milano',
   },
   {
@@ -35,7 +35,7 @@ const timelineEvents = [
     title: 'Barra Bravas Take Shape',
     location: 'Buenos Aires, Argentina',
     description: 'Argentine supporter groups evolve into organized Barra Bravas, developing their unique style of passion.',
-    image: '/images/timeline/1973-argentina.jpg',
+    image: '/images/timeline/1970-argentina.webp',
     group: 'La 12',
   },
   {
@@ -45,7 +45,7 @@ const timelineEvents = [
     title: 'Yellow Wall Phenomenon',
     location: 'Dortmund, Germany',
     description: 'Borussia Dortmund\'s Südtribüne becomes the largest standing terrace in European football.',
-    image: '/images/timeline/1990-dortmund.jpg',
+    image: '/images/timeline/1980-europe.webp',
     group: 'Yellow Wall',
   },
   {
@@ -55,7 +55,7 @@ const timelineEvents = [
     title: 'GREEN BOYS 2005 - Morocco\'s First Ultras',
     location: 'Casablanca, Morocco',
     description: 'GREEN BOYS 2005 becomes the first Ultra group in Morocco, pioneering the North African Ultra movement for Raja Casablanca.',
-    image: '/images/timeline/2005-greenboys.jpg',
+    image: '/images/timeline/2000-africa.webp',
     group: 'GREEN BOYS 2005',
     highlight: true,
   },
@@ -66,7 +66,7 @@ const timelineEvents = [
     title: 'Ultras Movement Spreads in Africa',
     location: 'Cairo, Egypt',
     description: 'Egyptian Ultras emerge, inspired by North African pioneers, creating some of the most passionate supporter groups.',
-    image: '/images/timeline/2007-egypt.jpg',
+    image: '/images/timeline/2000-africa.webp',
     group: 'Ultras Ahlawy',
   },
   {
@@ -76,7 +76,7 @@ const timelineEvents = [
     title: 'Ultra Culture Reaches Asia',
     location: 'Jakarta, Indonesia',
     description: 'Indonesian supporters adopt Ultra traditions, creating vibrant atmospheres in Southeast Asian stadiums.',
-    image: '/images/timeline/2010-indonesia.jpg',
+    image: '/images/timeline/1980-europe.webp',
     group: 'The Jakmania',
   },
 ];
@@ -188,9 +188,11 @@ export default function TimelinePage() {
                       {/* Image */}
                       <div className="relative h-48 rounded-xl bg-zinc-800 mb-4 overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent z-10" />
-                        <div className="w-full h-full bg-gradient-to-br from-zinc-700 to-zinc-800 flex items-center justify-center">
-                          <Flag className="h-12 w-12 text-zinc-600" />
-                        </div>
+                        <img
+                          src={event.image}
+                          alt={event.title}
+                          className="w-full h-full object-cover"
+                        />
                         {event.highlight && (
                           <div className="absolute top-4 right-4 z-20 px-3 py-1 rounded-full bg-green-600 text-white text-xs font-bold">
                             Pioneer

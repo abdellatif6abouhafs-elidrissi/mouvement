@@ -17,7 +17,7 @@ const spotlightTifo = {
   description: 'A massive coordinated display covering the entire North Stand, celebrating 18 years of Ultra passion.',
   views: '125K',
   likes: '45K',
-  image: '/images/tifos/spotlight.jpg',
+  image: '/images/tifos/tifo-1.webp',
 };
 
 const tifoGallery = [
@@ -28,7 +28,7 @@ const tifoGallery = [
     club: 'AC Milan',
     date: '2023',
     likes: '89K',
-    image: '/images/tifos/milan-cl.jpg',
+    image: '/images/tifos/tifo-2.webp',
   },
   {
     id: 2,
@@ -37,7 +37,7 @@ const tifoGallery = [
     club: 'Inter Milan',
     date: '2023',
     likes: '78K',
-    image: '/images/tifos/inter-derby.jpg',
+    image: '/images/tifos/tifo-3.webp',
   },
   {
     id: 3,
@@ -46,7 +46,7 @@ const tifoGallery = [
     club: 'Borussia Dortmund',
     date: '2023',
     likes: '156K',
-    image: '/images/tifos/dortmund-wave.jpg',
+    image: '/images/tifos/tifo-4.webp',
   },
   {
     id: 4,
@@ -55,7 +55,7 @@ const tifoGallery = [
     club: 'Raja Casablanca',
     date: '2023',
     likes: '92K',
-    image: '/images/tifos/raja-glory.jpg',
+    image: '/images/tifos/tifo-1.webp',
   },
   {
     id: 5,
@@ -64,7 +64,7 @@ const tifoGallery = [
     club: 'Boca Juniors',
     date: '2023',
     likes: '134K',
-    image: '/images/tifos/boca-bombonera.jpg',
+    image: '/images/tifos/tifo-2.webp',
   },
   {
     id: 6,
@@ -73,7 +73,7 @@ const tifoGallery = [
     club: 'Al Ahly',
     date: '2023',
     likes: '67K',
-    image: '/images/tifos/ahly-derby.jpg',
+    image: '/images/tifos/tifo-3.webp',
   },
 ];
 
@@ -149,9 +149,11 @@ export default function TifosPage() {
               <div className="relative h-80 lg:h-auto bg-zinc-800">
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent to-zinc-900/80 z-10 hidden lg:block" />
                 <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent z-10 lg:hidden" />
-                <div className="w-full h-full bg-gradient-to-br from-green-600/20 to-zinc-800 flex items-center justify-center">
-                  <Palette className="h-24 w-24 text-zinc-700" />
-                </div>
+                <img
+                  src={spotlightTifo.image}
+                  alt={spotlightTifo.title}
+                  className="w-full h-full object-cover"
+                />
                 {/* Play Button */}
                 <button className="absolute inset-0 flex items-center justify-center z-20 group">
                   <div className="w-20 h-20 rounded-full bg-green-600 flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -233,9 +235,11 @@ export default function TifosPage() {
                   <Card hoverable className="group overflow-hidden">
                     <div className="relative h-64 bg-zinc-800">
                       <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent z-10" />
-                      <div className="w-full h-full bg-gradient-to-br from-zinc-700 to-zinc-800 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
-                        <Palette className="h-16 w-16 text-zinc-600" />
-                      </div>
+                      <img
+                        src={tifo.image}
+                        alt={tifo.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
                       {/* Overlay */}
                       <div className="absolute inset-0 bg-green-600/0 group-hover:bg-green-600/20 transition-colors z-10" />
                     </div>

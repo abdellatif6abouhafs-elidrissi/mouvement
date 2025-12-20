@@ -33,7 +33,7 @@ const defaultTifo = {
   description: 'A spectacular tifo covering the entire North Stand, featuring a massive eagle emerging from green flames - celebrating 18 years of Ultra passion.',
   views: '245K',
   likes: '89K',
-  image: '/images/tifos/spotlight.jpg',
+  image: '/images/tifos/tifo-1.webp',
   videoUrl: '/videos/tifo-spotlight.mp4',
 };
 

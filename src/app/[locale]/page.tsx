@@ -20,30 +20,21 @@ import { GroupOfWeek, TifoSpotlight, CulturalPoll } from '@/components/editorial
 
 const featuredGroups = [
   {
-    id: 'green-boys',
+    id: 'green-boys-2005',
     name: 'GREEN BOYS 2005',
     club: 'Raja Casablanca',
     country: 'Morocco',
     countryKey: 'morocco',
-    image: '/images/groups/green-boys.jpg',
+    image: '/images/groups/green-boys-2005.webp',
     members: '60K+',
   },
   {
-    id: 'ultras-eagles',
-    name: 'Ultras Eagles',
-    club: 'Raja Casablanca',
-    country: 'Morocco',
-    countryKey: 'morocco',
-    image: '/images/groups/ultras-eagles.jpg',
-    members: '50K+',
-  },
-  {
-    id: 'curva-sud',
+    id: 'curva-sud-milano',
     name: 'Curva Sud Milano',
     club: 'AC Milan',
     country: 'Italy',
     countryKey: 'italy',
-    image: '/images/groups/curva-sud.jpg',
+    image: '/images/groups/curva-sud-milano.webp',
     members: '100K+',
   },
   {
@@ -52,8 +43,17 @@ const featuredGroups = [
     club: 'Borussia Dortmund',
     country: 'Germany',
     countryKey: 'germany',
-    image: '/images/groups/yellow-wall.jpg',
+    image: '/images/groups/yellow-wall.webp',
     members: '80K+',
+  },
+  {
+    id: 'la-12',
+    name: 'La 12',
+    club: 'Boca Juniors',
+    country: 'Argentina',
+    countryKey: 'argentina',
+    image: '/images/groups/la-12.webp',
+    members: '50K+',
   },
 ];
 
@@ -191,9 +191,11 @@ export default function HomePage() {
                     <div className="relative h-48 bg-zinc-800">
                       <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent z-10" />
                       <div className="absolute inset-0 bg-green-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
-                      <div className="w-full h-full bg-gradient-to-br from-zinc-800 to-zinc-900 flex items-center justify-center">
-                        <Flag className="h-12 w-12 text-zinc-700" />
-                      </div>
+                      <img
+                        src={group.image}
+                        alt={group.name}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
 
                     <CardContent className="relative z-20 -mt-8">

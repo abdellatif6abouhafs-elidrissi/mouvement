@@ -20,7 +20,7 @@ const articles = [
     date: 'December 2024',
     readTime: '12 min',
     featured: true,
-    image: '/images/articles/green-boys.jpg',
+    image: '/images/articles/article-1.webp',
   },
   {
     id: '2',
@@ -31,7 +31,7 @@ const articles = [
     author: 'Marco R.',
     date: 'December 2024',
     readTime: '8 min',
-    image: '/images/articles/tifo-art.jpg',
+    image: '/images/articles/article-2.webp',
   },
   {
     id: '3',
@@ -42,7 +42,7 @@ const articles = [
     author: 'Carlos M.',
     date: 'November 2024',
     readTime: '15 min',
-    image: '/images/articles/barra-bravas.jpg',
+    image: '/images/articles/article-3.webp',
   },
   {
     id: '4',
@@ -53,7 +53,7 @@ const articles = [
     author: 'Marco R.',
     date: 'November 2024',
     readTime: '18 min',
-    image: '/images/articles/curva-nord.jpg',
+    image: '/images/articles/article-4.webp',
   },
   {
     id: '5',
@@ -64,7 +64,7 @@ const articles = [
     author: 'Ahmed K.',
     date: 'October 2024',
     readTime: '10 min',
-    image: '/images/articles/african-ultras.jpg',
+    image: '/images/articles/article-5.webp',
   },
   {
     id: '6',
@@ -75,7 +75,7 @@ const articles = [
     author: 'Carlos M.',
     date: 'October 2024',
     readTime: '9 min',
-    image: '/images/articles/chants.jpg',
+    image: '/images/articles/article-1.webp',
   },
 ];
 
@@ -168,9 +168,11 @@ export default function ArticlesPage() {
                     {/* Image */}
                     <div className="relative h-80 lg:h-auto bg-zinc-800">
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent to-zinc-900/50 z-10" />
-                      <div className="w-full h-full bg-gradient-to-br from-green-600/20 to-zinc-800 flex items-center justify-center">
-                        <BookOpen className="h-24 w-24 text-zinc-700" />
-                      </div>
+                      <img
+                        src={featuredArticle.image}
+                        alt={featuredArticle.title}
+                        className="w-full h-full object-cover"
+                      />
                       <div className="absolute top-6 left-6 z-20">
                         <span className="px-3 py-1 rounded-full bg-green-600 text-white text-sm font-medium">
                           {featuredArticle.category}
@@ -228,9 +230,11 @@ export default function ArticlesPage() {
                         {/* Image */}
                         <div className="relative h-48 bg-zinc-800">
                           <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent z-10" />
-                          <div className="w-full h-full bg-gradient-to-br from-zinc-700 to-zinc-800 flex items-center justify-center">
-                            <BookOpen className="h-12 w-12 text-zinc-600" />
-                          </div>
+                          <img
+                            src={article.image}
+                            alt={article.title}
+                            className="w-full h-full object-cover"
+                          />
                           <div className="absolute top-4 left-4 z-20">
                             <span className="px-3 py-1 rounded-full bg-green-600/90 text-white text-xs font-medium">
                               {article.category}

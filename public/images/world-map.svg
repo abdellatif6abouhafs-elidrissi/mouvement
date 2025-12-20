@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" fill="currentColor" opacity="0.15">
+  <!-- Simplified world map outline -->
+  <g>
+    <!-- North America -->
+    <path d="M150,120 Q200,80 280,90 Q320,100 340,140 Q360,180 320,200 Q280,220 240,200 Q200,180 180,160 Q140,140 150,120Z"/>
+    <!-- South America -->
+    <path d="M260,280 Q300,260 320,300 Q340,360 300,400 Q260,420 240,380 Q220,340 240,300 Q250,270 260,280Z"/>
+    <!-- Europe -->
+    <path d="M450,100 Q500,80 540,100 Q560,120 540,140 Q520,160 480,150 Q440,140 450,100Z"/>
+    <!-- Africa -->
+    <path d="M460,180 Q520,160 560,200 Q580,260 540,320 Q500,360 460,340 Q420,300 440,240 Q450,200 460,180Z"/>
+    <!-- Asia -->
+    <path d="M580,80 Q700,60 800,100 Q860,140 840,200 Q800,240 720,220 Q640,200 600,160 Q560,120 580,80Z"/>
+    <!-- Australia -->
+    <path d="M780,320 Q840,300 880,340 Q900,380 860,400 Q820,410 780,380 Q760,350 780,320Z"/>
+  </g>
+  <!-- Stadium dots representing Ultra groups -->
+  <circle cx="180" cy="160" r="4" opacity="0.5"/>
+  <circle cx="280" cy="340" r="4" opacity="0.5"/>
+  <circle cx="480" cy="120" r="4" opacity="0.5"/>
+  <circle cx="500" cy="260" r="4" opacity="0.5"/>
+  <circle cx="520" cy="200" r="4" opacity="0.5"/>
+  <circle cx="700" cy="140" r="4" opacity="0.5"/>
+  <circle cx="820" cy="360" r="4" opacity="0.5"/>
+</svg>

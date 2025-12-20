@@ -32,7 +32,7 @@ const featuredStories = [
     excerpt: 'The moment I walked into Stade Mohammed V for my first derby, I knew my life would never be the same. The smoke, the chants, the unity...',
     likes: 234,
     comments: 45,
-    image: '/images/stories/derby.jpg',
+    image: '/images/groups/green-boys-2005.webp',
     featured: true,
   },
   {
@@ -46,7 +46,7 @@ const featuredStories = [
     excerpt: 'After 15 years as an Ultra, I\'ve traveled to over 100 away matches. Each journey strengthens the bond with my brothers.',
     likes: 189,
     comments: 32,
-    image: '/images/stories/travel.jpg',
+    image: '/images/groups/curva-sud-milano.webp',
   },
   {
     id: 3,
@@ -59,7 +59,7 @@ const featuredStories = [
     excerpt: 'Three months of preparation, 500 volunteers, one magical night. How we created the biggest tifo in La Bombonera history.',
     likes: 456,
     comments: 89,
-    image: '/images/stories/tifo.jpg',
+    image: '/images/tifos/tifo-2.webp',
   },
   {
     id: 4,
@@ -72,7 +72,7 @@ const featuredStories = [
     excerpt: 'My grandfather started it, my father continued it, and now I carry the torch. The Südtribüne runs in our blood.',
     likes: 312,
     comments: 67,
-    image: '/images/stories/generations.jpg',
+    image: '/images/groups/yellow-wall.webp',
   },
 ];
 

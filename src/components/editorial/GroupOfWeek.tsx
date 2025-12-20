@@ -32,7 +32,7 @@ const defaultGroup = {
   members: '60K+',
   yearFounded: 2005,
   description: 'The pioneers of Moroccan Ultra culture, GREEN BOYS 2005 revolutionized the supporter scene in North Africa with their spectacular tifos and unwavering passion.',
-  image: '/images/groups/green-boys-featured.jpg',
+  image: '/images/groups/green-boys-2005.webp',
 };
 
 export default function GroupOfWeek({ group = defaultGroup }: GroupOfWeekProps) {
