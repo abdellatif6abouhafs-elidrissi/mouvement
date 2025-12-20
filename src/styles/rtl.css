@@ -1,0 +1,235 @@
+/* RTL Support Styles for Arabic */
+
+/* Global RTL adjustments */
+[dir="rtl"] {
+  /* Flip text alignment */
+  text-align: right;
+}
+
+/* Navigation adjustments */
+[dir="rtl"] .nav-links {
+  flex-direction: row-reverse;
+}
+
+/* Icon positioning */
+[dir="rtl"] .icon-left {
+  margin-left: 0.5rem;
+  margin-right: 0;
+}
+
+[dir="rtl"] .icon-right {
+  margin-right: 0.5rem;
+  margin-left: 0;
+}
+
+/* Card layouts */
+[dir="rtl"] .card-with-icon {
+  flex-direction: row-reverse;
+}
+
+/* Timeline adjustments */
+[dir="rtl"] .timeline-line {
+  left: auto;
+  right: 2rem;
+}
+
+@media (min-width: 768px) {
+  [dir="rtl"] .timeline-line {
+    right: 50%;
+  }
+}
+
+[dir="rtl"] .timeline-dot {
+  left: auto;
+  right: 2rem;
+  transform: translateX(50%);
+}
+
+@media (min-width: 768px) {
+  [dir="rtl"] .timeline-dot {
+    right: 50%;
+  }
+}
+
+/* Form inputs */
+[dir="rtl"] input,
+[dir="rtl"] textarea {
+  text-align: right;
+}
+
+[dir="rtl"] input::placeholder,
+[dir="rtl"] textarea::placeholder {
+  text-align: right;
+}
+
+/* Button with icon */
+[dir="rtl"] .btn-with-icon {
+  flex-direction: row-reverse;
+}
+
+/* Search input */
+[dir="rtl"] .search-input-wrapper {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .search-icon {
+  left: auto;
+  right: 1rem;
+}
+
+/* Dropdown menus */
+[dir="rtl"] .dropdown-menu {
+  left: auto;
+  right: 0;
+}
+
+/* Stats/Grid layouts */
+[dir="rtl"] .stats-grid {
+  direction: rtl;
+}
+
+/* Carousel/Slider */
+[dir="rtl"] .carousel-controls {
+  flex-direction: row-reverse;
+}
+
+/* List items with bullets */
+[dir="rtl"] ul {
+  padding-right: 1.25rem;
+  padding-left: 0;
+}
+
+[dir="rtl"] ul li::marker {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+
+/* Breadcrumbs */
+[dir="rtl"] .breadcrumb {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .breadcrumb-separator {
+  transform: rotate(180deg);
+}
+
+/* Modal close button */
+[dir="rtl"] .modal-close {
+  left: 1rem;
+  right: auto;
+}
+
+/* Sidebar */
+[dir="rtl"] .sidebar-left {
+  left: auto;
+  right: 0;
+}
+
+[dir="rtl"] .sidebar-right {
+  right: auto;
+  left: 0;
+}
+
+/* Table alignment */
+[dir="rtl"] table {
+  direction: rtl;
+}
+
+[dir="rtl"] th,
+[dir="rtl"] td {
+  text-align: right;
+}
+
+/* Checkboxes and Radio buttons */
+[dir="rtl"] .checkbox-label,
+[dir="rtl"] .radio-label {
+  flex-direction: row-reverse;
+}
+
+/* Progress bars */
+[dir="rtl"] .progress-bar {
+  direction: rtl;
+}
+
+[dir="rtl"] .progress-fill {
+  right: 0;
+  left: auto;
+}
+
+/* Tooltips */
+[dir="rtl"] .tooltip-left {
+  left: auto;
+  right: 100%;
+}
+
+[dir="rtl"] .tooltip-right {
+  right: auto;
+  left: 100%;
+}
+
+/* Gallery/Grid with captions */
+[dir="rtl"] .gallery-caption {
+  text-align: right;
+}
+
+/* Audio player */
+[dir="rtl"] .audio-controls {
+  flex-direction: row-reverse;
+}
+
+/* Notification/Alert icons */
+[dir="rtl"] .alert-icon {
+  margin-left: 0.75rem;
+  margin-right: 0;
+}
+
+/* Footer columns */
+[dir="rtl"] .footer-columns {
+  direction: rtl;
+}
+
+/* Mobile menu */
+[dir="rtl"] .mobile-menu {
+  left: auto;
+  right: 0;
+  transform-origin: top right;
+}
+
+/* Specific component overrides */
+[dir="rtl"] .group-card-info {
+  text-align: right;
+}
+
+[dir="rtl"] .article-meta {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .chant-player {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .tifo-info {
+  text-align: right;
+}
+
+/* Smooth transitions for direction changes */
+[dir="rtl"] * {
+  transition-property: margin, padding, left, right, text-align;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+
+/* Arabic-specific typography */
+[dir="rtl"] {
+  font-feature-settings: "liga" 1, "calt" 1;
+  letter-spacing: 0;
+  word-spacing: 0.05em;
+}
+
+/* Ensure proper number display */
+[dir="rtl"] .number,
+[dir="rtl"] .stat-value,
+[dir="rtl"] .price {
+  direction: ltr;
+  display: inline-block;
+}

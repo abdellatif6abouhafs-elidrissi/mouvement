@@ -26,7 +26,10 @@ import {
 } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import ThemeToggle from '@/components/ThemeToggle';
+import SearchModal from '@/components/search/SearchModal';
 import { cn } from '@/lib/utils';
+import { isRTL, type Locale } from '@/i18n/config';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -34,7 +37,9 @@ export default function Header() {
   const pathname = usePathname();
   const { data: session, status } = useSession();
   const t = useTranslations('nav');
+  const tCommon = useTranslations('common');
   const locale = useLocale();
+  const rtl = isRTL(locale as Locale);
 
   const navigation = [
     { name: t('home'), href: `/${locale}`, icon: null },
@@ -127,7 +132,10 @@ export default function Header() {
           </div>
 
           {/* Actions */}
-          <div className="flex items-center gap-3">
+          <div className={cn("flex items-center gap-3", rtl && "flex-row-reverse")}>
+            {/* Theme Toggle */}
+            <ThemeToggle />
+
             {/* Language Switcher */}
             <LanguageSwitcher />
 
@@ -135,7 +143,7 @@ export default function Header() {
             <button
               onClick={() => setSearchOpen(true)}
               className="p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
-              aria-label="Search"
+              aria-label={tCommon('search')}
             >
               <Search className="h-5 w-5" />
             </button>
@@ -258,38 +266,7 @@ export default function Header() {
       </nav>
 
       {/* Search Modal */}
-      <AnimatePresence>
-        {searchOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-zinc-950/90 backdrop-blur-sm"
-            onClick={() => setSearchOpen(false)}
-          >
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="max-w-2xl mx-auto mt-20 px-4"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="relative">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-zinc-400" />
-                <input
-                  type="text"
-                  placeholder={t('search') || 'Search...'}
-                  autoFocus
-                  className="w-full pl-12 pr-4 py-4 rounded-xl bg-zinc-900 border border-zinc-800 text-white text-lg placeholder:text-zinc-500 focus:outline-none focus:border-green-500"
-                />
-              </div>
-              <p className="mt-4 text-center text-zinc-500 text-sm">
-                Press ESC to close
-              </p>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
     </header>
   );
 }

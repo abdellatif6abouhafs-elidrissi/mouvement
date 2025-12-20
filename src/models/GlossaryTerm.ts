@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
 
 export interface IGlossaryTerm {
-  term: string;
   translations: {
     locale: string;
+    term: string;
     definition: string;
     example?: string;
   }[];
@@ -13,9 +13,9 @@ export interface IGlossaryTerm {
 }
 
 const glossaryTermSchema = new mongoose.Schema<IGlossaryTerm>({
-  term: { type: String, required: true, unique: true },
   translations: [{
     locale: { type: String, required: true },
+    term: { type: String, required: true },
     definition: { type: String, required: true },
     example: String
   }],
