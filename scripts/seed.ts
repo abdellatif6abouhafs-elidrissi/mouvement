@@ -360,34 +360,49 @@ Beyond football, Barras have influenced music, fashion, and social movements acr
     console.log('Creating glossary terms...');
     const glossaryTerms = await GlossaryTerm.create([
       {
-        term: 'Tifo',
-        definition: 'A coordinated display by supporters, typically involving large banners, flags, and choreographed actions.',
+        translations: [
+          { locale: 'en', term: 'Tifo', definition: 'A coordinated display by supporters, typically involving large banners, flags, and choreographed actions.' },
+          { locale: 'fr', term: 'Tifo', definition: 'Un affichage coordonné par les supporters, impliquant généralement de grandes banderoles, drapeaux et actions chorégraphiées.' },
+          { locale: 'ar', term: 'تيفو', definition: 'عرض منسق من قبل المشجعين، يتضمن عادةً لافتات كبيرة وأعلام وأعمال استعراضية.' },
+        ],
         origin: 'Italian',
-        category: 'display',
+        category: 'tifo',
       },
       {
-        term: 'Curva',
-        definition: 'The curved end section of a stadium, traditionally occupied by the most passionate supporters.',
+        translations: [
+          { locale: 'en', term: 'Curva', definition: 'The curved end section of a stadium, traditionally occupied by the most passionate supporters.' },
+          { locale: 'fr', term: 'Curva', definition: 'La section courbe en bout de stade, traditionnellement occupée par les supporters les plus passionnés.' },
+          { locale: 'ar', term: 'كورفا', definition: 'القسم المنحني في نهاية الملعب، يحتله تقليديًا المشجعون الأكثر شغفًا.' },
+        ],
         origin: 'Italian',
-        category: 'location',
+        category: 'general',
       },
       {
-        term: 'Barra Brava',
-        definition: 'Organized supporter groups in South American football, known for their passionate and vocal support.',
+        translations: [
+          { locale: 'en', term: 'Barra Brava', definition: 'Organized supporter groups in South American football, known for their passionate and vocal support.' },
+          { locale: 'fr', term: 'Barra Brava', definition: 'Groupes de supporters organisés dans le football sud-américain, connus pour leur soutien passionné et vocal.' },
+          { locale: 'ar', term: 'بارا برافا', definition: 'مجموعات مشجعين منظمة في كرة القدم بأمريكا الجنوبية، معروفة بدعمها الحماسي والصوتي.' },
+        ],
         origin: 'Spanish',
-        category: 'group',
+        category: 'organization',
       },
       {
-        term: 'Capo',
-        definition: 'The leader who directs chants and coordinates supporter activities during matches.',
+        translations: [
+          { locale: 'en', term: 'Capo', definition: 'The leader who directs chants and coordinates supporter activities during matches.' },
+          { locale: 'fr', term: 'Capo', definition: 'Le leader qui dirige les chants et coordonne les activités des supporters pendant les matchs.' },
+          { locale: 'ar', term: 'كابو', definition: 'القائد الذي يوجه الهتافات وينسق أنشطة المشجعين خلال المباريات.' },
+        ],
         origin: 'Italian',
-        category: 'role',
+        category: 'organization',
       },
       {
-        term: 'Ultras',
-        definition: 'Organized and passionate supporter groups known for their elaborate displays and intense support.',
+        translations: [
+          { locale: 'en', term: 'Ultras', definition: 'Organized and passionate supporter groups known for their elaborate displays and intense support.' },
+          { locale: 'fr', term: 'Ultras', definition: 'Groupes de supporters organisés et passionnés, connus pour leurs affichages élaborés et leur soutien intense.' },
+          { locale: 'ar', term: 'ألتراس', definition: 'مجموعات مشجعين منظمة وشغوفة معروفة بعروضها المتقنة ودعمها المكثف.' },
+        ],
         origin: 'Latin',
-        category: 'group',
+        category: 'general',
       },
     ]);
 
