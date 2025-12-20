@@ -1,19 +1,33 @@
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
-const FROM_EMAIL = process.env.FROM_EMAIL || 'MOUVEMENT <noreply@mouvement.com>';
+const FROM_EMAIL = process.env.FROM_EMAIL || 'MOUVEMENT <onboarding@resend.dev>';
 const APP_URL = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+
+// Lazy initialization to avoid errors if API key is missing
+let resend: Resend | null = null;
+
+function getResend(): Resend | null {
+  if (!resend && process.env.RESEND_API_KEY) {
+    resend = new Resend(process.env.RESEND_API_KEY);
+  }
+  return resend;
+}
 
 export async function sendVerificationEmail(
   email: string,
   name: string,
   token: string
 ): Promise<{ success: boolean; error?: string }> {
-  const verificationUrl = `${APP_URL}/verify-email?token=${token}`;
+  const verificationUrl = `${APP_URL}/api/auth/verify-email?token=${token}`;
+
+  const client = getResend();
+  if (!client) {
+    console.warn('Resend API key not configured, skipping email');
+    return { success: false, error: 'Email service not configured' };
+  }
 
   try {
-    const { error } = await resend.emails.send({
+    const { error } = await client.emails.send({
       from: FROM_EMAIL,
       to: email,
       subject: 'Verify your MOUVEMENT account',
@@ -81,8 +95,14 @@ export async function sendPasswordResetEmail(
 ): Promise<{ success: boolean; error?: string }> {
   const resetUrl = `${APP_URL}/reset-password?token=${token}`;
 
+  const client = getResend();
+  if (!client) {
+    console.warn('Resend API key not configured, skipping email');
+    return { success: false, error: 'Email service not configured' };
+  }
+
   try {
-    const { error } = await resend.emails.send({
+    const { error } = await client.emails.send({
       from: FROM_EMAIL,
       to: email,
       subject: 'Reset your MOUVEMENT password',
