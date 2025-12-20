@@ -74,12 +74,12 @@ const commentSchema = new Schema<ICommentDocument>(
 );
 
 // Mark as edited when content changes
-commentSchema.pre('save', function (next) {
+commentSchema.pre('save', function () {
   if (this.isModified('content') && !this.isNew) {
     this.isEdited = true;
     this.editedAt = new Date();
   }
-  next();
+
 });
 
 // Indexes

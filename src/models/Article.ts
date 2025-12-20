@@ -106,7 +106,7 @@ const articleSchema = new Schema<IArticleDocument>(
 );
 
 // Generate slug and calculate read time before saving
-articleSchema.pre('save', function (next) {
+articleSchema.pre('save', function () {
   if (this.isModified('title')) {
     this.slug = this.title
       .toLowerCase()
@@ -127,7 +127,7 @@ articleSchema.pre('save', function (next) {
     this.publishedAt = new Date();
   }
 
-  next();
+
 });
 
 // Indexes
