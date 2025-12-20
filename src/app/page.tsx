@@ -18,18 +18,20 @@ import Card, { CardContent } from '@/components/ui/Card';
 
 const featuredGroups = [
   {
+    name: 'GREEN BOYS 2005',
+    club: 'Raja Casablanca',
+    country: 'Morocco',
+    image: '/images/groups/green-boys.jpg',
+    members: '60K+',
+    slug: 'green-boys',
+  },
+  {
     name: 'Ultras Eagles',
     club: 'Raja Casablanca',
     country: 'Morocco',
     image: '/images/groups/ultras-eagles.jpg',
     members: '50K+',
-  },
-  {
-    name: 'Winners',
-    club: 'Wydad AC',
-    country: 'Morocco',
-    image: '/images/groups/winners.jpg',
-    members: '45K+',
+    slug: 'ultras-eagles',
   },
   {
     name: 'Curva Sud Milano',

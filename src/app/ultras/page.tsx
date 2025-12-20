@@ -32,6 +32,18 @@ const countries = [
 
 const ultraGroups = [
   {
+    id: '0',
+    name: 'GREEN BOYS 2005',
+    slug: 'green-boys',
+    club: 'Raja Casablanca',
+    city: 'Casablanca',
+    country: 'Morocco',
+    countryCode: 'MA',
+    yearFounded: 2005,
+    members: '60K+',
+    description: 'The FIRST Ultra group in Morocco - Pioneers of the North African Ultra movement.',
+  },
+  {
     id: '1',
     name: 'Ultras Eagles',
     slug: 'ultras-eagles',
