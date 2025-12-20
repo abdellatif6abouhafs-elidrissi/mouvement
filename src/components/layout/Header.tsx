@@ -1,9 +1,10 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useSession, signOut } from 'next-auth/react';
+import { useTranslations, useLocale } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Menu,
@@ -17,35 +18,61 @@ import {
   BookOpen,
   Info,
   Mail,
+  Clock,
+  Palette,
+  Music,
+  GraduationCap,
+  Users,
 } from 'lucide-react';
 import Button from '@/components/ui/Button';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 import { cn } from '@/lib/utils';
-
-const navigation = [
-  { name: 'Home', href: '/', icon: null },
-  { name: 'Ultras World', href: '/ultras', icon: Globe },
-  { name: 'Articles', href: '/articles', icon: BookOpen },
-  { name: 'About', href: '/about', icon: Info },
-  { name: 'Contact', href: '/contact', icon: Mail },
-];
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const pathname = usePathname();
   const { data: session, status } = useSession();
+  const t = useTranslations('nav');
+  const locale = useLocale();
+
+  const navigation = [
+    { name: t('home'), href: `/${locale}`, icon: null },
+    { name: t('ultras'), href: `/${locale}/ultras`, icon: Globe },
+    { name: t('articles'), href: `/${locale}/articles`, icon: BookOpen },
+    { name: t('timeline'), href: `/${locale}/timeline`, icon: Clock },
+    { name: t('tifos'), href: `/${locale}/tifos`, icon: Palette },
+    { name: t('chants'), href: `/${locale}/chants`, icon: Music },
+    { name: t('education'), href: `/${locale}/education`, icon: GraduationCap },
+    { name: t('community'), href: `/${locale}/community`, icon: Users },
+    { name: t('about'), href: `/${locale}/about`, icon: Info },
+    { name: t('contact'), href: `/${locale}/contact`, icon: Mail },
+  ];
+
+  // Main nav items (subset for desktop)
+  const mainNav = navigation.slice(0, 5);
 
   const isActive = (href: string) => {
-    if (href === '/') return pathname === '/';
+    if (href === `/${locale}`) return pathname === `/${locale}`;
     return pathname.startsWith(href);
   };
+
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSearchOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, []);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-800">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
+          <Link href={`/${locale}`} className="flex items-center gap-2">
             <div className="w-10 h-10 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-xl">M</span>
             </div>
@@ -55,10 +82,10 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
-            {navigation.map((item) => (
+          <div className="hidden lg:flex items-center gap-6">
+            {mainNav.map((item) => (
               <Link
-                key={item.name}
+                key={item.href}
                 href={item.href}
                 className={cn(
                   'text-sm font-medium transition-colors duration-200',
@@ -70,14 +97,47 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
+
+            {/* More dropdown */}
+            <div className="relative group">
+              <button className="flex items-center gap-1 text-sm font-medium text-zinc-400 hover:text-white transition-colors">
+                More
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              <div className="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                <div className="w-48 rounded-xl bg-zinc-900 border border-zinc-800 shadow-xl overflow-hidden">
+                  {navigation.slice(5).map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={cn(
+                        'flex items-center gap-3 px-4 py-3 text-sm transition-colors',
+                        isActive(item.href)
+                          ? 'bg-red-600/10 text-red-500'
+                          : 'text-zinc-400 hover:text-white hover:bg-zinc-800'
+                      )}
+                    >
+                      {item.icon && <item.icon className="h-4 w-4" />}
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
 
           {/* Actions */}
           <div className="flex items-center gap-3">
+            {/* Language Switcher */}
+            <LanguageSwitcher />
+
             {/* Search */}
             <button
               onClick={() => setSearchOpen(true)}
               className="p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
+              aria-label="Search"
             >
               <Search className="h-5 w-5" />
             </button>
@@ -91,7 +151,7 @@ export default function Header() {
                   {session.user.image ? (
                     <img
                       src={session.user.image}
-                      alt={session.user.name}
+                      alt={session.user.name || ''}
                       className="w-8 h-8 rounded-full object-cover"
                     />
                   ) : (
@@ -112,46 +172,46 @@ export default function Header() {
                   <div className="p-2">
                     {session.user.role === 'admin' && (
                       <Link
-                        href="/dashboard"
+                        href={`/${locale}/dashboard`}
                         className="flex items-center gap-3 px-3 py-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
                       >
                         <LayoutDashboard className="h-4 w-4" />
-                        Dashboard
+                        {t('dashboard')}
                       </Link>
                     )}
                     <Link
-                      href="/profile"
+                      href={`/${locale}/profile`}
                       className="flex items-center gap-3 px-3 py-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
                     >
                       <User className="h-4 w-4" />
-                      Profile
+                      {t('profile')}
                     </Link>
                     <Link
-                      href="/settings"
+                      href={`/${locale}/settings`}
                       className="flex items-center gap-3 px-3 py-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
                     >
                       <Settings className="h-4 w-4" />
-                      Settings
+                      {t('settings')}
                     </Link>
                     <button
                       onClick={() => signOut()}
                       className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-red-500 hover:bg-red-600/10 transition-colors"
                     >
                       <LogOut className="h-4 w-4" />
-                      Sign Out
+                      {t('signOut')}
                     </button>
                   </div>
                 </div>
               </div>
             ) : (
               <div className="flex items-center gap-2">
-                <Link href="/login">
+                <Link href={`/${locale}/login`}>
                   <Button variant="ghost" size="sm">
-                    Sign In
+                    {t('signIn')}
                   </Button>
                 </Link>
-                <Link href="/register" className="hidden sm:block">
-                  <Button size="sm">Join</Button>
+                <Link href={`/${locale}/register`} className="hidden sm:block">
+                  <Button size="sm">{t('join')}</Button>
                 </Link>
               </div>
             )}
@@ -160,6 +220,7 @@ export default function Header() {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="lg:hidden p-2 rounded-lg text-zinc-400 hover:text-white hover:bg-zinc-800 transition-colors"
+              aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -178,7 +239,7 @@ export default function Header() {
               <div className="py-4 space-y-1">
                 {navigation.map((item) => (
                   <Link
-                    key={item.name}
+                    key={item.href}
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
                     className={cn(
@@ -219,7 +280,7 @@ export default function Header() {
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-zinc-400" />
                 <input
                   type="text"
-                  placeholder="Search Ultra groups, articles..."
+                  placeholder={t('search') || 'Search...'}
                   autoFocus
                   className="w-full pl-12 pr-4 py-4 rounded-xl bg-zinc-900 border border-zinc-800 text-white text-lg placeholder:text-zinc-500 focus:outline-none focus:border-red-600"
                 />

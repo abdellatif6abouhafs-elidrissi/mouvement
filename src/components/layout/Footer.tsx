@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useLocale, useTranslations } from 'next-intl';
 import {
   Instagram,
   Twitter,
@@ -11,26 +12,6 @@ import {
   Heart
 } from 'lucide-react';
 
-const footerLinks = {
-  explore: [
-    { name: 'Ultras World', href: '/ultras' },
-    { name: 'Articles', href: '/articles' },
-    { name: 'Groups', href: '/groups' },
-    { name: 'Interactive Map', href: '/map' },
-  ],
-  about: [
-    { name: 'Our Mission', href: '/about' },
-    { name: 'Team', href: '/about#team' },
-    { name: 'Contact', href: '/contact' },
-    { name: 'Contribute', href: '/contribute' },
-  ],
-  legal: [
-    { name: 'Terms of Use', href: '/terms' },
-    { name: 'Privacy Policy', href: '/privacy' },
-    { name: 'Cookies', href: '/cookies' },
-  ],
-};
-
 const socialLinks = [
   { name: 'Instagram', href: '#', icon: Instagram },
   { name: 'Twitter', href: '#', icon: Twitter },
@@ -39,6 +20,31 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const t = useTranslations('footer');
+  const tNav = useTranslations('nav');
+  const locale = useLocale();
+
+  const footerLinks = {
+    explore: [
+      { name: tNav('ultras'), href: `/${locale}/ultras` },
+      { name: tNav('articles'), href: `/${locale}/articles` },
+      { name: tNav('timeline'), href: `/${locale}/timeline` },
+      { name: tNav('tifos'), href: `/${locale}/tifos` },
+      { name: tNav('chants'), href: `/${locale}/chants` },
+    ],
+    about: [
+      { name: tNav('about'), href: `/${locale}/about` },
+      { name: tNav('education'), href: `/${locale}/education` },
+      { name: tNav('community'), href: `/${locale}/community` },
+      { name: tNav('contact'), href: `/${locale}/contact` },
+    ],
+    legal: [
+      { name: t('terms'), href: `/${locale}/terms` },
+      { name: t('privacy'), href: `/${locale}/privacy` },
+      { name: t('cookies'), href: `/${locale}/cookies` },
+    ],
+  };
+
   return (
     <footer className="bg-zinc-950 border-t border-zinc-800">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -46,15 +52,14 @@ export default function Footer() {
         <div className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2">
+            <Link href={`/${locale}`} className="flex items-center gap-2">
               <div className="w-10 h-10 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center">
                 <span className="text-white font-bold text-xl">M</span>
               </div>
               <span className="text-xl font-bold text-white">Mouvement</span>
             </Link>
             <p className="mt-4 text-zinc-400 text-sm leading-relaxed">
-              A cultural platform dedicated to documenting and celebrating Ultra culture
-              as an artistic, social, and historical phenomenon.
+              {t('description')}
             </p>
             {/* Social Links */}
             <div className="mt-6 flex gap-3">
@@ -74,11 +79,11 @@ export default function Footer() {
           {/* Explore */}
           <div>
             <h3 className="text-sm font-semibold text-white uppercase tracking-wider">
-              Explore
+              {t('explore')}
             </h3>
             <ul className="mt-4 space-y-3">
               {footerLinks.explore.map((link) => (
-                <li key={link.name}>
+                <li key={link.href}>
                   <Link
                     href={link.href}
                     className="text-zinc-400 hover:text-white transition-colors text-sm"
@@ -93,11 +98,11 @@ export default function Footer() {
           {/* About */}
           <div>
             <h3 className="text-sm font-semibold text-white uppercase tracking-wider">
-              About
+              {t('about')}
             </h3>
             <ul className="mt-4 space-y-3">
               {footerLinks.about.map((link) => (
-                <li key={link.name}>
+                <li key={link.href}>
                   <Link
                     href={link.href}
                     className="text-zinc-400 hover:text-white transition-colors text-sm"
@@ -112,7 +117,7 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h3 className="text-sm font-semibold text-white uppercase tracking-wider">
-              Contact
+              {tNav('contact')}
             </h3>
             <ul className="mt-4 space-y-3">
               <li>
@@ -127,14 +132,17 @@ export default function Footer() {
               <li>
                 <span className="flex items-center gap-2 text-zinc-400 text-sm">
                   <MapPin className="h-4 w-4" />
-                  Worldwide Community
+                  {t('worldwide')}
                 </span>
               </li>
             </ul>
             {/* Legal Links */}
-            <ul className="mt-6 space-y-2">
+            <h4 className="mt-6 text-sm font-semibold text-white uppercase tracking-wider">
+              {t('legal')}
+            </h4>
+            <ul className="mt-3 space-y-2">
               {footerLinks.legal.map((link) => (
-                <li key={link.name}>
+                <li key={link.href}>
                   <Link
                     href={link.href}
                     className="text-zinc-500 hover:text-zinc-300 transition-colors text-xs"
@@ -150,10 +158,10 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="py-6 border-t border-zinc-800 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-zinc-500 text-sm">
-            © {new Date().getFullYear()} Mouvement. All rights reserved.
+            © {new Date().getFullYear()} Mouvement. {t('rights')}
           </p>
           <p className="flex items-center gap-1 text-zinc-500 text-sm">
-            Made with <Heart className="h-4 w-4 text-red-500 fill-red-500" /> for Ultra culture
+            {t('madeWith')} <Heart className="h-4 w-4 text-red-500 fill-red-500" /> {t('forUltraCulture')}
           </p>
         </div>
       </div>
