@@ -194,7 +194,7 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
         )}
 
         {/* Content */}
-        <div className="relative z-10 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-end pb-12">
+        <div className="relative z-10 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-end pb-6 sm:pb-8 md:pb-12">
           {/* Back Button */}
           <Link href={`/${locale}/ultras`} className="absolute top-8 left-4 sm:left-8">
             <Button variant="ghost" size="sm" leftIcon={<ArrowLeft className="h-4 w-4" />}>
@@ -213,9 +213,9 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2, duration: 0.5 }}
-                className="mb-4"
+                className="mb-3 sm:mb-4"
               >
-                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-4 border-white/20 shadow-2xl bg-zinc-900">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-xl sm:rounded-2xl overflow-hidden border-2 sm:border-4 border-white/20 shadow-2xl bg-zinc-900">
                   <img
                     src={displayGroup.logo}
                     alt={`${displayGroup.name} logo`}
@@ -226,60 +226,62 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
             )}
 
             {/* Badges */}
-            <div className="flex flex-wrap gap-3 mb-4">
+            <div className="flex flex-wrap gap-2 sm:gap-3 mb-3 sm:mb-4">
               {displayGroup.isVerified && (
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-600/20 border border-blue-600/30 text-blue-400 text-sm font-medium">
-                  <Shield className="h-3.5 w-3.5" />
+                <span className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-blue-600/20 border border-blue-600/30 text-blue-400 text-xs sm:text-sm font-medium">
+                  <Shield className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                   {t('verified')}
                 </span>
               )}
               {displayGroup.isFeatured && (
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-yellow-600/20 border border-yellow-600/30 text-yellow-400 text-sm font-medium">
-                  <Trophy className="h-3.5 w-3.5" />
+                <span className="inline-flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-0.5 sm:py-1 rounded-full bg-yellow-600/20 border border-yellow-600/30 text-yellow-400 text-xs sm:text-sm font-medium">
+                  <Trophy className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                   {t('featuredBadge')}
                 </span>
               )}
             </div>
 
             {/* Group Name */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 sm:mb-4">
               {displayGroup.name}
             </h1>
 
             {/* Meta Info */}
-            <div className="flex flex-wrap items-center gap-6 text-zinc-300 mb-6">
-              <span className="flex items-center gap-2">
-                <Flag className="h-5 w-5 text-green-500" />
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 md:gap-6 text-zinc-300 text-sm sm:text-base mb-4 sm:mb-6">
+              <span className="flex items-center gap-1.5 sm:gap-2">
+                <Flag className="h-4 w-4 sm:h-5 sm:w-5 text-green-500" />
                 {displayGroup.club}
               </span>
-              <span className="flex items-center gap-2">
-                <MapPin className="h-5 w-5" />
+              <span className="flex items-center gap-1.5 sm:gap-2">
+                <MapPin className="h-4 w-4 sm:h-5 sm:w-5" />
                 {displayGroup.city}, {displayGroup.country}
               </span>
-              <span className="flex items-center gap-2">
-                <Calendar className="h-5 w-5" />
+              <span className="flex items-center gap-1.5 sm:gap-2">
+                <Calendar className="h-4 w-4 sm:h-5 sm:w-5" />
                 {t('founded')} {displayGroup.yearFounded}
               </span>
-              <span className="flex items-center gap-2">
-                <Users className="h-5 w-5" />
+              <span className="flex items-center gap-1.5 sm:gap-2">
+                <Users className="h-4 w-4 sm:h-5 sm:w-5" />
                 {displayGroup.membersEstimate || 'N/A'} {t('members')}
               </span>
             </div>
 
             {/* Actions */}
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-4">
               <Button
                 variant={liked ? 'primary' : 'outline'}
-                leftIcon={<Heart className={`h-5 w-5 ${liked ? 'fill-current' : ''}`} />}
+                size="sm"
+                leftIcon={<Heart className={`h-4 w-4 sm:h-5 sm:w-5 ${liked ? 'fill-current' : ''}`} />}
                 onClick={() => setLiked(!liked)}
+                className="text-xs sm:text-sm"
               >
                 {liked ? t('liked') : t('like')} ({((displayGroup.likes || 0) / 1000).toFixed(0)}K)
               </Button>
-              <Button variant="outline" leftIcon={<Share2 className="h-5 w-5" />}>
+              <Button variant="outline" size="sm" leftIcon={<Share2 className="h-4 w-4 sm:h-5 sm:w-5" />} className="text-xs sm:text-sm">
                 {t('share')}
               </Button>
-              <div className="flex items-center gap-2 text-zinc-400 ml-auto">
-                <Eye className="h-5 w-5" />
+              <div className="flex items-center gap-1.5 sm:gap-2 text-zinc-400 text-xs sm:text-sm ml-auto">
+                <Eye className="h-4 w-4 sm:h-5 sm:w-5" />
                 <span>{((displayGroup.views || 0) / 1000).toFixed(0)}K {t('views')}</span>
               </div>
             </div>
@@ -288,13 +290,13 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
       </section>
 
       {/* Main Content */}
-      <section className="py-12 px-4 sm:px-6 lg:px-8">
+      <section className="py-6 sm:py-8 md:py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-6 md:gap-8">
             {/* Main Content Area */}
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-2 order-2 lg:order-1">
               {/* Tabs */}
-              <div className="flex gap-2 mb-8 border-b border-zinc-800 pb-4 overflow-x-auto">
+              <div className="flex gap-1.5 sm:gap-2 mb-6 sm:mb-8 border-b border-zinc-800 pb-3 sm:pb-4 overflow-x-auto scrollbar-hide">
                 {[
                   { key: 'history', icon: Flag, label: t('history') },
                   { key: 'tifos', icon: Palette, label: t('tifos') },
@@ -304,13 +306,13 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
                   <button
                     key={tab.key}
                     onClick={() => setActiveTab(tab.key as typeof activeTab)}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-colors whitespace-nowrap ${
+                    className={`flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg text-sm sm:text-base font-medium transition-colors whitespace-nowrap ${
                       activeTab === tab.key
                         ? 'bg-green-600 text-white'
                         : 'bg-zinc-800 text-zinc-400 hover:bg-zinc-700'
                     }`}
                   >
-                    <tab.icon className="h-4 w-4" />
+                    <tab.icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                     {tab.label}
                   </button>
                 ))}
@@ -467,9 +469,9 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
             </div>
 
             {/* Sidebar */}
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6 order-1 lg:order-2">
               {/* Quick Info Card */}
-              <Card className="p-6">
+              <Card className="p-4 sm:p-6">
                 <h3 className="text-lg font-bold text-white mb-4">{t('quickInfo')}</h3>
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
