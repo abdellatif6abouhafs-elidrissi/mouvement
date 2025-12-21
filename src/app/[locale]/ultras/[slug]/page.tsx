@@ -47,20 +47,16 @@ export default function UltraGroupPage({ params }: PageProps) {
   const group = data?.group;
 
   // Helper function to get translated text based on locale
-  const getTranslatedText = (
-    translations: Record<string, string> | undefined,
-    fallback: string
-  ): string => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const getTranslatedText = (translations: any, fallback: string): string => {
     if (!translations) return fallback;
     const localeKey = locale === 'pt-br' ? 'pt-br' : locale;
     return translations[localeKey] || translations['en'] || fallback;
   };
 
   // Helper function to get translated array based on locale
-  const getTranslatedArray = (
-    translations: Record<string, string[]> | undefined,
-    fallback: string[]
-  ): string[] => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const getTranslatedArray = (translations: any, fallback: string[]): string[] => {
     if (!translations) return fallback;
     const localeKey = locale === 'pt-br' ? 'pt-br' : locale;
     return translations[localeKey] || translations['en'] || fallback;
