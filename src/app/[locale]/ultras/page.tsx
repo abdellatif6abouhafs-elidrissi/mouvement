@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -15,103 +15,34 @@ import {
   Flag,
   ChevronDown,
   ArrowRight,
+  Loader2,
 } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import Card, { CardContent } from '@/components/ui/Card';
 import Input from '@/components/ui/Input';
 
-const countries = [
-  { code: 'MA', name: 'Morocco', flag: '🇲🇦', count: 25 },
-  { code: 'IT', name: 'Italy', flag: '🇮🇹', count: 45 },
-  { code: 'DE', name: 'Germany', flag: '🇩🇪', count: 38 },
-  { code: 'AR', name: 'Argentina', flag: '🇦🇷', count: 32 },
-  { code: 'BR', name: 'Brazil', flag: '🇧🇷', count: 28 },
-  { code: 'ES', name: 'Spain', flag: '🇪🇸', count: 22 },
-  { code: 'FR', name: 'France', flag: '🇫🇷', count: 20 },
-  { code: 'TR', name: 'Turkey', flag: '🇹🇷', count: 35 },
-];
+const countryFlags: Record<string, string> = {
+  MA: '🇲🇦', IT: '🇮🇹', DE: '🇩🇪', AR: '🇦🇷', BR: '🇧🇷', ES: '🇪🇸', FR: '🇫🇷', TR: '🇹🇷',
+  EG: '🇪🇬', GB: '🇬🇧', EC: '🇪🇨', MY: '🇲🇾', ID: '🇮🇩', JP: '🇯🇵', HR: '🇭🇷', RS: '🇷🇸',
+  GR: '🇬🇷', PL: '🇵🇱', TN: '🇹🇳', ZA: '🇿🇦', CL: '🇨🇱', PE: '🇵🇪', CO: '🇨🇴', SA: '🇸🇦',
+  IR: '🇮🇷', AU: '🇦🇺', MX: '🇲🇽', US: '🇺🇸',
+};
 
-const ultraGroups = [
-  {
-    id: '0',
-    name: 'GREEN BOYS 2005',
-    slug: 'green-boys-2005',
-    club: 'Raja Casablanca',
-    city: 'Casablanca',
-    country: 'Morocco',
-    countryCode: 'MA',
-    yearFounded: 2005,
-    members: '60K+',
-    description: 'The FIRST Ultra group in Morocco - Pioneers of the North African Ultra movement.',
-    image: '/images/groups/green-boys-2005.webp',
-    highlight: true,
-  },
-  {
-    id: '1',
-    name: 'Ultras Eagles',
-    slug: 'ultras-eagles',
-    club: 'Raja Casablanca',
-    city: 'Casablanca',
-    country: 'Morocco',
-    countryCode: 'MA',
-    yearFounded: 2005,
-    members: '50K+',
-    description: 'One of the most passionate Ultra groups in Africa, known for spectacular tifos.',
-    image: '/images/gallery/gallery-1.webp',
-  },
-  {
-    id: '2',
-    name: 'Winners',
-    slug: 'winners',
-    club: 'Wydad AC',
-    city: 'Casablanca',
-    country: 'Morocco',
-    countryCode: 'MA',
-    yearFounded: 2005,
-    members: '45K+',
-    description: 'Iconic group representing the Red tradition of Wydad Athletic Club.',
-    image: '/images/gallery/gallery-2.webp',
-  },
-  {
-    id: '3',
-    name: 'Curva Sud Milano',
-    slug: 'curva-sud-milano',
-    club: 'AC Milan',
-    city: 'Milan',
-    country: 'Italy',
-    countryCode: 'IT',
-    yearFounded: 1968,
-    members: '100K+',
-    description: 'Historic curve supporting AC Milan with decades of Ultra tradition.',
-    image: '/images/groups/curva-sud-milano.webp',
-  },
-  {
-    id: '4',
-    name: 'Yellow Wall',
-    slug: 'yellow-wall',
-    club: 'Borussia Dortmund',
-    city: 'Dortmund',
-    country: 'Germany',
-    countryCode: 'DE',
-    yearFounded: 1974,
-    members: '80K+',
-    description: 'The famous Südtribüne, largest standing terrace in Europe.',
-    image: '/images/groups/yellow-wall.webp',
-  },
-  {
-    id: '5',
-    name: 'La 12',
-    slug: 'la-12',
-    club: 'Boca Juniors',
-    city: 'Buenos Aires',
-    country: 'Argentina',
-    countryCode: 'AR',
-    yearFounded: 1968,
-    members: '70K+',
-    description: 'The legendary Barra Brava of La Bombonera.',
-    image: '/images/groups/la-12.webp',
-  },
-];
+interface UltraGroup {
+  _id: string;
+  name: string;
+  slug: string;
+  club: string;
+  city: string;
+  country: string;
+  countryCode: string;
+  yearFounded: number;
+  membersEstimate?: string;
+  history: string;
+  logo?: string;
+  coverImage?: string;
+  isFeatured?: boolean;
+}
 
 type ViewMode = 'grid' | 'map';
 
@@ -122,8 +53,43 @@ export default function UltrasPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
   const [showFilters, setShowFilters] = useState(false);
+  const [groups, setGroups] = useState<UltraGroup[]>([]);
+  const [countries, setCountries] = useState<{ code: string; name: string; count: number }[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const filteredGroups = ultraGroups.filter((group) => {
+  useEffect(() => {
+    const fetchGroups = async () => {
+      try {
+        const response = await fetch('/api/groups?limit=100');
+        const data = await response.json();
+        if (data.groups) {
+          setGroups(data.groups);
+          // Extract unique countries with counts
+          const countryCounts: Record<string, { name: string; count: number }> = {};
+          data.groups.forEach((g: UltraGroup) => {
+            if (!countryCounts[g.countryCode]) {
+              countryCounts[g.countryCode] = { name: g.country, count: 0 };
+            }
+            countryCounts[g.countryCode].count++;
+          });
+          setCountries(
+            Object.entries(countryCounts).map(([code, data]) => ({
+              code,
+              name: data.name,
+              count: data.count
+            }))
+          );
+        }
+      } catch (error) {
+        console.error('Error fetching groups:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchGroups();
+  }, []);
+
+  const filteredGroups = groups.filter((group) => {
     const matchesSearch =
       group.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       group.club.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -238,7 +204,7 @@ export default function UltrasPage() {
                           : 'bg-zinc-800 text-zinc-400 hover:text-white'
                       }`}
                     >
-                      <span>{country.flag}</span>
+                      <span>{countryFlags[country.code] || '🏳️'}</span>
                       {country.name}
                       <span className="text-xs opacity-60">({country.count})</span>
                     </button>
@@ -253,7 +219,11 @@ export default function UltrasPage() {
       {/* Content */}
       <section className="py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
-          {viewMode === 'grid' ? (
+          {isLoading ? (
+            <div className="flex items-center justify-center py-20">
+              <Loader2 className="h-8 w-8 text-green-500 animate-spin" />
+            </div>
+          ) : viewMode === 'grid' ? (
             <>
               {/* Results count */}
               <p className="text-zinc-400 mb-6">
@@ -265,31 +235,37 @@ export default function UltrasPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredGroups.map((group, index) => (
                   <motion.div
-                    key={group.id}
+                    key={group._id}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.05 }}
                   >
                     <Link href={`/${locale}/ultras/${group.slug}`}>
-                      <Card hoverable className={`h-full group ${group.highlight ? 'ring-2 ring-green-600' : ''}`}>
+                      <Card hoverable className={`h-full group ${group.isFeatured ? 'ring-2 ring-green-600' : ''}`}>
                         {/* Group Image */}
                         <div className="relative h-48 bg-zinc-800">
                           <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent z-10" />
                           <div className="absolute inset-0 bg-green-600/20 opacity-0 group-hover:opacity-100 transition-opacity z-10" />
-                          <img
-                            src={group.image}
-                            alt={group.name}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                          />
+                          {(group.coverImage || group.logo) ? (
+                            <img
+                              src={group.coverImage || group.logo}
+                              alt={group.name}
+                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center">
+                              <Users className="h-16 w-16 text-zinc-700" />
+                            </div>
+                          )}
                           {/* Country badge */}
                           <div className="absolute top-4 right-4 z-20">
                             <span className="text-2xl">
-                              {countries.find((c) => c.code === group.countryCode)?.flag}
+                              {countryFlags[group.countryCode] || '🏳️'}
                             </span>
                           </div>
-                          {group.highlight && (
+                          {group.isFeatured && (
                             <div className="absolute top-4 left-4 z-20 px-2 py-1 rounded bg-green-600 text-white text-xs font-bold">
-                              Pioneer
+                              Featured
                             </div>
                           )}
                         </div>
@@ -299,19 +275,19 @@ export default function UltrasPage() {
                             <MapPin className="h-3 w-3" />
                             {group.city}, {group.country}
                           </div>
-                          <h3 className={`text-xl font-semibold mb-1 group-hover:text-green-500 transition-colors ${group.highlight ? 'text-green-500' : 'text-white'}`}>
+                          <h3 className={`text-xl font-semibold mb-1 group-hover:text-green-500 transition-colors ${group.isFeatured ? 'text-green-500' : 'text-white'}`}>
                             {group.name}
                           </h3>
                           <p className="text-sm text-zinc-400 mb-3">{group.club}</p>
                           <p className="text-sm text-zinc-500 mb-4 line-clamp-2">
-                            {group.description}
+                            {group.history?.substring(0, 100)}...
                           </p>
 
                           <div className="flex items-center justify-between text-xs text-zinc-500 pt-4 border-t border-zinc-800">
                             <div className="flex items-center gap-4">
                               <span className="flex items-center gap-1">
                                 <Users className="h-3.5 w-3.5" />
-                                {group.members} {t('members')}
+                                {group.membersEstimate || 'N/A'}
                               </span>
                               <span className="flex items-center gap-1">
                                 <Calendar className="h-3.5 w-3.5" />
