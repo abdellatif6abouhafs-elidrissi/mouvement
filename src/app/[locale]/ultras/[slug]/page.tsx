@@ -1,9 +1,10 @@
 'use client';
 
-import { useState, use } from 'react';
+import { useState, useEffect, use } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowLeft,
   MapPin,
@@ -40,6 +41,7 @@ export default function UltraGroupPage({ params }: PageProps) {
   const locale = useLocale();
   const [activeTab, setActiveTab] = useState<'history' | 'tifos' | 'gallery' | 'chants'>('history');
   const [liked, setLiked] = useState(false);
+  const [currentTifoIndex, setCurrentTifoIndex] = useState(0);
 
   const { data, isLoading, error } = useGroup(slug);
   const group = data?.group;
@@ -124,6 +126,17 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
     socialLinks: group.socialLinks || fallbackGroup.socialLinks,
   } : fallbackGroup;
 
+  // Auto-rotate tifos every 4 seconds
+  useEffect(() => {
+    if (!displayGroup?.tifos?.length) return;
+    const interval = setInterval(() => {
+      setCurrentTifoIndex((prev) => (prev + 1) % displayGroup.tifos.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [displayGroup?.tifos?.length]);
+
+  
+
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -135,14 +148,35 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[500px] overflow-hidden">
-        {/* Background Image */}
+      <section className="relative h-[70vh] min-h-[600px] overflow-hidden">
+        {/* Tifo Slideshow Background */}
         <div className="absolute inset-0">
-          <img
-            src={displayGroup.coverImage || displayGroup.logo}
-            alt={displayGroup.name}
-            className="w-full h-full object-cover"
-          />
+          <AnimatePresence mode="wait">
+            {displayGroup.tifos && displayGroup.tifos.length > 0 ? (
+              <motion.div
+                key={currentTifoIndex}
+                initial={{ opacity: 0, scale: 1.05 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.8 }}
+                className="absolute inset-0"
+              >
+                <img
+                  src={typeof displayGroup.tifos[currentTifoIndex] === 'string'
+                    ? displayGroup.tifos[currentTifoIndex]
+                    : displayGroup.tifos[currentTifoIndex]?.image || displayGroup.coverImage}
+                  alt={`${displayGroup.name} tifo`}
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+            ) : (
+              <img
+                src={displayGroup.coverImage || displayGroup.logo}
+                alt={displayGroup.name}
+                className="w-full h-full object-cover"
+              />
+            )}
+          </AnimatePresence>
           <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-transparent" />
         </div>
 
