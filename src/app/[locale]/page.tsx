@@ -19,6 +19,7 @@ import {
 import Button from '@/components/ui/Button';
 import Card, { CardContent } from '@/components/ui/Card';
 import { GroupOfWeek, TifoSpotlight, CulturalPoll } from '@/components/editorial';
+import CountUp from '@/components/ui/CountUp';
 
 const heroImages = [
   '/images/hero/hero-1.jpg',
@@ -112,10 +113,10 @@ export default function HomePage() {
   }, []);
 
   const stats = [
-    { value: '500+', label: tStats('groups'), icon: Users },
-    { value: '50+', label: tStats('countries'), icon: Globe },
-    { value: '1000+', label: tStats('articles'), icon: BookOpen },
-    { value: '100K+', label: tStats('community'), icon: Heart },
+    { value: 500, suffix: '+', label: tStats('groups'), icon: Users },
+    { value: 50, suffix: '+', label: tStats('countries'), icon: Globe },
+    { value: 1000, suffix: '+', label: tStats('articles'), icon: BookOpen },
+    { value: 100, suffix: 'K+', label: tStats('community'), icon: Heart },
   ];
 
   return (
@@ -202,7 +203,9 @@ export default function HomePage() {
                 className="p-6 rounded-2xl bg-white/80 dark:bg-zinc-900/50 border border-zinc-200 dark:border-zinc-800 backdrop-blur-sm shadow-sm dark:shadow-none"
               >
                 <stat.icon className="h-6 w-6 text-green-600 dark:text-green-500 mb-3 mx-auto" />
-                <div className="text-3xl font-bold text-zinc-900 dark:text-white mb-1">{stat.value}</div>
+                <div className="text-3xl font-bold text-zinc-900 dark:text-white mb-1">
+                  <CountUp end={stat.value} suffix={stat.suffix} duration={2500} />
+                </div>
                 <div className="text-zinc-600 dark:text-zinc-400 text-sm">{stat.label}</div>
               </div>
             ))}
