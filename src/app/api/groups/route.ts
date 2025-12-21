@@ -5,6 +5,9 @@ import { connectDB } from '@/lib/db';
 import UltraGroup from '@/models/UltraGroup';
 import { createGroupSchema, validateRequest } from '@/lib/validations';
 
+// Disable caching for this route
+export const dynamic = 'force-dynamic';
+
 // GET all groups with filtering and pagination
 export async function GET(request: NextRequest) {
   try {
