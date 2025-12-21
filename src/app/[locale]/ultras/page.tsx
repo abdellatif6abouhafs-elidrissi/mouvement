@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -101,17 +102,28 @@ export default function UltrasPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 hero-gradient">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative py-24 px-4 sm:px-6 lg:px-8 hero-gradient stadium-atmosphere overflow-hidden">
+        {/* Background effects */}
+        <div className="absolute inset-0 stadium-lights" />
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-green-600/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-green-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '200ms' }} />
+
+        <div className="relative max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-center"
           >
-            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-              {t('title')} <span className="gradient-text">{t('titleHighlight')}</span>
+            {/* Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-600/10 border border-green-600/20 text-green-500 text-sm font-medium mb-6">
+              <Flag className="h-4 w-4" />
+              {groups.length}+ {t('titleHighlight')}
+            </div>
+
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-4">
+              {t('title')} <span className="gradient-text neon-glow">{t('titleHighlight')}</span>
             </h1>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+            <p className="text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed">
               {t('subtitle')}
             </p>
           </motion.div>
@@ -243,58 +255,64 @@ export default function UltrasPage() {
                     <Link href={`/${locale}/ultras/${group.slug}`}>
                       <Card hoverable className={`h-full group ${group.isFeatured ? 'ring-2 ring-green-600' : ''}`}>
                         {/* Group Image */}
-                        <div className="relative h-48 bg-zinc-800">
-                          <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent z-10" />
-                          <div className="absolute inset-0 bg-green-600/20 opacity-0 group-hover:opacity-100 transition-opacity z-10" />
+                        <div className="relative h-52 bg-zinc-800 card-shine">
+                          <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/50 to-transparent z-10" />
+                          <div className="absolute inset-0 bg-green-600/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
                           {(group.coverImage || group.logo) ? (
-                            <img
-                              src={group.coverImage || group.logo}
-                              alt={group.name}
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            <Image
+                              src={group.coverImage || group.logo || '/images/groups/green-boys-2005.webp'}
+                              alt={`${group.name} - ${group.club} Ultra supporters`}
+                              fill
+                              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                              className="object-cover group-hover:scale-110 transition-transform duration-500"
+                              loading="lazy"
                             />
                           ) : (
-                            <div className="w-full h-full flex items-center justify-center">
-                              <Users className="h-16 w-16 text-zinc-700" />
+                            <div className="w-full h-full flex items-center justify-center stadium-atmosphere">
+                              <Users className="h-16 w-16 text-zinc-600" />
                             </div>
                           )}
                           {/* Country badge */}
-                          <div className="absolute top-4 right-4 z-20">
-                            <span className="text-2xl">
+                          <div className="absolute top-3 right-3 z-20 px-2 py-1 rounded-lg bg-black/50 backdrop-blur-sm border border-white/10">
+                            <span className="text-lg">
                               {countryFlags[group.countryCode] || '🏳️'}
                             </span>
                           </div>
+                          {/* Members badge */}
+                          {group.membersEstimate && (
+                            <div className="absolute bottom-3 right-3 z-20 px-2 py-1 rounded-lg bg-green-600/90 backdrop-blur-sm">
+                              <span className="text-xs font-medium text-white">{group.membersEstimate}</span>
+                            </div>
+                          )}
                           {group.isFeatured && (
-                            <div className="absolute top-4 left-4 z-20 px-2 py-1 rounded bg-green-600 text-white text-xs font-bold">
+                            <div className="absolute top-3 left-3 z-20 px-3 py-1.5 rounded-lg bg-gradient-to-r from-green-600 to-green-500 text-white text-xs font-bold shadow-lg">
                               Featured
                             </div>
                           )}
                         </div>
 
-                        <CardContent>
+                        <CardContent className="-mt-6 relative z-20">
                           <div className="flex items-center gap-2 text-xs text-zinc-500 mb-2">
-                            <MapPin className="h-3 w-3" />
+                            <MapPin className="h-3 w-3 text-green-500" />
                             {group.city}, {group.country}
                           </div>
-                          <h3 className={`text-xl font-semibold mb-1 group-hover:text-green-500 transition-colors ${group.isFeatured ? 'text-green-500' : 'text-white'}`}>
+                          <h3 className={`text-xl font-bold mb-1 group-hover:text-green-400 transition-colors ${group.isFeatured ? 'text-green-400' : 'text-white'}`}>
                             {group.name}
                           </h3>
-                          <p className="text-sm text-zinc-400 mb-3">{group.club}</p>
+                          <p className="text-sm text-zinc-400 mb-3 font-medium">{group.club}</p>
                           <p className="text-sm text-zinc-500 mb-4 line-clamp-2">
                             {group.history?.substring(0, 100)}...
                           </p>
 
-                          <div className="flex items-center justify-between text-xs text-zinc-500 pt-4 border-t border-zinc-800">
-                            <div className="flex items-center gap-4">
-                              <span className="flex items-center gap-1">
-                                <Users className="h-3.5 w-3.5" />
-                                {group.membersEstimate || 'N/A'}
-                              </span>
-                              <span className="flex items-center gap-1">
-                                <Calendar className="h-3.5 w-3.5" />
-                                {t('founded')} {group.yearFounded}
-                              </span>
+                          <div className="flex items-center justify-between text-xs pt-4 border-t border-zinc-800/50">
+                            <span className="flex items-center gap-1.5 text-zinc-400">
+                              <Calendar className="h-3.5 w-3.5 text-green-500" />
+                              {t('founded')} {group.yearFounded}
+                            </span>
+                            <div className="flex items-center gap-1 text-green-500 font-medium">
+                              <span>View</span>
+                              <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                             </div>
-                            <ArrowRight className="h-4 w-4 text-zinc-600 group-hover:text-green-500 transition-colors" />
                           </div>
                         </CardContent>
                       </Card>

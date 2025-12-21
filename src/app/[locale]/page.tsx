@@ -27,7 +27,9 @@ const featuredGroups = [
     country: 'Morocco',
     countryKey: 'morocco',
     image: '/images/groups/green-boys-2005.webp',
+    logo: '/images/logos/green-boys-2005-10.webp',
     members: '60K+',
+    color: 'from-green-600 to-green-800',
   },
   {
     id: 'curva-sud-milano',
@@ -36,16 +38,20 @@ const featuredGroups = [
     country: 'Italy',
     countryKey: 'italy',
     image: '/images/groups/curva-sud-milano.webp',
+    logo: '/images/logos/curva-sud-milano-6.webp',
     members: '100K+',
+    color: 'from-red-600 to-red-800',
   },
   {
-    id: 'yellow-wall',
-    name: 'Yellow Wall',
-    club: 'Borussia Dortmund',
-    country: 'Germany',
-    countryKey: 'germany',
-    image: '/images/groups/yellow-wall.webp',
-    members: '80K+',
+    id: 'curva-nord-inter',
+    name: 'Curva Nord Inter',
+    club: 'Inter Milan',
+    country: 'Italy',
+    countryKey: 'italy',
+    image: '/images/groups/curva-nord-inter-14.webp',
+    logo: '/images/logos/curva-nord-inter-4.webp',
+    members: '90K+',
+    color: 'from-blue-600 to-blue-800',
   },
   {
     id: 'la-12',
@@ -54,7 +60,31 @@ const featuredGroups = [
     country: 'Argentina',
     countryKey: 'argentina',
     image: '/images/groups/la-12.webp',
+    logo: '/images/groups/la-12.webp',
     members: '50K+',
+    color: 'from-yellow-500 to-blue-700',
+  },
+  {
+    id: 'brigade-oujda',
+    name: 'Brigade Oujda',
+    club: 'Mouloudia Oujda',
+    country: 'Morocco',
+    countryKey: 'morocco',
+    image: '/images/groups/brigade-oujda-3.webp',
+    logo: '/images/groups/brigade-oujda-3.webp',
+    members: '25K+',
+    color: 'from-orange-600 to-orange-800',
+  },
+  {
+    id: 'ultras-ahlawy',
+    name: 'Ultras Ahlawy',
+    club: 'Al Ahly',
+    country: 'Egypt',
+    countryKey: 'egypt',
+    image: '/images/groups/ultras-ahlawy.webp',
+    logo: '/images/groups/ultras-ahlawy.webp',
+    members: '80K+',
+    color: 'from-red-700 to-red-900',
   },
 ];
 
@@ -177,7 +207,7 @@ export default function HomePage() {
           </div>
 
           {/* Groups Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredGroups.map((group, index) => (
               <motion.div
                 key={group.id}
@@ -188,34 +218,45 @@ export default function HomePage() {
               >
                 <Link href={`/${locale}/ultras/${group.id}`}>
                   <Card hoverable className="group overflow-hidden">
-                    {/* Image */}
-                    <div className="relative h-48 bg-zinc-800">
-                      <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent z-10" />
-                      <div className="absolute inset-0 bg-green-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
+                    {/* Image with gradient overlay */}
+                    <div className="relative h-52 bg-zinc-800">
+                      <div className={`absolute inset-0 bg-gradient-to-br ${group.color} opacity-40 z-10`} />
+                      <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/50 to-transparent z-10" />
+                      <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
                       <Image
                         src={group.image}
                         alt={`${group.name} - ${group.club} Ultra supporters from ${group.country}`}
                         fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                        className="object-cover"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
                         loading="lazy"
                       />
+                      {/* Floating badge */}
+                      <div className="absolute top-3 right-3 z-20 px-2 py-1 rounded-full bg-black/50 backdrop-blur-sm border border-white/10">
+                        <span className="text-xs font-medium text-white">{group.members}</span>
+                      </div>
                     </div>
 
-                    <CardContent className="relative z-20 -mt-8">
-                      <div className="flex items-center gap-2 text-xs text-zinc-500 mb-2">
-                        <MapPin className="h-3 w-3" />
-                        {group.country}
+                    <CardContent className="relative z-20 -mt-10">
+                      {/* Country flag indicator */}
+                      <div className="flex items-center gap-2 mb-3">
+                        <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${group.color} flex items-center justify-center shadow-lg`}>
+                          <Flag className="h-4 w-4 text-white" />
+                        </div>
+                        <div className="flex items-center gap-1 text-xs text-zinc-400">
+                          <MapPin className="h-3 w-3" />
+                          {group.country}
+                        </div>
                       </div>
-                      <h3 className="text-lg font-semibold text-white mb-1">
+                      <h3 className="text-lg font-bold text-white mb-1 group-hover:text-green-400 transition-colors">
                         {group.name}
                       </h3>
                       <p className="text-sm text-zinc-400">{group.club}</p>
                       <div className="mt-4 flex items-center justify-between">
-                        <span className="text-xs text-zinc-500">
-                          {group.members} members
+                        <span className="text-xs text-green-500 font-medium">
+                          View Group
                         </span>
-                        <ArrowRight className="h-4 w-4 text-zinc-600 group-hover:text-green-500 transition-colors" />
+                        <ArrowRight className="h-4 w-4 text-green-500 group-hover:translate-x-1 transition-transform" />
                       </div>
                     </CardContent>
                   </Card>
