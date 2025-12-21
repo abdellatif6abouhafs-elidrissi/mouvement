@@ -33,7 +33,7 @@ const defaultTifo = {
   description: 'A spectacular tifo covering the entire North Stand, featuring a massive eagle emerging from green flames - celebrating 18 years of Ultra passion.',
   views: '245K',
   likes: '89K',
-  image: '/images/tifos/tifo-1.webp',
+  image: '/images/tifos/tifo-spotlight.jpg',
   videoUrl: '/videos/tifo-spotlight.mp4',
 };
 
@@ -58,9 +58,11 @@ export default function TifoSpotlight({ tifo = defaultTifo }: TifoSpotlightProps
         {/* Image/Video */}
         <div className="relative h-80 bg-zinc-800">
           <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/50 to-transparent z-10" />
-          <div className="w-full h-full bg-gradient-to-br from-green-600/20 to-zinc-800 flex items-center justify-center">
-            <Palette className="h-24 w-24 text-zinc-700" />
-          </div>
+          <img
+            src={tifo.image}
+            alt={tifo.title}
+            className="w-full h-full object-cover"
+          />
 
           {/* Play Button */}
           {tifo.videoUrl && (
