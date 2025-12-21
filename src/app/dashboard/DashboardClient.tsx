@@ -72,7 +72,7 @@ export default function DashboardClient({
         <div className="h-16 flex items-center justify-between px-4 border-b border-zinc-800">
           {!sidebarCollapsed && (
             <Link href="/dashboard" className="flex items-center gap-2">
-              <img src="/logo.svg" alt="Mouvement" className="w-8 h-8" />
+              <img src="/logo.jpg" alt="Mouvement" className="w-8 h-8 rounded" />
               <span className="text-lg font-bold text-white">Admin</span>
             </Link>
           )}

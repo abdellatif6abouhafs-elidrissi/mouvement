@@ -84,7 +84,7 @@ export default function Header() {
             aria-label="Mouvement - Go to homepage"
           >
             <Image
-              src="/logo.svg"
+              src="/logo.jpg"
               alt="Mouvement Logo - Ultra Culture Platform"
               width={40}
               height={40}
