@@ -336,16 +336,19 @@ export default function HomePage() {
                 title: 'The Art of Tifo: A Visual Revolution',
                 category: 'Culture',
                 readTime: '8 min',
+                image: '/images/articles/article-1.jpg',
               },
               {
                 title: 'South American Passion: Barra Bravas History',
                 category: 'History',
                 readTime: '12 min',
+                image: '/images/articles/article-2.jpg',
               },
               {
                 title: 'Interview: Leaders of the Curva Nord',
                 category: 'Interview',
                 readTime: '15 min',
+                image: '/images/articles/article-3.jpg',
               },
             ].map((article, index) => (
               <motion.article
@@ -358,11 +361,13 @@ export default function HomePage() {
               >
                 <Card hoverable className="h-full">
                   {/* Image */}
-                  <div className="relative h-56 bg-zinc-200 dark:bg-zinc-800">
+                  <div className="relative h-56 bg-zinc-200 dark:bg-zinc-800 overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-zinc-900 to-transparent z-10" />
-                    <div className="w-full h-full bg-gradient-to-br from-zinc-200 to-zinc-300 dark:from-zinc-800 dark:to-zinc-900 flex items-center justify-center">
-                      <BookOpen className="h-12 w-12 text-zinc-400 dark:text-zinc-700" />
-                    </div>
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
                     {/* Category Badge */}
                     <div className="absolute top-4 left-4 z-20">
                       <span className="px-3 py-1 rounded-full bg-green-600/90 text-white text-xs font-medium">
