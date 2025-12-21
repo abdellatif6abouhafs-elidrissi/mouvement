@@ -14,7 +14,7 @@ import dynamic from 'next/dynamic';
 const InteractiveMap = dynamic(() => import('@/components/map/InteractiveMap'), {
   ssr: false,
   loading: () => (
-    <div className="w-full h-[600px] rounded-2xl bg-zinc-900 flex items-center justify-center">
+    <div className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-2xl bg-zinc-900 flex items-center justify-center">
       <div className="flex flex-col items-center gap-3">
         <div className="w-8 h-8 border-2 border-green-500 border-t-transparent rounded-full animate-spin" />
         <span className="text-zinc-400">Loading map...</span>
@@ -163,7 +163,7 @@ function MapPageContent() {
           animate={{ opacity: 1, y: 0 }}
         >
           {isLoading ? (
-            <div className="w-full h-[600px] rounded-2xl bg-zinc-900 flex items-center justify-center">
+            <div className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-2xl bg-zinc-900 flex items-center justify-center">
               <div className="flex flex-col items-center gap-3">
                 <div className="w-8 h-8 border-2 border-green-500 border-t-transparent rounded-full animate-spin" />
                 <span className="text-zinc-400">

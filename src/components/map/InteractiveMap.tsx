@@ -136,7 +136,7 @@ export default function InteractiveMap({ groups, selectedSlug, className = '' }:
       {/* Map Container */}
       <div
         ref={mapRef}
-        className="w-full h-[500px] md:h-[600px] rounded-2xl overflow-hidden bg-zinc-900"
+        className="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] rounded-2xl overflow-hidden bg-zinc-900"
         style={{ zIndex: 1 }}
       />
 

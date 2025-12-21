@@ -336,7 +336,7 @@ export default function UltrasPage() {
             </>
           ) : (
             /* Map View */
-            <div className="rounded-2xl bg-zinc-900 border border-zinc-800 h-[600px] flex items-center justify-center">
+            <div className="rounded-2xl bg-zinc-900 border border-zinc-800 h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center">
               <div className="text-center">
                 <Map className="h-16 w-16 text-zinc-700 mx-auto mb-4" />
                 <h3 className="text-xl font-semibold text-white mb-2">

@@ -207,7 +207,7 @@ The story of GREEN BOYS is not just about football – it's about youth, creativ
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[50vh] min-h-[400px] overflow-hidden">
+      <section className="relative h-[40vh] sm:h-[45vh] lg:h-[50vh] min-h-[280px] sm:min-h-[320px] lg:min-h-[400px] overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img

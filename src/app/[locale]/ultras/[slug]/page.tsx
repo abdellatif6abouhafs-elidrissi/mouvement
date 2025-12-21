@@ -148,7 +148,7 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[70vh] min-h-[600px] overflow-hidden">
+      <section className="relative h-[50vh] sm:h-[60vh] lg:h-[70vh] min-h-[350px] sm:min-h-[400px] lg:min-h-[500px] overflow-hidden">
         {/* Tifo Slideshow Background */}
         <div className="absolute inset-0">
           <AnimatePresence mode="wait">

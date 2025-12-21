@@ -103,7 +103,7 @@ export default function HomePage() {
   return (
     <div className="relative">
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-zinc-50 dark:bg-transparent">
+      <section className="relative min-h-[70vh] sm:min-h-[80vh] lg:min-h-[90vh] flex items-center justify-center overflow-hidden bg-zinc-50 dark:bg-transparent">
         {/* Background */}
         <div className="absolute inset-0 hero-gradient" />
         <div className="absolute inset-0 bg-[url('/images/hero-pattern.svg')] opacity-5" />
