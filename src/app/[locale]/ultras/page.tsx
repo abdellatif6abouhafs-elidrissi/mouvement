@@ -61,7 +61,7 @@ export default function UltrasPage() {
   useEffect(() => {
     const fetchGroups = async () => {
       try {
-        const response = await fetch('/api/groups?limit=200');
+        const response = await fetch('/api/groups?limit=250');
         const data = await response.json();
         if (data.groups) {
           setGroups(data.groups);
