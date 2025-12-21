@@ -25,7 +25,7 @@ interface GroupOfWeekProps {
 const defaultGroup = {
   id: '1',
   name: 'GREEN BOYS 2005',
-  slug: 'green-boys',
+  slug: 'green-boys-2005',
   club: 'Raja Casablanca',
   country: 'Morocco',
   countryFlag: '🇲🇦',
