@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
@@ -41,7 +41,7 @@ interface UltraGroup {
   };
 }
 
-export default function MapPage() {
+function MapPageContent() {
   const t = useTranslations('ultras');
   const locale = useLocale();
   const [groups, setGroups] = useState<UltraGroup[]>([]);
@@ -236,5 +236,17 @@ export default function MapPage() {
         </motion.div>
       </main>
     </div>
+  );
+}
+
+export default function MapPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-zinc-950 flex items-center justify-center">
+        <div className="w-8 h-8 border-2 border-green-500 border-t-transparent rounded-full animate-spin" />
+      </div>
+    }>
+      <MapPageContent />
+    </Suspense>
   );
 }
