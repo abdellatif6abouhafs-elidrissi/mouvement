@@ -110,7 +110,19 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
     isFeatured: true,
   };
 
-  const displayGroup = group || fallbackGroup;
+  // Merge group data with fallback to ensure all required fields exist
+  const displayGroup = group ? {
+    ...fallbackGroup,
+    ...group,
+    // Ensure arrays are never undefined
+    values: group.values?.length ? group.values : fallbackGroup.values,
+    colors: group.colors?.length ? group.colors : fallbackGroup.colors,
+    symbols: group.symbols?.length ? group.symbols : fallbackGroup.symbols,
+    tifos: group.tifos?.length ? group.tifos : fallbackGroup.tifos,
+    gallery: group.gallery?.length ? group.gallery : fallbackGroup.gallery,
+    // Ensure socialLinks is never undefined
+    socialLinks: group.socialLinks || fallbackGroup.socialLinks,
+  } : fallbackGroup;
 
   if (isLoading) {
     return (
@@ -185,7 +197,7 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
               </span>
               <span className="flex items-center gap-2">
                 <Users className="h-5 w-5" />
-                {displayGroup.membersEstimate} members
+                {displayGroup.membersEstimate || 'N/A'} members
               </span>
             </div>
 
@@ -196,14 +208,14 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
                 leftIcon={<Heart className={`h-5 w-5 ${liked ? 'fill-current' : ''}`} />}
                 onClick={() => setLiked(!liked)}
               >
-                {liked ? 'Liked' : 'Like'} ({(displayGroup.likes / 1000).toFixed(0)}K)
+                {liked ? 'Liked' : 'Like'} ({((displayGroup.likes || 0) / 1000).toFixed(0)}K)
               </Button>
               <Button variant="outline" leftIcon={<Share2 className="h-5 w-5" />}>
                 Share
               </Button>
               <div className="flex items-center gap-2 text-zinc-400 ml-auto">
                 <Eye className="h-5 w-5" />
-                <span>{(displayGroup.views / 1000).toFixed(0)}K views</span>
+                <span>{((displayGroup.views || 0) / 1000).toFixed(0)}K views</span>
               </div>
             </div>
           </motion.div>
@@ -255,7 +267,7 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
 
                   {/* History Text */}
                   <div className="prose prose-invert prose-green max-w-none">
-                    {displayGroup.history.split('\n\n').map((paragraph, index) => (
+                    {(displayGroup.history || '').split('\n\n').map((paragraph, index) => (
                       <p key={index} className="text-zinc-300 leading-relaxed mb-4">
                         {paragraph}
                       </p>
@@ -401,7 +413,7 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-zinc-400">Stadium</span>
-                    <span className="text-white font-medium">{displayGroup.stadium}</span>
+                    <span className="text-white font-medium">{displayGroup.stadium || 'N/A'}</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-zinc-400">Founded</span>
@@ -409,12 +421,14 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-zinc-400">Members</span>
-                    <span className="text-white font-medium">{displayGroup.membersEstimate}</span>
+                    <span className="text-white font-medium">{displayGroup.membersEstimate || 'N/A'}</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-zinc-400">Country</span>
                     <span className="text-white font-medium flex items-center gap-2">
-                      <span className={`fi fi-${displayGroup.countryCode.toLowerCase()}`} />
+                      {displayGroup.countryCode && (
+                        <span className={`fi fi-${displayGroup.countryCode.toLowerCase()}`} />
+                      )}
                       {displayGroup.country}
                     </span>
                   </div>
@@ -483,7 +497,7 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
                   <Globe className="h-12 w-12 text-zinc-700" />
                 </div>
                 <p className="text-zinc-400 text-sm">
-                  {displayGroup.stadium}, {displayGroup.city}
+                  {displayGroup.stadium ? `${displayGroup.stadium}, ` : ''}{displayGroup.city}
                 </p>
                 <Link href={`/${locale}/map?group=${displayGroup.slug}`}>
                   <Button variant="outline" size="sm" className="w-full mt-4" rightIcon={<ChevronRight className="h-4 w-4" />}>
