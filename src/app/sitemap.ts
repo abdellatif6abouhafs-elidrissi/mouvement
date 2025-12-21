@@ -43,7 +43,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Try to fetch dynamic content from API
   try {
     // Fetch Ultra Groups
-    const groupsRes = await fetch(`${BASE_URL}/api/groups?limit=100`, {
+    const groupsRes = await fetch(`${BASE_URL}/api/groups?limit=200`, {
       next: { revalidate: 3600 }
     });
     if (groupsRes.ok) {
@@ -73,7 +73,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   try {
     // Fetch Articles
-    const articlesRes = await fetch(`${BASE_URL}/api/articles?limit=100&status=published`, {
+    const articlesRes = await fetch(`${BASE_URL}/api/articles?limit=200&status=published`, {
       next: { revalidate: 3600 }
     });
     if (articlesRes.ok) {
