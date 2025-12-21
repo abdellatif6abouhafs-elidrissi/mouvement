@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useSession, signOut } from 'next-auth/react';
 import { useTranslations, useLocale } from 'next-intl';
@@ -77,8 +78,19 @@ export default function Header() {
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href={`/${locale}`} className="flex items-center gap-2">
-            <img src="/logo.svg" alt="Mouvement" className="w-10 h-10" />
+          <Link
+            href={`/${locale}`}
+            className="flex items-center gap-2"
+            aria-label="Mouvement - Go to homepage"
+          >
+            <Image
+              src="/logo.svg"
+              alt="Mouvement Logo - Ultra Culture Platform"
+              width={40}
+              height={40}
+              priority
+              className="w-10 h-10"
+            />
             <span className="text-xl font-bold text-white hidden sm:block">
               Mouvement
             </span>

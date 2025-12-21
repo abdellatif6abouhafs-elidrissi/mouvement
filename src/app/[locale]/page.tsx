@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import {
@@ -191,10 +192,13 @@ export default function HomePage() {
                     <div className="relative h-48 bg-zinc-800">
                       <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent z-10" />
                       <div className="absolute inset-0 bg-green-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10" />
-                      <img
+                      <Image
                         src={group.image}
-                        alt={group.name}
-                        className="w-full h-full object-cover"
+                        alt={`${group.name} - ${group.club} Ultra supporters from ${group.country}`}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        className="object-cover"
+                        loading="lazy"
                       />
                     </div>
 

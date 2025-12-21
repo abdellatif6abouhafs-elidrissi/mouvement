@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next';
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://mouvement.vercel.app';
+const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://mouvement-liart.vercel.app';
 const locales = ['en', 'fr', 'ar', 'it', 'es', 'pt-br'];
 
 // Static pages

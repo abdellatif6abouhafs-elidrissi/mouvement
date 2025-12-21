@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLocale, useTranslations } from 'next-intl';
 import {
   Instagram,
@@ -52,8 +53,14 @@ export default function Footer() {
         <div className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href={`/${locale}`} className="flex items-center gap-2">
-              <img src="/logo.svg" alt="Mouvement" className="w-10 h-10" />
+            <Link href={`/${locale}`} className="flex items-center gap-2" aria-label="Mouvement - Home">
+              <Image
+                src="/logo.svg"
+                alt="Mouvement Logo"
+                width={40}
+                height={40}
+                className="w-10 h-10"
+              />
               <span className="text-xl font-bold text-white">Mouvement</span>
             </Link>
             <p className="mt-4 text-zinc-400 text-sm leading-relaxed">
