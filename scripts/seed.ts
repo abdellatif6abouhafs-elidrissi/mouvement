@@ -75,7 +75,7 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
         colors: ['Green', 'White'],
         symbols: ['Eagle', 'Crown', 'Stars'],
         logo: '/images/groups/green-boys-2005.webp',
-        coverImage: '/images/heroes/hero-1.webp',
+        coverImage: '/images/groups/green-ultras.jpg',
         membersEstimate: '60K+',
         stadium: 'Stade Mohammed V',
         socialLinks: {
@@ -94,8 +94,9 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
           },
         ],
         gallery: [
-          { type: 'image', url: '/images/gallery/gallery-1.webp', caption: 'Match atmosphere' },
-          { type: 'image', url: '/images/gallery/gallery-2.webp', caption: 'Tifo preparation' },
+          { type: 'image', url: '/images/gallery/fans-flags.jpg', caption: 'Match atmosphere' },
+          { type: 'image', url: '/images/gallery/celebration.jpg', caption: 'Celebration' },
+          { type: 'image', url: '/images/gallery/soccer-stadium.jpg', caption: 'Stadium view' },
         ],
         coordinates: { lat: 33.5731, lng: -7.5898 },
         views: 125000,
@@ -121,7 +122,7 @@ The group is known for their spectacular tifos, passionate chants, and unwaverin
         colors: ['Red', 'Black'],
         symbols: ['Devil', 'Cross of Saint George'],
         logo: '/images/groups/curva-sud-milano.webp',
-        coverImage: '/images/heroes/hero-2.webp',
+        coverImage: '/images/groups/san-siro.jpg',
         membersEstimate: '100K+',
         stadium: 'San Siro',
         socialLinks: {
@@ -163,7 +164,7 @@ The atmosphere created by the Yellow Wall is legendary in world football, with c
         colors: ['Yellow', 'Black'],
         symbols: ['Bee', 'BVB'],
         logo: '/images/groups/yellow-wall.webp',
-        coverImage: '/images/heroes/hero-3.webp',
+        coverImage: '/images/groups/yellow-ultras.jpg',
         membersEstimate: '80K+',
         stadium: 'Signal Iduna Park',
         socialLinks: {
@@ -197,7 +198,7 @@ La Bombonera, their home stadium, is known as one of the most intimidating venue
         colors: ['Blue', 'Yellow'],
         symbols: ['Xeneize'],
         logo: '/images/groups/la-12.webp',
-        coverImage: '/images/heroes/hero-4.webp',
+        coverImage: '/images/groups/south-american.jpg',
         membersEstimate: '70K+',
         stadium: 'La Bombonera',
         socialLinks: {},
@@ -230,7 +231,7 @@ Despite challenges, Ultras Ahlawy remains a symbol of passionate support and has
         colors: ['Red', 'White'],
         symbols: ['Eagle', 'Devil'],
         logo: '/images/groups/ultras-ahlawy.webp',
-        coverImage: '/images/heroes/hero-crowd.webp',
+        coverImage: '/images/groups/red-ultras.jpg',
         membersEstimate: '80K+',
         stadium: 'Cairo International Stadium',
         socialLinks: {
@@ -263,7 +264,7 @@ Known for their rendition of "You'll Never Walk Alone", The Kop has created some
         colors: ['Red'],
         symbols: ['Liver Bird', 'Shankly Gates'],
         logo: '/images/groups/the-kop.webp',
-        coverImage: '/images/heroes/hero-stadium.webp',
+        coverImage: '/images/heroes/stadium-atmosphere.jpg',
         membersEstimate: '50K+',
         stadium: 'Anfield',
         socialLinks: {
@@ -295,7 +296,7 @@ Known for their incredible choreographies, non-stop chanting, and passionate dis
         colors: ['Red', 'Yellow'],
         symbols: ['Lion'],
         logo: '/images/groups/ultraslan.webp',
-        coverImage: '/images/heroes/hero-flares.webp',
+        coverImage: '/images/heroes/night-flares.jpg',
         membersEstimate: '120K+',
         stadium: 'Türk Telekom Stadium',
         socialLinks: {
@@ -328,7 +329,7 @@ The group has played a crucial role in Corinthians' identity and has been instru
         colors: ['Black', 'White'],
         symbols: ['Hawk'],
         logo: '/images/groups/gavioes-da-fiel.webp',
-        coverImage: '/images/heroes/hero-crowd.webp',
+        coverImage: '/images/heroes/football-crowd.jpg',
         membersEstimate: '150K+',
         stadium: 'Arena Corinthians',
         socialLinks: {
@@ -360,7 +361,7 @@ Known for their creative tifos, passionate chants in Darija (Moroccan Arabic), a
         colors: ['Red', 'White'],
         symbols: ['Eagle'],
         logo: '/images/groups/wydad-winners.webp',
-        coverImage: '/images/heroes/hero-flares.webp',
+        coverImage: '/images/tifos/tifo-fans.jpg',
         membersEstimate: '55K+',
         stadium: 'Stade Mohammed V',
         socialLinks: {
@@ -393,7 +394,7 @@ They are known for their passionate support, massive banners, and the famous "Ma
         colors: ['Yellow', 'Black'],
         symbols: ['Bull'],
         logo: '/images/groups/sur-oscura.webp',
-        coverImage: '/images/heroes/hero-stadium.webp',
+        coverImage: '/images/heroes/fans-celebrating.jpg',
         membersEstimate: '40K+',
         stadium: 'Estadio Monumental',
         socialLinks: {},
@@ -961,7 +962,7 @@ The founders of GREEN BOYS had witnessed the incredible atmospheres created by I
 ## Legacy and Future
 
 Today, GREEN BOYS 2005 remains at the forefront of African Ultra culture. They continue to innovate, to inspire, and to show the world that the passion for football knows no boundaries.`,
-        coverImage: '/images/articles/article-1.webp',
+        coverImage: '/images/articles/article-ultra.jpg',
         category: 'history',
         tags: ['Morocco', 'Raja Casablanca', 'GREEN BOYS 2005', 'North Africa', 'Pioneers'],
         author: contributorUser._id,
