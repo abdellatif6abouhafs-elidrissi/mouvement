@@ -234,5 +234,15 @@
       "description": "Algo deu errado. Por favor, tente novamente mais tarde.",
       "backHome": "Voltar ao Início"
     }
+  },
+  "editorial": {
+    "groupOfWeek": "Grupo da Semana",
+    "culturalPoll": "Enquete Cultural",
+    "thisWeek": "Esta Semana",
+    "voteNow": "Vote Agora",
+    "previousWinners": "Vencedores Anteriores",
+    "tifoSpotlight": "Tifo em Destaque",
+    "viewDetails": "Ver Detalhes",
+    "votes": "votos"
   }
 }

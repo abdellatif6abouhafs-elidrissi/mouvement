@@ -234,5 +234,15 @@
       "description": "Quelque chose s'est mal passé. Veuillez réessayer plus tard.",
       "backHome": "Retour à l'Accueil"
     }
+  },
+  "editorial": {
+    "groupOfWeek": "Groupe de la Semaine",
+    "culturalPoll": "Sondage Culturel",
+    "thisWeek": "Cette Semaine",
+    "voteNow": "Voter Maintenant",
+    "previousWinners": "Gagnants Précédents",
+    "tifoSpotlight": "Tifo en Vedette",
+    "viewDetails": "Voir les Détails",
+    "votes": "votes"
   }
 }

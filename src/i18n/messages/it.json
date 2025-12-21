@@ -216,5 +216,15 @@
     "title": "MOUVEMENT - La Cultura della Passione",
     "description": "Cultura Ultra mondiale.",
     "keywords": "ultras, tifo, tifosi"
+  },
+  "editorial": {
+    "groupOfWeek": "Gruppo della Settimana",
+    "culturalPoll": "Sondaggio Culturale",
+    "thisWeek": "Questa Settimana",
+    "voteNow": "Vota Ora",
+    "previousWinners": "Vincitori Precedenti",
+    "tifoSpotlight": "Tifo in Evidenza",
+    "viewDetails": "Vedi Dettagli",
+    "votes": "voti"
   }
 }

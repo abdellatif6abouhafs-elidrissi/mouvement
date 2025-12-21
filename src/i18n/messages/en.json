@@ -257,5 +257,15 @@
     "title": "MOUVEMENT - The Culture of Passion",
     "description": "Discover the art, history, and spirit of Ultra culture worldwide. Explore groups, tifos, chants, and the global movement.",
     "keywords": "ultras, tifo, football supporters, curva, barra brava, supporter culture"
+  },
+  "editorial": {
+    "groupOfWeek": "Group of the Week",
+    "culturalPoll": "Cultural Poll",
+    "thisWeek": "This Week",
+    "voteNow": "Vote Now",
+    "previousWinners": "Previous Winners",
+    "tifoSpotlight": "Tifo Spotlight",
+    "viewDetails": "View Details",
+    "votes": "votes"
   }
 }
