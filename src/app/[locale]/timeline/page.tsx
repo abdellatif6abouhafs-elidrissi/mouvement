@@ -9,75 +9,196 @@ import Button from '@/components/ui/Button';
 const timelineEvents = [
   {
     id: 1,
-    year: 1968,
-    region: 'europe',
-    title: 'Birth of the Ultras Movement',
-    titleKey: 'birth',
-    location: 'Milan, Italy',
-    description: 'The first organized Ultra groups emerge in Italian football stadiums, establishing the foundations of modern supporter culture.',
-    image: '/images/timeline/1968-milan.webp',
-    group: 'Fossa dei Leoni',
+    year: 1950,
+    region: 'southAmerica',
+    title: {
+      en: 'Origins of Organized Fan Gangs in South America',
+      ar: 'أصول حركة المشجعين المنظمين في أمريكا الجنوبية'
+    },
+    location: {
+      en: 'Brazil & Argentina',
+      ar: 'البرازيل والأرجنتين'
+    },
+    description: {
+      en: "Origins of organized fan gangs in South America (Brazil's first torcida and Argentina's barras bravas). Impact: Influential fan-support style globally.",
+      ar: 'أصول حركة المشجعين المنظمين في أمريكا الجنوبية، مع تأسيس أول توريـسـيـدا برازيلية وأول بارّاس برفاس أرجنتينية. تأثير: مدرسة دعم جماهيري مؤثرة عالمياً.'
+    },
+    image: '/images/timeline/1950-southamerica.jpg',
+    group: 'Torcida / Barras Bravas',
   },
   {
     id: 2,
-    year: 1969,
+    year: 1960,
     region: 'europe',
-    title: 'Curva Sud Milano Founded',
-    location: 'Milan, Italy',
-    description: 'AC Milan supporters form Curva Sud, one of the most influential Ultra groups in history.',
-    image: '/images/timeline/1968-milan.webp',
-    group: 'Curva Sud Milano',
+    title: {
+      en: 'First Ultras Groups Formed in Italy',
+      ar: 'ولادة أول مجموعات الألتراس في إيطاليا'
+    },
+    location: {
+      en: 'Milan, Italy',
+      ar: 'ميلانو، إيطاليا'
+    },
+    description: {
+      en: "First ultras groups formed in Italy (e.g. Milan's Fossa dei Leoni in 1968). Spawned the modern ultras style in world football.",
+      ar: 'ولدت مجموعات الألتراس الأولى في الملاعب الإيطالية (مثلاً "فوسا دي ليوني" بميلان 1968). أثرت هذه الحركة على تشكيل نمط ألتراس جديد عالمياً.'
+    },
+    image: '/images/timeline/1960-italy.jpg',
+    group: 'Fossa dei Leoni',
+    highlight: true,
   },
   {
     id: 3,
-    year: 1973,
-    region: 'southAmerica',
-    title: 'Barra Bravas Take Shape',
-    location: 'Buenos Aires, Argentina',
-    description: 'Argentine supporter groups evolve into organized Barra Bravas, developing their unique style of passion.',
-    image: '/images/timeline/1970-argentina.webp',
-    group: 'La 12',
+    year: 1984,
+    region: 'europe',
+    title: {
+      en: "Formation of Marseille's First Ultras Group",
+      ar: 'تشكيل أول مجموعة ألتراس في مارسيليا'
+    },
+    location: {
+      en: 'Marseille, France',
+      ar: 'مارسيليا، فرنسا'
+    },
+    description: {
+      en: "Formation of Marseille's first ultras group (Commando Ultra '84). Helped spread ultras culture beyond Italy.",
+      ar: 'تشكلت أول مجموعة ألتراس في نادي مارسيليا الفرنسي باسم "Commando Ultra \'84". ساعد ذلك في انتشار ثقافة الألتراس في أوروبا الغربية.'
+    },
+    image: '/images/timeline/1984-france.jpg',
+    group: "Commando Ultra '84",
   },
   {
     id: 4,
-    year: 1990,
+    year: 1985,
     region: 'europe',
-    title: 'Yellow Wall Phenomenon',
-    location: 'Dortmund, Germany',
-    description: 'Borussia Dortmund\'s Südtribüne becomes the largest standing terrace in European football.',
-    image: '/images/timeline/1980-europe.webp',
-    group: 'Yellow Wall',
+    title: {
+      en: 'First German Ultras Group',
+      ar: 'أول فرع للألتراس الألمانية'
+    },
+    location: {
+      en: 'Saarbrücken, Germany',
+      ar: 'ساربروكن، ألمانيا'
+    },
+    description: {
+      en: 'First German ultras group (Ultras 85 of 1. FC Saarbrücken). Marked the start of organized ultras in Germany.',
+      ar: 'تأسس أول فرع للألتراس الألمانية باسم "Ultras 85" مع فريق 1. FC Saarbrücken. بداية حركة ألتراس منظمة في ألمانيا.'
+    },
+    image: '/images/timeline/1985-germany.jpg',
+    group: 'Ultras 85',
   },
   {
     id: 5,
+    year: 1990,
+    region: 'europe',
+    title: {
+      en: 'Ultras Culture in the Balkans',
+      ar: 'انتشار ثقافة الألتراس في البلقان'
+    },
+    location: {
+      en: 'Split, Croatia',
+      ar: 'سبليت، كرواتيا'
+    },
+    description: {
+      en: "Ultras culture was present in the Balkans as well (e.g. Hajduk Split's Torcida founded in 1950). Continuation of organized fan culture in the region.",
+      ar: 'انتشرت ثقافة الألتراس في البلقان أيضاً؛ فمثلاً تأسست تورسيدا سبلت بكرواتيا في 1950 (أقدم مجموعة مشجعين في أوروبا). استمرت ثقافة المشجعين المنظمين وتطورت هناك.'
+    },
+    image: '/images/timeline/1990-balkans.jpg',
+    group: 'Torcida Split',
+  },
+  {
+    id: 6,
+    year: 2000,
+    region: 'northAfrica',
+    title: {
+      en: 'Ultras Begin Forming in North Africa',
+      ar: 'بداية ظهور مجموعات ألتراس شمال إفريقيا'
+    },
+    location: {
+      en: 'Tunisia & Morocco',
+      ar: 'تونس والمغرب'
+    },
+    description: {
+      en: 'Ultras began forming in North Africa (Tunisia, Morocco) around 2000. Created new charged atmospheres in stadiums.',
+      ar: 'بدأت مجموعات ألتراس شمال إفريقيا تظهر بوضوح في تونس والمغرب مع مطلع الألفية الجديدة. خلق ذلك أجواء مدرجية حماسية جديدة.'
+    },
+    image: '/images/timeline/2000-northafrica.jpg',
+    group: 'North African Ultras',
+  },
+  {
+    id: 7,
     year: 2005,
     region: 'northAfrica',
-    title: 'GREEN BOYS 2005 - Morocco\'s First Ultras',
-    location: 'Casablanca, Morocco',
-    description: 'GREEN BOYS 2005 becomes the first Ultra group in Morocco, pioneering the North African Ultra movement for Raja Casablanca.',
-    image: '/images/timeline/2000-africa.webp',
+    title: {
+      en: "Morocco's First Ultras - GREEN BOYS 2005",
+      ar: 'تأسيس أول فرقة ألتراس مغربية - الجرين بويز'
+    },
+    location: {
+      en: 'Casablanca, Morocco',
+      ar: 'الدار البيضاء، المغرب'
+    },
+    description: {
+      en: "Formation of Morocco's first ultras (Green Boys of Raja Casablanca in 2005). Official launch of ultras culture in Morocco.",
+      ar: 'تأسست أول فرقة ألتراس مغربية باسم "الجرين بويز" مع نادي الرجاء البيضاوي. انطلاقة رسمية لثقافة الألتراس في المغرب.'
+    },
+    image: '/images/timeline/2005-morocco.jpg',
     group: 'GREEN BOYS 2005',
     highlight: true,
   },
   {
-    id: 6,
-    year: 2007,
+    id: 8,
+    year: 2011,
     region: 'northAfrica',
-    title: 'Ultras Movement Spreads in Africa',
-    location: 'Cairo, Egypt',
-    description: 'Egyptian Ultras emerge, inspired by North African pioneers, creating some of the most passionate supporter groups.',
-    image: '/images/timeline/2000-africa.webp',
-    group: 'Ultras Ahlawy',
+    title: {
+      en: 'Arab Spring - Ultras as Socio-Political Actors',
+      ar: 'ثورات الربيع العربي - الألتراس كقوة اجتماعية'
+    },
+    location: {
+      en: 'Egypt & Tunisia',
+      ar: 'مصر وتونس'
+    },
+    description: {
+      en: "Ultras groups played key roles in Egypt's Jan 25 Revolution and Tunisian protests (2011). Cementing their role as socio-political actors.",
+      ar: 'شارك ألتراس بشكل بارز في ثورات مصر وتونس (ثورة 25 يناير 2011) واحتجاجات المجتمع المدني في المنطقة. حازوا على مصداقية كقوة ضغط اجتماعية وسياسية.'
+    },
+    image: '/images/timeline/2011-arabspring.jpg',
+    group: 'Ultras Ahlawy / Winners',
+    highlight: true,
   },
   {
-    id: 7,
-    year: 2010,
-    region: 'asia',
-    title: 'Ultra Culture Reaches Asia',
-    location: 'Jakarta, Indonesia',
-    description: 'Indonesian supporters adopt Ultra traditions, creating vibrant atmospheres in Southeast Asian stadiums.',
-    image: '/images/timeline/1980-europe.webp',
-    group: 'The Jakmania',
+    id: 9,
+    year: 2016,
+    region: 'northAfrica',
+    title: {
+      en: 'Hirak Rif - Ultras Lead Protests',
+      ar: 'حراك الريف - الألتراس يقودون الاحتجاجات'
+    },
+    location: {
+      en: 'Al Hoceima, Morocco',
+      ar: 'الحسيمة، المغرب'
+    },
+    description: {
+      en: 'Ultras (Chabab Rif Al Hoceima) helped lead the Hirak Rif protests for local rights. Leveraged their social capital for local rights.',
+      ar: 'أدّت مجموعة "شباب الريف" الألتراس دوراً قيادياً في احتجاجات حراك الريف المطالبة بالحقوق المدنية. استغلوا رأس مالهم الاجتماعي للمطالبة بحقوق شعبهم.'
+    },
+    image: '/images/timeline/2016-hirak.jpg',
+    group: 'Chabab Rif',
+  },
+  {
+    id: 10,
+    year: 2020,
+    region: 'global',
+    title: {
+      en: 'Cultural Shift - Community & Art Initiatives',
+      ar: 'التّحول الثقافي - المبادرات المجتمعية والفنية'
+    },
+    location: {
+      en: 'Worldwide',
+      ar: 'حول العالم'
+    },
+    description: {
+      en: 'Some ultras engage in community/art initiatives (food drives, murals, online networks). Shift from violence to civic and artistic expression.',
+      ar: 'اتجهت بعض مجموعات الألتراس نحو مبادرات مجتمعية وفنية (حملات غذاء، جداريات، تنظيم إلكتروني). تغيّرت صورتهم من العنف إلى التعبير المدني والإبداعي.'
+    },
+    image: '/images/timeline/2020-cultural.jpg',
+    group: 'Global Ultras',
   },
 ];
 
@@ -87,12 +208,17 @@ export default function TimelinePage() {
   const [selectedRegion, setSelectedRegion] = useState<string>('all');
 
   const regions = [
-    { key: 'all', label: t('allRegions') },
-    { key: 'europe', label: t('europe') },
-    { key: 'southAmerica', label: t('southAmerica') },
-    { key: 'northAfrica', label: t('northAfrica') },
-    { key: 'asia', label: t('asia') },
+    { key: 'all', label: locale === 'ar' ? 'جميع المناطق' : 'All Regions' },
+    { key: 'europe', label: locale === 'ar' ? 'أوروبا' : 'Europe' },
+    { key: 'southAmerica', label: locale === 'ar' ? 'أمريكا الجنوبية' : 'South America' },
+    { key: 'northAfrica', label: locale === 'ar' ? 'شمال إفريقيا' : 'North Africa' },
+    { key: 'global', label: locale === 'ar' ? 'عالمي' : 'Global' },
   ];
+
+  const getLocalizedText = (obj: { en: string; ar: string } | string): string => {
+    if (typeof obj === 'string') return obj;
+    return locale === 'ar' ? obj.ar : obj.en;
+  };
 
   const filteredEvents = selectedRegion === 'all'
     ? timelineEvents
@@ -190,7 +316,7 @@ export default function TimelinePage() {
                         <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent z-10" />
                         <img
                           src={event.image}
-                          alt={event.title}
+                          alt={getLocalizedText(event.title)}
                           className="w-full h-full object-cover"
                         />
                         {event.highlight && (
@@ -204,7 +330,7 @@ export default function TimelinePage() {
                       <div className="flex items-center gap-4 text-sm text-zinc-500 mb-3">
                         <span className="flex items-center gap-1">
                           <MapPin className="h-4 w-4" />
-                          {event.location}
+                          {getLocalizedText(event.location)}
                         </span>
                         <span className="flex items-center gap-1">
                           <Calendar className="h-4 w-4" />
@@ -213,9 +339,9 @@ export default function TimelinePage() {
                       </div>
 
                       <h3 className={`text-xl font-bold mb-2 ${event.highlight ? 'text-green-500' : 'text-white'}`}>
-                        {event.title}
+                        {getLocalizedText(event.title)}
                       </h3>
-                      <p className="text-zinc-400 mb-4">{event.description}</p>
+                      <p className="text-zinc-400 mb-4">{getLocalizedText(event.description)}</p>
                       <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-800 text-zinc-300 text-sm">
                         <Flag className="h-3.5 w-3.5" />
                         {event.group}
