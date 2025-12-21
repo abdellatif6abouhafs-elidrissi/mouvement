@@ -120,7 +120,7 @@ export default function MapPage() {
             </div>
             <div className="flex items-center gap-2 text-sm text-zinc-400">
               <MapPin className="h-4 w-4 text-green-500" />
-              <span>{filteredGroups.length} {locale === 'ar' ? 'مجموعة' : 'groups'}</span>
+              <span>{filteredGroups.length} {locale === 'ar' ? 'مجموعة (v3)' : 'groups (v3)'}</span>
             </div>
           </div>
         </div>
