@@ -58,9 +58,11 @@ export default function GroupOfWeek({ group = defaultGroup }: GroupOfWeekProps) 
           <div className="relative h-64 lg:h-auto bg-zinc-800">
             <div className="absolute inset-0 bg-gradient-to-r from-transparent to-zinc-900/80 z-10 hidden lg:block" />
             <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent z-10 lg:hidden" />
-            <div className="w-full h-full bg-gradient-to-br from-yellow-600/20 to-zinc-800 flex items-center justify-center">
-              <Flag className="h-24 w-24 text-zinc-700" />
-            </div>
+            <img
+              src="/images/groups/green-boys-week.jpg"
+              alt={group.name}
+              className="w-full h-full object-cover"
+            />
             {/* Country Flag */}
             <div className="absolute bottom-4 left-4 z-20 text-4xl">
               {group.countryFlag}
