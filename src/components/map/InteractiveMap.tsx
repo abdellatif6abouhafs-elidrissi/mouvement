@@ -25,10 +25,11 @@ interface UltraGroup {
 
 interface InteractiveMapProps {
   groups: UltraGroup[];
+  selectedSlug?: string | null;
   className?: string;
 }
 
-export default function InteractiveMap({ groups, className = '' }: InteractiveMapProps) {
+export default function InteractiveMap({ groups, selectedSlug, className = '' }: InteractiveMapProps) {
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
   const [selectedGroup, setSelectedGroup] = useState<UltraGroup | null>(null);
@@ -49,10 +50,17 @@ export default function InteractiveMap({ groups, className = '' }: InteractiveMa
         mapInstanceRef.current.remove();
       }
 
+      // Find selected group if any
+      const targetGroup = selectedSlug ? groups.find(g => g.slug === selectedSlug) : null;
+      const initialCenter: [number, number] = targetGroup?.coordinates
+        ? [targetGroup.coordinates.lat, targetGroup.coordinates.lng]
+        : [30, 0];
+      const initialZoom = targetGroup ? 10 : 2;
+
       // Create map
       const map = L.map(mapRef.current!, {
-        center: [30, 0],
-        zoom: 2,
+        center: initialCenter,
+        zoom: initialZoom,
         minZoom: 2,
         maxZoom: 18,
         scrollWheelZoom: true,
@@ -106,6 +114,11 @@ export default function InteractiveMap({ groups, className = '' }: InteractiveMa
 
       mapInstanceRef.current = map;
       setIsMapLoaded(true);
+
+      // Auto-select target group if specified in URL
+      if (targetGroup) {
+        setSelectedGroup(targetGroup);
+      }
     };
 
     loadMap();
@@ -116,7 +129,7 @@ export default function InteractiveMap({ groups, className = '' }: InteractiveMa
         mapInstanceRef.current = null;
       }
     };
-  }, [groups]);
+  }, [groups, selectedSlug]);
 
   return (
     <div className={`relative ${className}`}>

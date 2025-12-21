@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
@@ -48,11 +49,13 @@ export default function MapPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCountry, setSelectedCountry] = useState('all');
+  const searchParams = useSearchParams();
+  const selectedSlug = searchParams.get('group');
 
   useEffect(() => {
     const fetchGroups = async () => {
       try {
-        const response = await fetch('/api/groups?limit=100');
+        const response = await fetch('/api/groups?limit=200');
         const data = await response.json();
         if (data.groups) {
           // Filter groups that have coordinates
@@ -167,7 +170,7 @@ export default function MapPage() {
               </div>
             </div>
           ) : (
-            <InteractiveMap groups={filteredGroups} className="rounded-2xl overflow-hidden" />
+            <InteractiveMap groups={filteredGroups} selectedSlug={selectedSlug} className="rounded-2xl overflow-hidden" />
           )}
         </motion.div>
 
