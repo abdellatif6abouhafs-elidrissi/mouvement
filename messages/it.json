@@ -101,7 +101,22 @@
     "filters": "Filtri",
     "showing": "Mostrando {count} gruppi",
     "noGroups": "Nessun gruppo trovato",
-    "backToGroups": "Torna ai gruppi"
+    "backToGroups": "Torna ai gruppi",
+    "verified": "Verificato",
+    "featuredBadge": "In evidenza",
+    "like": "Mi piace",
+    "liked": "Piaciuto",
+    "share": "Condividi",
+    "views": "visualizzazioni",
+    "coreValues": "Valori Fondamentali",
+    "colors": "Colori",
+    "symbols": "Simboli",
+    "quickInfo": "Info Rapide",
+    "club": "Club",
+    "connect": "Connetti",
+    "location": "Posizione",
+    "chantsComingSoon": "Cori in Arrivo",
+    "chantsComingSoonDesc": "Stiamo lavorando per aggiungere cori audio per questo gruppo."
   },
   "articles": {
     "title": "Storie",

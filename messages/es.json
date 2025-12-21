@@ -101,7 +101,22 @@
     "filters": "Filtros",
     "showing": "Mostrando {count} grupos",
     "noGroups": "No se encontraron grupos",
-    "backToGroups": "Volver"
+    "backToGroups": "Volver",
+    "verified": "Verificado",
+    "featuredBadge": "Destacado",
+    "like": "Me gusta",
+    "liked": "Te gusta",
+    "share": "Compartir",
+    "views": "vistas",
+    "coreValues": "Valores Fundamentales",
+    "colors": "Colores",
+    "symbols": "Simbolos",
+    "quickInfo": "Info Rapida",
+    "club": "Club",
+    "connect": "Conectar",
+    "location": "Ubicacion",
+    "chantsComingSoon": "Canticos Proximamente",
+    "chantsComingSoonDesc": "Estamos trabajando en agregar canticos de audio para este grupo."
   },
   "articles": {
     "title": "Historias",

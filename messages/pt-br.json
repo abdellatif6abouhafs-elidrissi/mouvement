@@ -101,7 +101,21 @@
     "map": "Mapa dos Ultras",
     "gridView": "Visualização em Grade",
     "listView": "Visualização em Lista",
-    "mapView": "Visualização em Mapa"
+    "mapView": "Visualização em Mapa",
+    "backToGroups": "Voltar aos Grupos",
+    "verified": "Verificado",
+    "featuredBadge": "Destaque",
+    "like": "Curtir",
+    "liked": "Curtido",
+    "views": "visualizações",
+    "coreValues": "Valores Fundamentais",
+    "symbols": "Símbolos",
+    "quickInfo": "Info Rápida",
+    "stadium": "Estádio",
+    "connect": "Conectar",
+    "location": "Localização",
+    "chantsComingSoon": "Cantos em Breve",
+    "chantsComingSoonDesc": "Estamos trabalhando para adicionar cantos de áudio para este grupo."
   },
   "articles": {
     "title": "Artigos",

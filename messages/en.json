@@ -120,7 +120,22 @@
     "showing": "Showing {count} groups",
     "noGroups": "No groups found",
     "adjustFilters": "Try adjusting your search or filters",
-    "backToGroups": "Back to Groups"
+    "backToGroups": "Back to Groups",
+    "verified": "Verified",
+    "featuredBadge": "Featured",
+    "like": "Like",
+    "liked": "Liked",
+    "share": "Share",
+    "views": "views",
+    "coreValues": "Core Values",
+    "colors": "Colors",
+    "symbols": "Symbols",
+    "quickInfo": "Quick Info",
+    "club": "Club",
+    "connect": "Connect",
+    "location": "Location",
+    "chantsComingSoon": "Chants Coming Soon",
+    "chantsComingSoonDesc": "We're working on adding audio chants for this group."
   },
   "articles": {
     "title": "Culture",

@@ -101,7 +101,21 @@
     "map": "Carte des Ultras",
     "gridView": "Vue Grille",
     "listView": "Vue Liste",
-    "mapView": "Vue Carte"
+    "mapView": "Vue Carte",
+    "backToGroups": "Retour aux Groupes",
+    "verified": "Vérifié",
+    "featuredBadge": "En vedette",
+    "like": "J'aime",
+    "liked": "Aimé",
+    "views": "vues",
+    "coreValues": "Valeurs Fondamentales",
+    "symbols": "Symboles",
+    "quickInfo": "Infos Rapides",
+    "stadium": "Stade",
+    "connect": "Réseaux",
+    "location": "Emplacement",
+    "chantsComingSoon": "Chants à Venir",
+    "chantsComingSoonDesc": "Nous travaillons sur l'ajout de chants audio pour ce groupe."
   },
   "articles": {
     "title": "Articles",

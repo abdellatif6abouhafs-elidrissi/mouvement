@@ -230,13 +230,13 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
               {displayGroup.isVerified && (
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-600/20 border border-blue-600/30 text-blue-400 text-sm font-medium">
                   <Shield className="h-3.5 w-3.5" />
-                  Verified
+                  {t('verified')}
                 </span>
               )}
               {displayGroup.isFeatured && (
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-yellow-600/20 border border-yellow-600/30 text-yellow-400 text-sm font-medium">
                   <Trophy className="h-3.5 w-3.5" />
-                  Featured
+                  {t('featuredBadge')}
                 </span>
               )}
             </div>
@@ -258,11 +258,11 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
               </span>
               <span className="flex items-center gap-2">
                 <Calendar className="h-5 w-5" />
-                Founded {displayGroup.yearFounded}
+                {t('founded')} {displayGroup.yearFounded}
               </span>
               <span className="flex items-center gap-2">
                 <Users className="h-5 w-5" />
-                {displayGroup.membersEstimate || 'N/A'} members
+                {displayGroup.membersEstimate || 'N/A'} {t('members')}
               </span>
             </div>
 
@@ -273,14 +273,14 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
                 leftIcon={<Heart className={`h-5 w-5 ${liked ? 'fill-current' : ''}`} />}
                 onClick={() => setLiked(!liked)}
               >
-                {liked ? 'Liked' : 'Like'} ({((displayGroup.likes || 0) / 1000).toFixed(0)}K)
+                {liked ? t('liked') : t('like')} ({((displayGroup.likes || 0) / 1000).toFixed(0)}K)
               </Button>
               <Button variant="outline" leftIcon={<Share2 className="h-5 w-5" />}>
-                Share
+                {t('share')}
               </Button>
               <div className="flex items-center gap-2 text-zinc-400 ml-auto">
                 <Eye className="h-5 w-5" />
-                <span>{((displayGroup.views || 0) / 1000).toFixed(0)}K views</span>
+                <span>{((displayGroup.views || 0) / 1000).toFixed(0)}K {t('views')}</span>
               </div>
             </div>
           </motion.div>
@@ -296,10 +296,10 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
               {/* Tabs */}
               <div className="flex gap-2 mb-8 border-b border-zinc-800 pb-4 overflow-x-auto">
                 {[
-                  { key: 'history', icon: Flag, label: 'History' },
-                  { key: 'tifos', icon: Palette, label: 'Tifos' },
-                  { key: 'gallery', icon: Play, label: 'Gallery' },
-                  { key: 'chants', icon: Music, label: 'Chants' },
+                  { key: 'history', icon: Flag, label: t('history') },
+                  { key: 'tifos', icon: Palette, label: t('tifos') },
+                  { key: 'gallery', icon: Play, label: t('gallery') },
+                  { key: 'chants', icon: Music, label: t('chants') },
                 ].map((tab) => (
                   <button
                     key={tab.key}
@@ -341,7 +341,7 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
 
                   {/* Values */}
                   <div>
-                    <h3 className="text-xl font-bold text-white mb-4">Core Values</h3>
+                    <h3 className="text-xl font-bold text-white mb-4">{t('coreValues')}</h3>
                     <div className="flex flex-wrap gap-3">
                       {displayGroup.values.map((value) => (
                         <span
@@ -357,7 +357,7 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
                   {/* Colors & Symbols */}
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div>
-                      <h3 className="text-lg font-bold text-white mb-3">Colors</h3>
+                      <h3 className="text-lg font-bold text-white mb-3">{t('colors')}</h3>
                       <div className="flex gap-2">
                         {displayGroup.colors.map((color) => (
                           <span
@@ -370,7 +370,7 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
                       </div>
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-white mb-3">Symbols</h3>
+                      <h3 className="text-lg font-bold text-white mb-3">{t('symbols')}</h3>
                       <div className="flex gap-2">
                         {displayGroup.symbols.map((symbol) => (
                           <span
@@ -459,8 +459,8 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
                 >
                   <div className="text-center py-12 text-zinc-400">
                     <Music className="h-16 w-16 mx-auto mb-4 text-zinc-700" />
-                    <h3 className="text-xl font-bold text-white mb-2">Chants Coming Soon</h3>
-                    <p>We&apos;re working on adding audio chants for this group.</p>
+                    <h3 className="text-xl font-bold text-white mb-2">{t('chantsComingSoon')}</h3>
+                    <p>{t('chantsComingSoonDesc')}</p>
                   </div>
                 </motion.div>
               )}
@@ -470,26 +470,26 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
             <div className="space-y-6">
               {/* Quick Info Card */}
               <Card className="p-6">
-                <h3 className="text-lg font-bold text-white mb-4">Quick Info</h3>
+                <h3 className="text-lg font-bold text-white mb-4">{t('quickInfo')}</h3>
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-zinc-400">Club</span>
+                    <span className="text-zinc-400">{t('club')}</span>
                     <span className="text-white font-medium">{displayGroup.club}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-zinc-400">Stadium</span>
+                    <span className="text-zinc-400">{t('stadium')}</span>
                     <span className="text-white font-medium">{displayGroup.stadium || 'N/A'}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-zinc-400">Founded</span>
+                    <span className="text-zinc-400">{t('founded')}</span>
                     <span className="text-white font-medium">{displayGroup.yearFounded}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-zinc-400">Members</span>
+                    <span className="text-zinc-400">{t('members')}</span>
                     <span className="text-white font-medium">{displayGroup.membersEstimate || 'N/A'}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-zinc-400">Country</span>
+                    <span className="text-zinc-400">{t('country')}</span>
                     <span className="text-white font-medium flex items-center gap-2">
                       {displayGroup.countryCode && (
                         <span className={`fi fi-${displayGroup.countryCode.toLowerCase()}`} />
@@ -502,7 +502,7 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
 
               {/* Social Links */}
               <Card className="p-6">
-                <h3 className="text-lg font-bold text-white mb-4">Connect</h3>
+                <h3 className="text-lg font-bold text-white mb-4">{t('connect')}</h3>
                 <div className="space-y-3">
                   {displayGroup.socialLinks.facebook && (
                     <a
@@ -557,7 +557,7 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
 
               {/* Location Card */}
               <Card className="p-6">
-                <h3 className="text-lg font-bold text-white mb-4">Location</h3>
+                <h3 className="text-lg font-bold text-white mb-4">{t('location')}</h3>
                 <div className="aspect-video rounded-lg bg-zinc-800 flex items-center justify-center mb-4">
                   <Globe className="h-12 w-12 text-zinc-700" />
                 </div>
@@ -566,7 +566,7 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
                 </p>
                 <Link href={`/${locale}/map?group=${displayGroup.slug}`}>
                   <Button variant="outline" size="sm" className="w-full mt-4" rightIcon={<ChevronRight className="h-4 w-4" />}>
-                    View on Map
+                    {t('viewOnMap')}
                   </Button>
                 </Link>
               </Card>
