@@ -144,6 +144,10 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
     gallery: group.gallery?.length ? group.gallery : fallbackGroup.gallery,
     // Ensure socialLinks is never undefined
     socialLinks: group.socialLinks || fallbackGroup.socialLinks,
+    // Include translation fields
+    historyTranslations: group.historyTranslations,
+    valuesTranslations: group.valuesTranslations,
+    mottoTranslations: group.mottoTranslations,
   } : fallbackGroup;
 
   // Auto-rotate tifos every 4 seconds
