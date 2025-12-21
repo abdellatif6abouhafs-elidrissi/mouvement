@@ -130,6 +130,10 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
     likes: 45000,
     isVerified: true,
     isFeatured: true,
+    // Translation fields (undefined in fallback, will be populated from API)
+    historyTranslations: undefined as Record<string, string> | undefined,
+    valuesTranslations: undefined as Record<string, string[]> | undefined,
+    mottoTranslations: undefined as Record<string, string> | undefined,
   };
 
   // Merge group data with fallback to ensure all required fields exist
