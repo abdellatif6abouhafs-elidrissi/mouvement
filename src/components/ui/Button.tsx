@@ -31,11 +31,11 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       primary:
         'bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white shadow-lg shadow-green-600/25',
       secondary:
-        'bg-zinc-800 hover:bg-zinc-700 text-white border border-zinc-700',
+        'bg-zinc-200 dark:bg-zinc-800 hover:bg-zinc-300 dark:hover:bg-zinc-700 text-zinc-900 dark:text-white border border-zinc-300 dark:border-zinc-700',
       outline:
-        'border-2 border-zinc-700 hover:border-green-500 hover:bg-green-600/10 text-zinc-300 hover:text-white',
+        'border-2 border-zinc-300 dark:border-zinc-700 hover:border-green-500 hover:bg-green-600/10 text-zinc-700 dark:text-zinc-300 hover:text-green-700 dark:hover:text-white',
       ghost:
-        'hover:bg-zinc-800 text-zinc-400 hover:text-white',
+        'hover:bg-zinc-100 dark:hover:bg-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white',
       danger:
         'bg-red-600 hover:bg-red-700 text-white',
     };
@@ -52,7 +52,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={disabled || isLoading}
         className={cn(
           'inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200',
-          'focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-zinc-900',
+          'focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-zinc-900',
           'disabled:opacity-50 disabled:cursor-not-allowed',
           variants[variant],
           sizes[size],

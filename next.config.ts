@@ -12,6 +12,10 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  turbopack: {
+    root: process.cwd(),
+  },
+  serverExternalPackages: ['mongoose', 'bcryptjs'],
 };
 
 export default withNextIntl(nextConfig);

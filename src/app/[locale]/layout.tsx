@@ -45,12 +45,30 @@ export default async function LocaleLayout({
       className="dark"
       suppressHydrationWarning
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = JSON.parse(localStorage.getItem('mouvement-theme') || '{}');
+                  var resolved = theme.state?.resolvedTheme || 'dark';
+                  document.documentElement.classList.remove('light', 'dark');
+                  document.documentElement.classList.add(resolved);
+                } catch (e) {
+                  document.documentElement.classList.add('dark');
+                }
+              })();
+            `,
+          }}
+        />
+      </head>
       <body
-        className={`${inter.variable} ${notoArabic.variable} ${rtl ? 'font-noto-arabic' : 'font-inter'} bg-zinc-950 text-white antialiased`}
+        className={`${inter.variable} ${notoArabic.variable} ${rtl ? 'font-noto-arabic' : 'font-inter'} antialiased transition-colors duration-300`}
       >
         <NextIntlClientProvider messages={messages} locale={locale}>
           <Providers>
-            <div className="flex min-h-screen flex-col">
+            <div className="flex min-h-screen flex-col bg-white dark:bg-zinc-950 text-zinc-900 dark:text-white">
               <Header />
               <main className="flex-1 pt-16">{children}</main>
               <Footer />

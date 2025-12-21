@@ -39,7 +39,7 @@ export default function ThemeToggle({ showLabel = false, className = '' }: Theme
       {/* Simple Toggle Button */}
       <button
         onClick={toggleTheme}
-        className="relative p-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 transition-colors group"
+        className="relative p-2.5 rounded-xl bg-zinc-100 dark:bg-zinc-800 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors group"
         aria-label="Toggle theme"
       >
         <AnimatePresence mode="wait">
@@ -50,13 +50,13 @@ export default function ThemeToggle({ showLabel = false, className = '' }: Theme
             exit={{ rotate: 90, opacity: 0 }}
             transition={{ duration: 0.2 }}
           >
-            <CurrentIcon className="h-5 w-5 text-zinc-400 group-hover:text-green-500 transition-colors" />
+            <CurrentIcon className="h-5 w-5 text-zinc-600 dark:text-zinc-400 group-hover:text-green-600 dark:group-hover:text-green-500 transition-colors" />
           </motion.div>
         </AnimatePresence>
       </button>
 
       {showLabel && (
-        <span className="ml-2 text-sm text-zinc-400">
+        <span className="ml-2 text-sm text-zinc-600 dark:text-zinc-400">
           {resolvedTheme === 'dark' ? 'Dark' : 'Light'} Mode
         </span>
       )}

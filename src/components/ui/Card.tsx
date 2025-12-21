@@ -11,16 +11,16 @@ export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
 const Card = forwardRef<HTMLDivElement, CardProps>(
   ({ className, variant = 'default', hoverable = false, children, ...props }, ref) => {
     const variants = {
-      default: 'bg-zinc-900 border border-zinc-800',
-      elevated: 'bg-zinc-900 shadow-xl shadow-black/20',
-      outlined: 'bg-transparent border-2 border-zinc-800',
+      default: 'bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800',
+      elevated: 'bg-white dark:bg-zinc-900 shadow-xl shadow-black/10 dark:shadow-black/20',
+      outlined: 'bg-transparent border-2 border-zinc-200 dark:border-zinc-800',
     };
 
     return (
       <div
         ref={ref}
         className={cn(
-          'rounded-xl overflow-hidden',
+          'rounded-xl overflow-hidden transition-colors duration-300',
           variants[variant],
           hoverable && 'transition-all duration-300 hover:border-green-500/50 hover:shadow-lg hover:shadow-green-500/10 cursor-pointer',
           className
@@ -40,7 +40,7 @@ export const CardHeader = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDi
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn('px-6 py-4 border-b border-zinc-800', className)}
+      className={cn('px-6 py-4 border-b border-zinc-200 dark:border-zinc-800', className)}
       {...props}
     />
   )
@@ -52,7 +52,7 @@ export const CardTitle = forwardRef<HTMLHeadingElement, React.HTMLAttributes<HTM
   ({ className, ...props }, ref) => (
     <h3
       ref={ref}
-      className={cn('text-lg font-semibold text-white', className)}
+      className={cn('text-lg font-semibold text-zinc-900 dark:text-white', className)}
       {...props}
     />
   )
@@ -76,7 +76,7 @@ export const CardFooter = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDi
   ({ className, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn('px-6 py-4 border-t border-zinc-800 bg-zinc-900/50', className)}
+      className={cn('px-6 py-4 border-t border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/50', className)}
       {...props}
     />
   )

@@ -47,7 +47,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-zinc-950 border-t border-zinc-800">
+    <footer className="bg-zinc-100 dark:bg-zinc-950 border-t border-zinc-200 dark:border-zinc-800 transition-colors duration-300">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Main Footer */}
         <div className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -61,9 +61,9 @@ export default function Footer() {
                 height={40}
                 className="w-10 h-10"
               />
-              <span className="text-xl font-bold text-white">Mouvement</span>
+              <span className="text-xl font-bold text-zinc-900 dark:text-white">Mouvement</span>
             </Link>
-            <p className="mt-4 text-zinc-400 text-sm leading-relaxed">
+            <p className="mt-4 text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">
               {t('description')}
             </p>
             {/* Social Links */}
@@ -72,7 +72,7 @@ export default function Footer() {
                 <a
                   key={social.name}
                   href={social.href}
-                  className="w-10 h-10 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 hover:text-white hover:border-green-500 transition-colors"
+                  className="w-10 h-10 rounded-lg bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 flex items-center justify-center text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:border-green-500 transition-colors"
                   aria-label={social.name}
                 >
                   <social.icon className="h-5 w-5" />
@@ -83,7 +83,7 @@ export default function Footer() {
 
           {/* Explore */}
           <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider">
+            <h3 className="text-sm font-semibold text-zinc-900 dark:text-white uppercase tracking-wider">
               {t('explore')}
             </h3>
             <ul className="mt-4 space-y-3">
@@ -91,7 +91,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-zinc-400 hover:text-white transition-colors text-sm"
+                    className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors text-sm"
                   >
                     {link.name}
                   </Link>
@@ -102,7 +102,7 @@ export default function Footer() {
 
           {/* About */}
           <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider">
+            <h3 className="text-sm font-semibold text-zinc-900 dark:text-white uppercase tracking-wider">
               {t('about')}
             </h3>
             <ul className="mt-4 space-y-3">
@@ -110,7 +110,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-zinc-400 hover:text-white transition-colors text-sm"
+                    className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors text-sm"
                   >
                     {link.name}
                   </Link>
@@ -121,28 +121,28 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="text-sm font-semibold text-white uppercase tracking-wider">
+            <h3 className="text-sm font-semibold text-zinc-900 dark:text-white uppercase tracking-wider">
               {tNav('contact')}
             </h3>
             <ul className="mt-4 space-y-3">
               <li>
                 <a
                   href="mailto:contact@mouvement.com"
-                  className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors text-sm"
+                  className="flex items-center gap-2 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors text-sm"
                 >
                   <Mail className="h-4 w-4" />
                   contact@mouvement.com
                 </a>
               </li>
               <li>
-                <span className="flex items-center gap-2 text-zinc-400 text-sm">
+                <span className="flex items-center gap-2 text-zinc-600 dark:text-zinc-400 text-sm">
                   <MapPin className="h-4 w-4" />
                   {t('worldwide')}
                 </span>
               </li>
             </ul>
             {/* Legal Links */}
-            <h4 className="mt-6 text-sm font-semibold text-white uppercase tracking-wider">
+            <h4 className="mt-6 text-sm font-semibold text-zinc-900 dark:text-white uppercase tracking-wider">
               {t('legal')}
             </h4>
             <ul className="mt-3 space-y-2">
@@ -150,7 +150,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-zinc-500 hover:text-zinc-300 transition-colors text-xs"
+                    className="text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors text-xs"
                   >
                     {link.name}
                   </Link>
@@ -161,7 +161,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="py-6 border-t border-zinc-800 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="py-6 border-t border-zinc-200 dark:border-zinc-800 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-zinc-500 text-sm">
             © {new Date().getFullYear()} Mouvement. {t('rights')}
           </p>

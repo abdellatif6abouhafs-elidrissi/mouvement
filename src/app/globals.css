@@ -1,10 +1,39 @@
 @import "tailwindcss";
 
-:root {
-  --background: #0a0a0a;
-  --foreground: #fafafa;
+/* Enable dark mode with class strategy for Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
 
-  /* MOUVEMENT Color Palette - Old School Ultra */
+/* Light Mode (default) */
+:root {
+  --background: #ffffff;
+  --foreground: #09090b;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  --border: #e4e4e7;
+  --card: #ffffff;
+  --card-foreground: #09090b;
+
+  /* MOUVEMENT Color Palette */
+  --primary: #16a34a;        /* Green - main accent */
+  --primary-dark: #15803d;   /* Dark green */
+  --primary-light: #22c55e;  /* Light green */
+  --accent: #84cc16;         /* Lime */
+  --accent-dark: #65a30d;    /* Dark lime */
+  --surface: #f4f4f5;        /* Light surface */
+  --surface-light: #fafafa;  /* Lighter surface */
+}
+
+/* Dark Mode */
+.dark {
+  --background: #09090b;
+  --foreground: #fafafa;
+  --muted: #27272a;
+  --muted-foreground: #a1a1aa;
+  --border: #27272a;
+  --card: #18181b;
+  --card-foreground: #fafafa;
+
+  /* MOUVEMENT Color Palette - Dark */
   --primary: #22c55e;        /* Green - main accent */
   --primary-dark: #16a34a;   /* Dark green */
   --primary-light: #4ade80;  /* Light green */
@@ -21,6 +50,7 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Custom scrollbar - Green theme */
@@ -30,22 +60,28 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #18181b;
+  background: var(--muted);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #22c55e;
+  background: var(--primary);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #4ade80;
+  background: var(--primary-light);
 }
 
-/* Glass effect */
+/* Glass effect - Light mode */
 .glass {
-  background: rgba(24, 24, 27, 0.5);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(24px);
+  border: 1px solid var(--border);
+}
+
+/* Glass effect - Dark mode */
+.dark .glass {
+  background: rgba(24, 24, 27, 0.5);
   border: 1px solid #27272a;
 }
 
