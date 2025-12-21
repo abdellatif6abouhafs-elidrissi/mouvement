@@ -26,7 +26,7 @@ const countryFlags: Record<string, string> = {
   MA: '🇲🇦', IT: '🇮🇹', DE: '🇩🇪', AR: '🇦🇷', BR: '🇧🇷', ES: '🇪🇸', FR: '🇫🇷', TR: '🇹🇷',
   EG: '🇪🇬', GB: '🇬🇧', EC: '🇪🇨', MY: '🇲🇾', ID: '🇮🇩', JP: '🇯🇵', HR: '🇭🇷', RS: '🇷🇸',
   GR: '🇬🇷', PL: '🇵🇱', TN: '🇹🇳', ZA: '🇿🇦', CL: '🇨🇱', PE: '🇵🇪', CO: '🇨🇴', SA: '🇸🇦',
-  IR: '🇮🇷', AU: '🇦🇺', MX: '🇲🇽', US: '🇺🇸',
+  IR: '🇮🇷', AU: '🇦🇺', MX: '🇲🇽', US: '🇺🇸', DZ: '🇩🇿', LY: '🇱🇾',
 };
 
 interface UltraGroup {
@@ -61,7 +61,7 @@ export default function UltrasPage() {
   useEffect(() => {
     const fetchGroups = async () => {
       try {
-        const response = await fetch('/api/groups?limit=100');
+        const response = await fetch('/api/groups?limit=200');
         const data = await response.json();
         if (data.groups) {
           setGroups(data.groups);
