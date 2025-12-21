@@ -55,13 +55,15 @@ export default function MapPage() {
   useEffect(() => {
     const fetchGroups = async () => {
       try {
-        const response = await fetch('/api/groups?limit=250');
+        const response = await fetch('/api/groups?limit=250&v=2'); // v2: force 250 limit
         const data = await response.json();
         if (data.groups) {
+          console.log('API returned groups:', data.groups.length);
           // Filter groups that have coordinates
           const groupsWithCoordinates = data.groups.filter(
             (g: UltraGroup) => g.coordinates?.lat && g.coordinates?.lng
           );
+          console.log('Groups with coordinates:', groupsWithCoordinates.length);
           setGroups(groupsWithCoordinates);
           setFilteredGroups(groupsWithCoordinates);
         }
