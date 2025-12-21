@@ -1,5 +1,18 @@
 import mongoose, { Document, Model, Schema } from 'mongoose';
 
+// Supported locales
+export type SupportedLocale = 'en' | 'ar' | 'fr' | 'es' | 'it' | 'pt-br';
+
+// Multilingual text type
+export interface MultilingualText {
+  en: string;
+  ar: string;
+  fr: string;
+  es: string;
+  it: string;
+  'pt-br': string;
+}
+
 export interface IUltraGroup {
   name: string;
   slug: string;
@@ -10,10 +23,13 @@ export interface IUltraGroup {
   yearFounded: number;
   isActive: boolean;
 
-  // Cultural & Historical
-  history: string;
-  values: string[];
-  motto?: string;
+  // Cultural & Historical (Multilingual)
+  history: string; // Keep for backward compatibility
+  historyTranslations?: MultilingualText;
+  values: string[]; // Keep for backward compatibility
+  valuesTranslations?: { [key in SupportedLocale]?: string[] };
+  motto?: string; // Keep for backward compatibility
+  mottoTranslations?: MultilingualText;
 
   // Visual Identity
   colors: string[];
@@ -125,13 +141,37 @@ const ultraGroupSchema = new Schema<IUltraGroupDocument>(
       required: [true, 'History is required'],
       minlength: [100, 'History must be at least 100 characters'],
     },
+    historyTranslations: {
+      en: { type: String },
+      ar: { type: String },
+      fr: { type: String },
+      es: { type: String },
+      it: { type: String },
+      'pt-br': { type: String },
+    },
     values: [{
       type: String,
       trim: true,
     }],
+    valuesTranslations: {
+      en: [{ type: String }],
+      ar: [{ type: String }],
+      fr: [{ type: String }],
+      es: [{ type: String }],
+      it: [{ type: String }],
+      'pt-br': [{ type: String }],
+    },
     motto: {
       type: String,
       trim: true,
+    },
+    mottoTranslations: {
+      en: { type: String },
+      ar: { type: String },
+      fr: { type: String },
+      es: { type: String },
+      it: { type: String },
+      'pt-br': { type: String },
     },
 
     // Visual Identity

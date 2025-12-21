@@ -46,6 +46,26 @@ export default function UltraGroupPage({ params }: PageProps) {
   const { data, isLoading, error } = useGroup(slug);
   const group = data?.group;
 
+  // Helper function to get translated text based on locale
+  const getTranslatedText = (
+    translations: Record<string, string> | undefined,
+    fallback: string
+  ): string => {
+    if (!translations) return fallback;
+    const localeKey = locale === 'pt-br' ? 'pt-br' : locale;
+    return translations[localeKey] || translations['en'] || fallback;
+  };
+
+  // Helper function to get translated array based on locale
+  const getTranslatedArray = (
+    translations: Record<string, string[]> | undefined,
+    fallback: string[]
+  ): string[] => {
+    if (!translations) return fallback;
+    const localeKey = locale === 'pt-br' ? 'pt-br' : locale;
+    return translations[localeKey] || translations['en'] || fallback;
+  };
+
   // Fallback data for demo when API returns nothing
   const fallbackGroup = {
     name: 'GREEN BOYS 2005',
@@ -328,13 +348,13 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
                   {/* Motto */}
                   {displayGroup.motto && (
                     <blockquote className="border-l-4 border-green-500 pl-6 py-4 bg-zinc-900/50 rounded-r-lg">
-                      <p className="text-xl italic text-zinc-300">&ldquo;{displayGroup.motto}&rdquo;</p>
+                      <p className="text-xl italic text-zinc-300">&ldquo;{getTranslatedText(displayGroup.mottoTranslations, displayGroup.motto)}&rdquo;</p>
                     </blockquote>
                   )}
 
                   {/* History Text */}
                   <div className="prose prose-invert prose-green max-w-none">
-                    {(displayGroup.history || '').split('\n\n').map((paragraph, index) => (
+                    {(getTranslatedText(displayGroup.historyTranslations, displayGroup.history) || '').split('\n\n').map((paragraph, index) => (
                       <p key={index} className="text-zinc-300 leading-relaxed mb-4">
                         {paragraph}
                       </p>
@@ -345,7 +365,7 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
                   <div>
                     <h3 className="text-xl font-bold text-white mb-4">{t('coreValues')}</h3>
                     <div className="flex flex-wrap gap-3">
-                      {displayGroup.values.map((value) => (
+                      {getTranslatedArray(displayGroup.valuesTranslations, displayGroup.values).map((value) => (
                         <span
                           key={value}
                           className="px-4 py-2 rounded-full bg-green-600/10 border border-green-600/20 text-green-400"
