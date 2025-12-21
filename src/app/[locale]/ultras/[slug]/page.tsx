@@ -62,8 +62,8 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
     motto: 'Verdi per sempre, mai arrendersi',
     colors: ['Green', 'White'],
     symbols: ['Eagle', 'Crown', 'Stars'],
-    logo: '/images/groups/green-boys-2005.webp',
-    coverImage: '/images/heroes/hero-1.webp',
+    logo: '/images/logos/green-boys-2005-10.webp',
+    coverImage: '/images/groups/green-boys-2005.webp',
     membersEstimate: '60K+',
     stadium: 'Stade Mohammed V',
     socialLinks: {
