@@ -180,6 +180,19 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
           <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-transparent" />
         </div>
 
+        {/* Slideshow Indicators */}
+        {displayGroup.tifos && displayGroup.tifos.length > 1 && (
+          <div className="absolute bottom-36 left-1/2 transform -translate-x-1/2 z-20 flex gap-3">
+            {Array.isArray(displayGroup.tifos) && displayGroup.tifos.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setCurrentTifoIndex(idx)}
+                className={`h-2 rounded-full transition-all duration-300 ${currentTifoIndex === idx ? 'bg-green-500 w-8' : 'bg-white/40 w-2 hover:bg-white/70'}`}
+              />
+            ))}
+          </div>
+        )}
+
         {/* Content */}
         <div className="relative z-10 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-end pb-12">
           {/* Back Button */}
@@ -194,6 +207,24 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
+            {/* Logo */}
+            {displayGroup.logo && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                className="mb-4"
+              >
+                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-4 border-white/20 shadow-2xl bg-zinc-900">
+                  <img
+                    src={displayGroup.logo}
+                    alt={`${displayGroup.name} logo`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </motion.div>
+            )}
+
             {/* Badges */}
             <div className="flex flex-wrap gap-3 mb-4">
               {displayGroup.isVerified && (
