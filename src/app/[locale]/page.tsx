@@ -296,8 +296,12 @@ export default function HomePage() {
 
               {/* Map Preview */}
               <div className="flex-1 relative">
-                <div className="aspect-video rounded-2xl bg-zinc-100 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-700 flex items-center justify-center">
-                  <Globe className="h-24 w-24 text-zinc-400 dark:text-zinc-700" />
+                <div className="aspect-video rounded-2xl bg-zinc-100 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-700 overflow-hidden">
+                  <img
+                    src="/images/map-bg.png"
+                    alt="Interactive Map"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 {/* Floating markers */}
                 <div className="absolute top-1/4 left-1/3 w-3 h-3 bg-green-500 rounded-full animate-ping" />
