@@ -66,7 +66,7 @@ export default function LoginPage() {
         {/* Header */}
         <div className="text-center mb-8">
           <Link href={`/${locale}`} className="inline-flex items-center gap-2 mb-8">
-            <img src="/logo.jpg" alt="Mouvement" className="w-12 h-12 rounded" />
+            <img src="/logo.png" alt="Mouvement" className="w-12 h-12 rounded" />
           </Link>
           <h1 className="text-3xl font-bold text-white mb-2">{t('welcomeBack')}</h1>
           <p className="text-zinc-400">{t('signInContinue')}</p>

@@ -55,7 +55,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <Link href={`/${locale}`} className="flex items-center gap-2" aria-label="Mouvement - Home">
               <Image
-                src="/logo.jpg"
+                src="/logo.png"
                 alt="Mouvement Logo"
                 width={40}
                 height={40}
