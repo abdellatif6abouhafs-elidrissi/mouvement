@@ -7,6 +7,8 @@ import Providers from '@/components/Providers';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import type { Metadata, Viewport } from 'next';
+import '../globals.css';
+import '../../styles/rtl.css';
 
 const inter = Inter({
   subsets: ['latin'],
