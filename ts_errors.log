@@ -1,0 +1,2 @@
+src/app/[locale]/admin/page.tsx(162,61): error TS18048: 'percent' is possibly 'undefined'.
+src/app/[locale]/admin/users/UsersClient.tsx(5,38): error TS2307: Cannot find module 'use-debounce' or its corresponding type declarations.

@@ -2,9 +2,7 @@
 
 import { useState, useCallback, useTransition } from 'react';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
-import { useDebouncedCallback } from 'use-debounce'; // I'll assume standard debounce or use timeout
-// Actually let's use a custom debounce since I don't want to install pkg if not needed.
-// But wait, standard nextjs projects often have it. I'll use a simple timeout logic.
+// Custom debounce logic using a timeout for search functionality
 
 import AdminTable, { Column } from '@/components/admin/ui/AdminTable';
 import Button from '@/components/ui/Button';
@@ -125,8 +123,8 @@ export default function UsersClient({
             accessorKey: 'isVerified',
             cell: (user) => (
                 <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${user.isVerified
-                        ? 'bg-green-500/10 text-green-500'
-                        : 'bg-yellow-500/10 text-yellow-500'
+                    ? 'bg-green-500/10 text-green-500'
+                    : 'bg-yellow-500/10 text-yellow-500'
                     }`}>
                     {user.isVerified ? 'Verified' : 'Pending'}
                 </span>
