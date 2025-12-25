@@ -18,6 +18,19 @@
     "settings": "Settings",
     "signOut": "Sign Out"
   },
+  "auth": {
+    "welcomeBack": "Welcome back",
+    "signInContinue": "Sign in to continue",
+    "email": "Email",
+    "password": "Password",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot password?",
+    "signIn": "Sign In",
+    "orContinueWith": "Or continue with",
+    "noAccount": "No account?",
+    "createOne": "Create one",
+    "invalidCredentials": "Invalid email or password"
+  },
   "common": {
     "home": "Home",
     "about": "About",

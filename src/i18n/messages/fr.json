@@ -44,6 +44,19 @@
     "admin": "Admin",
     "dashboard": "Tableau de bord"
   },
+  "auth": {
+    "welcomeBack": "Bon retour",
+    "signInContinue": "Connectez-vous pour continuer",
+    "email": "Email",
+    "password": "Mot de passe",
+    "rememberMe": "Se souvenir de moi",
+    "forgotPassword": "Mot de passe oublié?",
+    "signIn": "Se connecter",
+    "orContinueWith": "Ou continuer avec",
+    "noAccount": "Pas de compte?",
+    "createOne": "Créer un compte",
+    "invalidCredentials": "Email ou mot de passe invalide"
+  },
   "home": {
     "badge": "Culture Ultra",
     "title": "La Culture de la",

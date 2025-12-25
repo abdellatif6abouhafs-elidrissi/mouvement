@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Login - Mouvement Admin</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #09090b;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: #18181b;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #27272a;
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 {
+            margin: 0 0 1.5rem 0;
+            font-size: 1.5rem;
+            color: #22c55e;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #a1a1aa;
+            font-size: 0.875rem;
+        }
+        input {
+            width: 100%;
+            padding: 0.75rem;
+            background: #27272a;
+            border: 1px solid #3f3f46;
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+        input:focus {
+            outline: none;
+            border-color: #22c55e;
+        }
+        button {
+            width: 100%;
+            padding: 0.75rem;
+            background: #22c55e;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        button:hover {
+            background: #16a34a;
+        }
+        button:disabled {
+            background: #3f3f46;
+            cursor: not-allowed;
+        }
+        .message {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            border-radius: 8px;
+            font-size: 0.875rem;
+        }
+        .error {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+        .success {
+            background: rgba(34, 197, 94, 0.1);
+            color: #22c55e;
+            border: 1px solid rgba(34, 197, 94, 0.2);
+        }
+        .info {
+            background: rgba(59, 130, 246, 0.1);
+            color: #3b82f6;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Quick Admin Login</h1>
+        <div class="info message">
+            <strong>Credentials:</strong><br>
+            Email: admin@mouvement.com<br>
+            Password: admin123
+        </div>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" value="admin@mouvement.com" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" value="admin123" required>
+            </div>
+            <button type="submit" id="submitBtn">Sign In</button>
+        </form>
+        <div id="message"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById('loginForm');
+        const messageDiv = document.getElementById('message');
+        const submitBtn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Signing in...';
+            messageDiv.innerHTML = '';
+
+            try {
+                const res = await fetch('http://localhost:3000/api/auth/callback/credentials', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, password }),
+                });
+
+                if (res.ok) {
+                    messageDiv.innerHTML = '<div class="success message">✅ Login successful! Redirecting...</div>';
+                    setTimeout(() => {
+                        window.location.href = 'http://localhost:3000/fr/admin';
+                    }, 1000);
+                } else {
+                    messageDiv.innerHTML = '<div class="error message">❌ Invalid credentials. Please check your email and password.</div>';
+                }
+            } catch (error) {
+                messageDiv.innerHTML = '<div class="error message">❌ Error: ' + error.message + '<br><br>Make sure dev server is running!</div>';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Sign In';
+            }
+        });
+    </script>
+</body>
+</html>

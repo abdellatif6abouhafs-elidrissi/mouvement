@@ -4,8 +4,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import { locales, isRTL, type Locale } from '@/i18n/config';
 import Providers from '@/components/Providers';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
+import LayoutWrapper from './LayoutWrapper';
 import type { Metadata, Viewport } from 'next';
 import '../globals.css';
 import '../../styles/rtl.css';
@@ -159,11 +158,7 @@ export default async function LocaleLayout({
       >
         <NextIntlClientProvider messages={messages} locale={locale}>
           <Providers>
-            <div className="flex min-h-screen flex-col bg-white dark:bg-zinc-950 text-zinc-900 dark:text-white">
-              <Header />
-              <main className="flex-1 pt-16">{children}</main>
-              <Footer />
-            </div>
+            <LayoutWrapper locale={locale}>{children}</LayoutWrapper>
           </Providers>
         </NextIntlClientProvider>
       </body>
