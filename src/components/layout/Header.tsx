@@ -190,7 +190,7 @@ export default function Header() {
                   <div className="p-2">
                     {session.user.role === 'admin' && (
                       <Link
-                        href={`/${locale}/dashboard`}
+                        href={`/${locale}/admin`}
                         className="flex items-center gap-3 px-3 py-2 rounded-lg text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
                       >
                         <LayoutDashboard className="h-4 w-4" />
