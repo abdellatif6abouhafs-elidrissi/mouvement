@@ -1,0 +1,33 @@
+
+> mouvement@0.1.0 build
+> next build
+
+ÔÜá Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of C:\Users\ULTRA PC\package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * C:\Users\ULTRA PC\mouvement\package-lock.json
+
+Ôû▓ Next.js 16.1.0 (Turbopack)
+- Environments: .env.local
+
+ÔÜá The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+  Creating an optimized production build ...
+
+-----
+FATAL: An unexpected Turbopack error occurred. A panic log has been written to C:\Users\ULTRAP~1\AppData\Local\Temp\next-panic-79b72efddde59c434cd66e0e97c2fd0b.log.
+
+To help make Turbopack better, report this error by clicking here.
+-----
+
+
+> Build error occurred
+Error [TurbopackInternalError]: create symlink to ../../../mouvement/node_modules/mongoose
+
+Caused by:
+- Le client ne dispose pas dÔÇÖun privil├¿ge n├®cessaire. (os error 1314)
+    at ignore-listed frames {
+  type: 'TurbopackInternalError',
+  location: undefined
+}

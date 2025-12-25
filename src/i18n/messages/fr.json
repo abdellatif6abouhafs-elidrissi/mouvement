@@ -26,8 +26,16 @@
     "home": "Accueil",
     "ultras": "Ultras",
     "articles": "Articles",
+    "timeline": "Chronologie",
+    "tifos": "Tifos",
+    "chants": "Chants",
+    "education": "Éducation",
+    "community": "Communauté",
     "about": "À propos",
     "contact": "Contact",
+    "search": "Rechercher",
+    "signIn": "Connexion",
+    "join": "Rejoindre",
     "login": "Connexion",
     "register": "Inscription",
     "logout": "Déconnexion",
@@ -37,38 +45,33 @@
     "dashboard": "Tableau de bord"
   },
   "home": {
-    "hero": {
-      "title": "Culture Ultra",
-      "subtitle": "Découvrez la passion des supporters ultras à travers le monde",
-      "cta": "Explorer les Groupes",
-      "secondary": "Voir la Carte"
-    },
-    "featured": {
-      "title": "Groupes en Vedette",
-      "subtitle": "Découvrez les groupes ultras les plus emblématiques du monde",
-      "viewAll": "Voir Tous les Groupes"
-    },
+    "badge": "Culture Ultra",
+    "title": "La Culture de la",
+    "titleHighlight": "Passion",
+    "subtitle": "Découvrez l'art, l'histoire et l'esprit de la culture Ultra à travers le monde. Des virages de Milan aux tribunes de Casablanca.",
+    "exploreButton": "Explorer les Groupes",
+    "watchButton": "Voir le Documentaire",
+    "featuredGroups": "Groupes en Vedette",
+    "featuredGroupsSubtitle": "Découvrez les groupes ultras les plus emblématiques et historiques de tous les coins du globe.",
+    "viewAllGroups": "Voir Tous les Groupes",
+    "interactiveMap": "Mouvement Mondial",
+    "mapTitle": "Carte",
+    "mapTitleHighlight": "Mondiale",
+    "mapSubtitle": "Explorez le mouvement ultra géographiquement. Trouvez des groupes, des stades et des histoires par région.",
+    "openMap": "Ouvrir la Carte Interactive",
+    "latestArticles": "Derniers Articles",
+    "articlesSubtitle": "Analyses approfondies sur l'histoire, les tifos et les gens derrière le mouvement.",
+    "allArticles": "Voir Tous les Articles",
+    "joinTitle": "Rejoignez la",
+    "joinHighlight": "Communauté",
+    "joinSubtitle": "Connectez-vous avec d'autres supporters, partagez vos histoires et contribuez à l'archive.",
+    "createAccount": "Créer un Compte",
+    "learnMore": "En Savoir Plus",
     "stats": {
-      "groups": "Groupes",
+      "groups": "Groupes Actifs",
       "countries": "Pays",
-      "members": "Membres",
-      "years": "Années d'Histoire"
-    },
-    "latest": {
-      "title": "Derniers Articles",
-      "subtitle": "Restez informé des dernières nouvelles et histoires du monde ultra",
-      "viewAll": "Voir Tous les Articles"
-    },
-    "map": {
-      "title": "Carte Mondiale",
-      "subtitle": "Explorez les groupes ultras à travers le monde",
-      "viewMap": "Voir la Carte Interactive"
-    },
-    "newsletter": {
-      "title": "Restez Informé",
-      "subtitle": "Inscrivez-vous à notre newsletter pour les dernières nouvelles",
-      "placeholder": "Votre email",
-      "button": "S'inscrire"
+      "articles": "Articles",
+      "community": "Membres"
     }
   },
   "ultras": {

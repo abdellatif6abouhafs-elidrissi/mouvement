@@ -158,10 +158,9 @@ export default function ChantsPage() {
                     {Array.from({ length: 50 }).map((_, i) => (
                       <div
                         key={i}
-                        className={`w-1 rounded-full transition-all ${
-                          playingId === featuredChant.id ? 'bg-green-500 animate-pulse' : 'bg-zinc-600'
-                        }`}
-                        style={{ height: `${Math.random() * 40 + 20}%` }}
+                        className={`w-1 rounded-full transition-all ${playingId === featuredChant.id ? 'bg-green-500 animate-pulse' : 'bg-zinc-600'
+                          }`}
+                        style={{ height: `${(Math.sin(i * 0.5) * 0.5 + 0.5) * 40 + 20}%` }}
                       />
                     ))}
                   </div>
@@ -200,11 +199,10 @@ export default function ChantsPage() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.05 }}
-                className={`group p-4 rounded-xl border transition-colors cursor-pointer ${
-                  selectedChant?.id === chant.id
+                className={`group p-4 rounded-xl border transition-colors cursor-pointer ${selectedChant?.id === chant.id
                     ? 'bg-green-600/10 border-green-600/30'
                     : 'bg-zinc-900 border-zinc-800 hover:border-zinc-700'
-                }`}
+                  }`}
                 onClick={() => setSelectedChant(selectedChant?.id === chant.id ? null : chant)}
               >
                 <div className="flex items-center gap-4">

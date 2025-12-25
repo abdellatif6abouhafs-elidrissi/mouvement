@@ -1,0 +1,205 @@
+
+> mouvement@0.1.0 lint
+> eslint
+
+
+C:\Users\ULTRA PC\mouvement\src\app\[locale]\about\page.tsx
+   5:47  warning  'Globe' is defined but never used            @typescript-eslint/no-unused-vars
+   5:54  warning  'BookOpen' is defined but never used         @typescript-eslint/no-unused-vars
+  17:9   warning  'locale' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\ULTRA PC\mouvement\src\app\[locale]\admin\groups\new\page.tsx
+  135:19  error    Unexpected any. Specify a different type                                                                     @typescript-eslint/no-explicit-any
+  380:15  warning  Image elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+
+C:\Users\ULTRA PC\mouvement\src\app\[locale]\admin\groups\page.tsx
+   13:3   warning  'Filter' is defined but never used                                                                                                                                                                                                                                                       @typescript-eslint/no-unused-vars
+   14:3   warning  'MoreHorizontal' is defined but never used                                                                                                                                                                                                                                               @typescript-eslint/no-unused-vars
+   20:3   warning  'Flag' is defined but never used                                                                                                                                                                                                                                                         @typescript-eslint/no-unused-vars
+  233:27  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\ULTRA PC\mouvement\src\app\[locale]\admin\page.tsx
+   3:10  warning  'useState' is defined but never used     @typescript-eslint/no-unused-vars
+  28:16  warning  'CardContent' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\ULTRA PC\mouvement\src\app\[locale]\articles\[slug]\page.tsx
+   21:16  warning  'CardContent' is defined but never used                                                                                                                                                                                                                                                  @typescript-eslint/no-unused-vars
+   36:28  warning  'error' is assigned a value but never used                                                                                                                                                                                                                                               @typescript-eslint/no-unused-vars
+  213:11  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  348:25  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  379:27  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\ULTRA PC\mouvement\src\app\[locale]\articles\page.tsx
+  171:23  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  233:27  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\ULTRA PC\mouvement\src\app\[locale]\chants\page.tsx
+   8:8   warning  'Card' is defined but never used             @typescript-eslint/no-unused-vars
+   8:16  warning  'CardContent' is defined but never used      @typescript-eslint/no-unused-vars
+  88:9   warning  'locale' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\ULTRA PC\mouvement\src\app\[locale]\community\page.tsx
+  3:10  warning  'useState' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\ULTRA PC\mouvement\src\app\[locale]\contact\page.tsx
+  31:9  warning  'locale' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\ULTRA PC\mouvement\src\app\[locale]\education\page.tsx
+   4:8   warning  'Link' is defined but never used                         @typescript-eslint/no-unused-vars
+  93:9   warning  'locale' is assigned a value but never used              @typescript-eslint/no-unused-vars
+  94:10  warning  'expandedSection' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  94:27  warning  'setExpandedSection' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\ULTRA PC\mouvement\src\app\[locale]\forgot-password\page.tsx
+  12:9   warning  't' is assigned a value but never used                                                                                                                                                                                                                                                   @typescript-eslint/no-unused-vars
+  38:19  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  97:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\ULTRA PC\mouvement\src\app\[locale]\login\page.tsx
+  44:14  warning  'err' is defined but never used                                                                                                                                                                                                                                                          @typescript-eslint/no-unused-vars
+  69:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\ULTRA PC\mouvement\src\app\[locale]\map\page.tsx
+    8:28  warning  'Filter' is defined but never used                                                                                                                                                                                                                                                       @typescript-eslint/no-unused-vars
+   45:9   warning  't' is assigned a value but never used                                                                                                                                                                                                                                                   @typescript-eslint/no-unused-vars
+  196:23  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\ULTRA PC\mouvement\src\app\[locale]\page.tsx
+  343:19  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  413:21  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\ULTRA PC\mouvement\src\app\[locale]\profile\page.tsx
+   11:3   warning  'Mail' is defined but never used                                                                                                                                                                                                                                                         @typescript-eslint/no-unused-vars
+   27:16  warning  'CardContent' is defined but never used                                                                                                                                                                                                                                                  @typescript-eslint/no-unused-vars
+   46:9   warning  't' is assigned a value but never used                                                                                                                                                                                                                                                   @typescript-eslint/no-unused-vars
+  141:21  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\ULTRA PC\mouvement\src\app\[locale]\register\page.tsx
+  69:19  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
+  94:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\ULTRA PC\mouvement\src\app\[locale]\tifos\page.tsx
+    4:8   warning  'Link' is defined but never used                                                                                                                                                                                                                                                         @typescript-eslint/no-unused-vars
+  105:9   warning  'locale' is assigned a value but never used                                                                                                                                                                                                                                              @typescript-eslint/no-unused-vars
+  152:17  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  238:23  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\ULTRA PC\mouvement\src\app\[locale]\timeline\page.tsx
+    7:8   warning  'Button' is defined but never used                                                                                                                                                                                                                                                       @typescript-eslint/no-unused-vars
+  360:25  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\ULTRA PC\mouvement\src\app\[locale]\ultras\[slug]\page.tsx
+    5:8   warning  'Image' is defined but never used                                                                                                                                                                                                                                                        @typescript-eslint/no-unused-vars
+   46:28  warning  'error' is assigned a value but never used                                                                                                                                                                                                                                               @typescript-eslint/no-unused-vars
+  188:17  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  197:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  243:19  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  425:25  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  459:23  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\ULTRA PC\mouvement\src\app\api\auth\forgot-password\route.ts
+  43:11  warning  'resetUrl' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\ULTRA PC\mouvement\src\app\api\auth\register\route.ts
+  85:19  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\ULTRA PC\mouvement\src\app\api\chants\route.ts
+  33:48  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  34:56  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  35:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  62:43  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  62:71  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  63:28  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  63:56  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  64:28  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  67:30  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  71:32  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  72:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  73:34  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  74:35  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  75:32  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  76:32  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\ULTRA PC\mouvement\src\app\api\glossary\route.ts
+  26:45  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  27:55  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  28:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  45:44  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  47:29  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\ULTRA PC\mouvement\src\app\api\tifos\route.ts
+  38:45  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  39:55  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  40:40  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  70:46  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  70:74  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  71:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  71:59  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  72:31  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  75:33  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  78:35  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  79:34  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  80:34  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  81:37  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  82:35  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  83:35  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  84:35  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\ULTRA PC\mouvement\src\app\api\timeline\route.ts
+  24:48  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  25:56  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  26:41  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\ULTRA PC\mouvement\src\app\dashboard\DashboardClient.tsx
+   75:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  117:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\ULTRA PC\mouvement\src\app\dashboard\articles\page.tsx
+  14:3   warning  'Tag' is defined but never used                           @typescript-eslint/no-unused-vars
+  74:28  warning  'setSelectedCategory' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\ULTRA PC\mouvement\src\app\dashboard\groups\page.tsx
+   8:3   warning  'MoreVertical' is defined but never used  @typescript-eslint/no-unused-vars
+  18:29  warning  'CardHeader' is defined but never used    @typescript-eslint/no-unused-vars
+  18:41  warning  'CardTitle' is defined but never used     @typescript-eslint/no-unused-vars
+
+C:\Users\ULTRA PC\mouvement\src\app\dashboard\users\page.tsx
+  11:3  warning  'MoreVertical' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\ULTRA PC\mouvement\src\components\SEO.tsx
+  4:8  warning  'Head' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\ULTRA PC\mouvement\src\components\ThemeToggle.tsx
+  14:11  warning  'theme' is assigned a value but never used          @typescript-eslint/no-unused-vars
+  14:33  warning  'setTheme' is assigned a value but never used       @typescript-eslint/no-unused-vars
+  16:10  warning  'showMenu' is assigned a value but never used       @typescript-eslint/no-unused-vars
+  16:20  warning  'setShowMenu' is assigned a value but never used    @typescript-eslint/no-unused-vars
+  30:9   warning  'themes' is assigned a value but never used         @typescript-eslint/no-unused-vars
+  70:28  warning  'resolvedTheme' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\ULTRA PC\mouvement\src\components\comments\CommentSection.tsx
+    9:10  warning  'useComments' is defined but never used                                                                                                                                                                                                                                                  @typescript-eslint/no-unused-vars
+    9:23  warning  'useCreateComment' is defined but never used                                                                                                                                                                                                                                             @typescript-eslint/no-unused-vars
+  110:15  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  284:17  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\ULTRA PC\mouvement\src\components\editorial\GroupOfWeek.tsx
+   6:45  warning  'Flag' is defined but never used                                                                                                                                                                                                                                                         @typescript-eslint/no-unused-vars
+  61:13  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\ULTRA PC\mouvement\src\components\editorial\TifoSpotlight.tsx
+  42:9   warning  'locale' is assigned a value but never used                                                                                                                                                                                                                                              @typescript-eslint/no-unused-vars
+  61:11  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\ULTRA PC\mouvement\src\components\layout\Header.tsx
+  170:21  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\ULTRA PC\mouvement\src\lib\db.ts
+  18:5  error  'cached' is never reassigned. Use 'const' instead  prefer-const
+
+C:\Users\ULTRA PC\mouvement\src\lib\store.ts
+  4:11  warning  'User' is defined but never used  @typescript-eslint/no-unused-vars
+
+Ô£û 123 problems (44 errors, 79 warnings)
+  1 error and 0 warnings potentially fixable with the `--fix` option.
+

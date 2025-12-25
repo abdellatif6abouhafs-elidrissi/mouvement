@@ -17,6 +17,7 @@ export default function ThemeToggle({ showLabel = false, className = '' }: Theme
 
   // Only render after mount to avoid hydration mismatch
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
@@ -71,6 +72,7 @@ export function ThemeSelector({ className = '' }: { className?: string }) {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
@@ -120,9 +122,8 @@ export function ThemeSelector({ className = '' }: { className?: string }) {
                     setTheme(themeOption.value);
                     setIsOpen(false);
                   }}
-                  className={`w-full flex items-center gap-2 px-3 py-2.5 hover:bg-zinc-700 transition-colors ${
-                    theme === themeOption.value ? 'text-green-500' : 'text-zinc-300'
-                  }`}
+                  className={`w-full flex items-center gap-2 px-3 py-2.5 hover:bg-zinc-700 transition-colors ${theme === themeOption.value ? 'text-green-500' : 'text-zinc-300'
+                    }`}
                 >
                   <themeOption.icon className="h-4 w-4" />
                   <span className="text-sm">{themeOption.label}</span>

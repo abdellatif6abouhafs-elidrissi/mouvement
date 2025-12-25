@@ -76,6 +76,7 @@ export default function ProfilePage() {
         joinedAt: new Date().toISOString(),
         stats: { articles: 0, comments: 12, likes: 45 },
       };
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setProfile(userData);
       setEditForm({
         name: userData.name,

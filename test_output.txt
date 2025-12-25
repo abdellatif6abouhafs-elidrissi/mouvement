@@ -1,0 +1,37 @@
+
+[1m[46m RUN [49m[22m [36mv4.0.16 [39m[90mC:/Users/ULTRA PC/mouvement[39m
+
+(node:197340) Warning: `--localstorage-file` was provided without a valid path
+(Use `node --trace-warnings ...` to show where the warning was created)
+ [31mÔØ»[39m src/components/layout/Header.test.tsx [2m([22m[2m1 test[22m[2m | [22m[31m1 failed[39m[2m)[22m[32m 39[2mms[22m[39m
+[31m     [31m├ù[31m renders correctly[39m[32m 38[2mms[22m[39m
+
+ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ» Failed Tests 1 ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»
+
+ FAIL  src/components/layout/Header.test.tsx > Header Component > renders correctly
+TypeError: localStorage.getItem is not a function
+ ÔØ» src/components/search/SearchModal.tsx:46:34
+     44|   useEffect(() => {
+     45|     if (typeof window !== 'undefined') {
+     46|       const saved = localStorage.getItem('recentSearches');
+       |                                  ^
+     47|       if (saved) {
+     48|         setRecentSearches(JSON.parse(saved));
+ ÔØ» Object.react_stack_bottom_frame node_modules/react-dom/cjs/react-dom-client.development.js:25989:20
+ ÔØ» runWithFiberInDEV node_modules/react-dom/cjs/react-dom-client.development.js:874:13
+ ÔØ» commitHookEffectListMount node_modules/react-dom/cjs/react-dom-client.development.js:13249:29
+ ÔØ» commitHookPassiveMountEffects node_modules/react-dom/cjs/react-dom-client.development.js:13336:11
+ ÔØ» commitPassiveMountOnFiber node_modules/react-dom/cjs/react-dom-client.development.js:15484:13
+ ÔØ» recursivelyTraversePassiveMountEffects node_modules/react-dom/cjs/react-dom-client.development.js:15439:11
+ ÔØ» commitPassiveMountOnFiber node_modules/react-dom/cjs/react-dom-client.development.js:15718:11
+ ÔØ» recursivelyTraversePassiveMountEffects node_modules/react-dom/cjs/react-dom-client.development.js:15439:11
+ ÔØ» commitPassiveMountOnFiber node_modules/react-dom/cjs/react-dom-client.development.js:15476:11
+
+ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»ÔÄ»[1/1]ÔÄ»
+
+
+[2m Test Files [22m [1m[31m1 failed[39m[22m[90m (1)[39m
+[2m      Tests [22m [1m[31m1 failed[39m[22m[90m (1)[39m
+[2m   Start at [22m 02:41:04
+[2m   Duration [22m 1.09s[2m (transform 95ms, setup 86ms, import 397ms, tests 39ms, environment 438ms)[22m
+

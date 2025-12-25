@@ -55,27 +55,33 @@
     "language": "Language"
   },
   "home": {
+    "badge": "Culture",
     "title": "The Culture of",
     "titleHighlight": "Passion",
     "subtitle": "Discover the art, history, and spirit of Ultra culture worldwide. From the terraces of Milan to the stands of Casablanca.",
-    "exploreGroups": "Explore Groups",
-    "watchDocumentary": "Watch Documentary",
+    "exploreButton": "Explore Groups",
+    "watchButton": "Watch Documentary",
     "featuredGroups": "Featured Groups",
-    "latestArticles": "Latest Articles",
-    "spotlightTifo": "Spotlight Tifo",
-    "featuredChant": "Featured Chant",
-    "globalMovement": "A Global Movement",
-    "globalMovementText": "From Europe to Africa, South America to Asia, Ultra culture unites millions of passionate supporters.",
+    "featuredGroupsSubtitle": "Discover the most passionate and historic ultra groups from every corner of the globe.",
+    "viewAllGroups": "View All Groups",
+    "interactiveMap": "Global Movement",
+    "mapTitle": "World",
+    "mapTitleHighlight": "Map",
+    "mapSubtitle": "Explore the ultra movement geographically. Find groups, stadiums, and stories by region.",
+    "openMap": "Open Interactive Map",
+    "latestArticles": "Latest Stories",
+    "articlesSubtitle": "Deep dives into history, tifos, and the people behind the movement.",
+    "allArticles": "View All Articles",
+    "joinTitle": "Join the",
+    "joinHighlight": "Community",
+    "joinSubtitle": "Connect with other supporters, share your stories, and contribute to the archive.",
+    "createAccount": "Create Account",
+    "learnMore": "Learn More",
     "stats": {
       "groups": "Active Groups",
       "countries": "Countries",
-      "supporters": "Supporters",
-      "years": "Years of History"
-    },
-    "cta": {
-      "title": "Join the Movement",
-      "subtitle": "Become part of the global Ultra community. Share stories, discover groups, and celebrate the culture.",
-      "button": "Get Started"
+      "articles": "Articles",
+      "community": "Members"
     }
   },
   "about": {
