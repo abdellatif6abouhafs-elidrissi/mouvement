@@ -203,14 +203,20 @@
     "registerButton": "Crea"
   },
   "footer": {
-    "description": "Dedicato alla cultura Ultra.",
+    "description": "Dedicato alla preservazione e celebrazione della cultura Ultra in tutto il mondo.",
+    "explore": "Esplora",
+    "about": "Chi siamo",
     "quickLinks": "Link rapidi",
     "resources": "Risorse",
     "legal": "Legale",
     "privacy": "Privacy",
     "terms": "Termini",
-    "copyright": "Tutti i diritti riservati.",
-    "madeWith": "Fatto con"
+    "cookies": "Cookie Policy",
+    "worldwide": "In tutto il mondo",
+    "rights": "Tutti i diritti riservati.",
+    "madeWith": "Fatto con",
+    "forUltraCulture": "per la cultura Ultra",
+    "copyright": "Tutti i diritti riservati."
   },
   "meta": {
     "title": "MOUVEMENT - La Cultura della Passione",

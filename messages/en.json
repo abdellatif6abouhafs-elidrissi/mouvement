@@ -245,13 +245,19 @@
   },
   "footer": {
     "description": "Dedicated to preserving and celebrating Ultra culture worldwide.",
+    "explore": "Explore",
+    "about": "About",
     "quickLinks": "Quick Links",
     "resources": "Resources",
     "legal": "Legal",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
-    "copyright": "All rights reserved.",
-    "madeWith": "Made with passion"
+    "cookies": "Cookie Policy",
+    "worldwide": "Worldwide",
+    "rights": "All rights reserved.",
+    "madeWith": "Made with",
+    "forUltraCulture": "for Ultra culture",
+    "copyright": "All rights reserved."
   },
   "meta": {
     "title": "MOUVEMENT - The Culture of Passion",
