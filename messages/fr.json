@@ -147,6 +147,31 @@
     "postComment": "Publier le Commentaire"
   },
   "auth": {
+    "welcomeBack": "Bienvenue",
+    "signInContinue": "Connectez-vous pour continuer",
+    "joinMouvement": "Rejoindre Mouvement",
+    "createAccountSubtitle": "Créez votre compte et rejoignez la communauté Ultra",
+    "fullName": "Nom complet",
+    "email": "Email",
+    "password": "Mot de passe",
+    "confirmPassword": "Confirmer le mot de passe",
+    "rememberMe": "Se souvenir de moi",
+    "forgotPassword": "Mot de passe oublié ?",
+    "signIn": "Se connecter",
+    "createAccount": "Créer un Compte",
+    "haveAccount": "Vous avez déjà un compte ?",
+    "signInLink": "Se connecter",
+    "noAccount": "Vous n'avez pas de compte ?",
+    "agreeTerms": "J'accepte les",
+    "termsOfService": "Conditions d'Utilisation",
+    "and": "et la",
+    "privacyPolicy": "Politique de Confidentialité",
+    "passwordRequirements": {
+      "length": "Au moins 8 caractères",
+      "uppercase": "Une lettre majuscule",
+      "lowercase": "Une lettre minuscule",
+      "number": "Un chiffre"
+    },
     "login": {
       "title": "Bienvenue",
       "subtitle": "Connectez-vous à votre compte pour continuer",
