@@ -1,4 +1,7 @@
 import { MetadataRoute } from 'next';
+import { connectDB } from '@/lib/db';
+import UltraGroup from '@/models/UltraGroup';
+import Article from '@/models/Article';
 
 const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || 'https://mouvement-liart.vercel.app';
 const locales = ['en', 'fr', 'ar', 'it', 'es', 'pt-br'];
@@ -40,16 +43,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   }
 
-  // Try to fetch dynamic content from API
+  // Try to fetch dynamic content from database
   try {
-    // Fetch Ultra Groups
-    const groupsRes = await fetch(`${BASE_URL}/api/groups?limit=200`, {
-      next: { revalidate: 3600 }
-    });
-    if (groupsRes.ok) {
-      const groupsData = await groupsRes.json();
-      if (groupsData.groups) {
-        for (const group of groupsData.groups) {
+    await connectDB();
+
+    // Fetch Ultra Groups from database
+    try {
+      const groups = await UltraGroup.find({})
+        .select('slug updatedAt')
+        .limit(200)
+        .lean();
+
+      if (groups && groups.length > 0) {
+        for (const group of groups) {
           for (const locale of locales) {
             entries.push({
               url: `${BASE_URL}/${locale}/ultras/${group.slug}`,
@@ -66,20 +72,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           }
         }
       }
+    } catch (groupError) {
+      console.error('Error fetching groups from database for sitemap:', groupError);
     }
-  } catch (error) {
-    console.error('Error fetching groups for sitemap:', error);
-  }
 
-  try {
-    // Fetch Articles
-    const articlesRes = await fetch(`${BASE_URL}/api/articles?limit=200&status=published`, {
-      next: { revalidate: 3600 }
-    });
-    if (articlesRes.ok) {
-      const articlesData = await articlesRes.json();
-      if (articlesData.articles) {
-        for (const article of articlesData.articles) {
+    // Fetch Articles from database
+    try {
+      const articles = await Article.find({ status: 'published' })
+        .select('slug updatedAt')
+        .limit(200)
+        .lean();
+
+      if (articles && articles.length > 0) {
+        for (const article of articles) {
           for (const locale of locales) {
             entries.push({
               url: `${BASE_URL}/${locale}/articles/${article.slug}`,
@@ -96,9 +101,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           }
         }
       }
+    } catch (articleError) {
+      console.error('Error fetching articles from database for sitemap:', articleError);
     }
-  } catch (error) {
-    console.error('Error fetching articles for sitemap:', error);
+  } catch (dbError) {
+    console.error('Error connecting to database for sitemap:', dbError);
+    console.warn('Sitemap will include only static pages. Dynamic content unavailable.');
   }
 
   return entries;
