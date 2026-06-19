@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { ArrowRight, Globe } from 'lucide-react';
@@ -14,28 +15,44 @@ export default async function HomePage() {
   const locale = useLocale() as any;
   const t = useTranslations('home');
 
-  // Fetch featured groups (limit to 6)
-  const groupsResponse = await getGroups({
-    limit: 6,
-    featured: true
-  });
-  const groups = groupsResponse.groups.slice(0, 6);
+  // Fetch featured groups (limit to 6) with error handling
+  let groups: any[] = [];
+  try {
+    const groupsResponse = await getGroups({
+      limit: 6,
+      featured: true
+    }).catch(() => ({ groups: [] }));
+    groups = (groupsResponse?.groups || []).slice(0, 6);
+  } catch (error) {
+    console.error('Error fetching groups:', error);
+    groups = [];
+  }
 
-  // Fetch latest articles (limit to 3)
-  const articlesResponse = await getArticles({
-    limit: 3,
-    status: 'published'
-  });
-  const articles = articlesResponse.articles.slice(0, 3);
+  // Fetch latest articles (limit to 3) with error handling
+  let articles: any[] = [];
+  try {
+    const articlesResponse = await getArticles({
+      limit: 3,
+      status: 'published'
+    }).catch(() => ({ articles: [] }));
+    articles = (articlesResponse?.articles || []).slice(0, 3);
+  } catch (error) {
+    console.error('Error fetching articles:', error);
+    articles = [];
+  }
 
   return (
     <div className="relative">
       {/* Hero Section */}
-      <HeroSection />
+      <Suspense fallback={<div className="min-h-[90vh] bg-zinc-900" />}>
+        <HeroSection />
+      </Suspense>
 
       {/* Featured Groups Section */}
       {groups.length > 0 ? (
-        <FeaturedGroupsSection groups={groups} />
+        <Suspense fallback={<div className="min-h-[400px] bg-white dark:bg-transparent" />}>
+          <FeaturedGroupsSection groups={groups} />
+        </Suspense>
       ) : null}
 
       {/* Interactive Map CTA */}
@@ -86,32 +103,38 @@ export default async function HomePage() {
 
       {/* Latest Articles Section */}
       {articles.length > 0 ? (
-        <LatestArticlesSection articles={articles} />
+        <Suspense fallback={<div className="min-h-[400px] bg-white dark:bg-transparent" />}>
+          <LatestArticlesSection articles={articles} />
+        </Suspense>
       ) : null}
 
       {/* Editorial Section */}
-      <section className="py-24 px-4 sm:px-6 lg:px-8 bg-zinc-100 dark:bg-zinc-900/30">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Group of Week - takes 2 columns */}
-            <div className="lg:col-span-2">
-              <GroupOfWeek />
+      <Suspense fallback={<div className="min-h-[500px] bg-zinc-100 dark:bg-zinc-900/30" />}>
+        <section className="py-24 px-4 sm:px-6 lg:px-8 bg-zinc-100 dark:bg-zinc-900/30">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-3 gap-8">
+              {/* Group of Week - takes 2 columns */}
+              <div className="lg:col-span-2">
+                <GroupOfWeek />
+              </div>
+              {/* Cultural Poll */}
+              <div className="lg:col-span-1">
+                <CulturalPoll />
+              </div>
             </div>
-            {/* Cultural Poll */}
-            <div className="lg:col-span-1">
-              <CulturalPoll />
-            </div>
-          </div>
 
-          {/* Tifo Spotlight - full width */}
-          <div className="mt-8">
-            <TifoSpotlight />
+            {/* Tifo Spotlight - full width */}
+            <div className="mt-8">
+              <TifoSpotlight />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </Suspense>
 
       {/* Community CTA Section */}
-      <CommunityCTASection />
+      <Suspense fallback={<div className="min-h-[300px] bg-white dark:bg-transparent" />}>
+        <CommunityCTASection />
+      </Suspense>
     </div>
   );
 }
