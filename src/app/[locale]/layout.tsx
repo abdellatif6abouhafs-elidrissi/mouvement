@@ -105,6 +105,9 @@ export const metadata: Metadata = {
   },
   manifest: '/manifest.json',
   category: 'sports',
+  verification: {
+    google: 'jojC8kDReb0a2M8NfKPMu-Jk5V2yh6DI6tNf0e2nxs4',
+  },
 };
 
 export function generateStaticParams() {
