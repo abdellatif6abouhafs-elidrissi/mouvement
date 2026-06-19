@@ -7,7 +7,7 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug, locale } = await params;
-  const baseUrl = 'https://mouvement.vercel.app';
+  const baseUrl = 'https://mouvement-liart.vercel.app';
 
   try {
     const res = await fetch(`${baseUrl}/api/groups/${slug}`, {
@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
     const description = (group.history || '').replace(/\n/g, ' ').slice(0, 160);
     const image = group.coverImage || group.logo || '';
-    const base = 'https://mouvement.vercel.app';
+    const base = 'https://mouvement-liart.vercel.app';
     const locales = ['en', 'fr', 'ar', 'it', 'es', 'pt-br'];
 
     return {

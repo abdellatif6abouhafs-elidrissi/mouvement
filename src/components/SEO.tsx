@@ -16,7 +16,7 @@ interface SEOProps {
   noIndex?: boolean;
 }
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://mouvement.vercel.app';
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://mouvement-liart.vercel.app';
 
 const localeToHreflang: Record<string, string> = {
   en: 'en',
