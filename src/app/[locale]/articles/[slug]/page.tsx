@@ -29,21 +29,27 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug, locale } = await params;
-  const baseUrl = process.env.NEXTAUTH_URL || 'https://mouvement.vercel.app';
+  const baseUrl = 'https://mouvement.vercel.app';
 
   try {
     const res = await fetch(`${baseUrl}/api/articles/${slug}`, {
       next: { revalidate: 3600 }
-    });
+    }).catch(() => null);
 
-    if (!res.ok) {
+    if (!res || !res.ok) {
       return {
         title: 'Article | Mouvement',
         description: 'Discover stories about Ultra culture'
       };
     }
 
-    const data = await res.json();
+    const data = await res.json().catch(() => null);
+    if (!data) {
+      return {
+        title: 'Article | Mouvement',
+        description: 'Discover stories about Ultra culture'
+      };
+    }
     const article = data?.article;
 
     if (!article) {

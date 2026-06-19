@@ -40,21 +40,27 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug, locale } = await params;
-  const baseUrl = process.env.NEXTAUTH_URL || 'https://mouvement.vercel.app';
+  const baseUrl = 'https://mouvement.vercel.app';
 
   try {
     const res = await fetch(`${baseUrl}/api/groups/${slug}`, {
       next: { revalidate: 3600 }
-    });
+    }).catch(() => null);
 
-    if (!res.ok) {
+    if (!res || !res.ok) {
       return {
         title: 'Ultra Group | Mouvement',
         description: 'Explore Ultra culture groups from around the world'
       };
     }
 
-    const data = await res.json();
+    const data = await res.json().catch(() => null);
+    if (!data) {
+      return {
+        title: 'Ultra Group | Mouvement',
+        description: 'Explore Ultra culture groups from around the world'
+      };
+    }
     const group = data?.group;
 
     if (!group) {
