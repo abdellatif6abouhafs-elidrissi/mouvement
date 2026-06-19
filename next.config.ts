@@ -12,10 +12,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  // turbopack disabled due to Windows symlink issues
-  // turbopack: {
-  //   root: process.cwd(),
-  // },
   serverExternalPackages: ['mongoose', 'bcryptjs'],
 };
 
