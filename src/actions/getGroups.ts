@@ -7,9 +7,10 @@ interface GetGroupsParams {
     page?: number;
     limit?: number;
     search?: string;
+    featured?: boolean;
 }
 
-export async function getGroups({ page = 1, limit = 10, search = '' }: GetGroupsParams) {
+export async function getGroups({ page = 1, limit = 10, search = '', featured }: GetGroupsParams) {
     try {
         await connectDB();
 
@@ -21,6 +22,10 @@ export async function getGroups({ page = 1, limit = 10, search = '' }: GetGroups
                 { club: { $regex: search, $options: 'i' } },
                 { city: { $regex: search, $options: 'i' } },
             ];
+        }
+
+        if (featured) {
+            query.isFeatured = true;
         }
 
         const skip = (page - 1) * limit;

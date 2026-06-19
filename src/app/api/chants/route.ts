@@ -9,6 +9,7 @@ export async function GET(request: NextRequest) {
     const { searchParams } = new URL(request.url);
     const locale = searchParams.get('locale') || 'en';
     const featured = searchParams.get('featured');
+    const group = searchParams.get('group');
     const page = parseInt(searchParams.get('page') || '1');
     const limit = parseInt(searchParams.get('limit') || '20');
 
@@ -16,6 +17,10 @@ export async function GET(request: NextRequest) {
 
     if (featured === 'true') {
       query.isFeatured = true;
+    }
+
+    if (group) {
+      query.groupSlug = group;
     }
 
     const skip = (page - 1) * limit;
@@ -40,6 +45,7 @@ export async function GET(request: NextRequest) {
         title: translation?.title || '',
         lyrics: translation?.lyrics || '',
         origin: translation?.origin || '',
+        locale: translation?.locale || 'en',
         group: chant.group,
         groupSlug: chant.groupSlug,
         club: chant.club,

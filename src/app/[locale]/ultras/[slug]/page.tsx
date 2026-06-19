@@ -29,6 +29,8 @@ import {
 } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import Card, { CardContent } from '@/components/ui/Card';
+import ChantsTab from '@/components/ultras/ChantsTab';
+import GroupMap from '@/components/ultras/GroupMap';
 import { useGroup } from '@/hooks/useApi';
 
 interface PageProps {
@@ -478,17 +480,7 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
 
               {/* Chants Tab */}
               {activeTab === 'chants' && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="space-y-4"
-                >
-                  <div className="text-center py-12 text-zinc-400">
-                    <Music className="h-16 w-16 mx-auto mb-4 text-zinc-700" />
-                    <h3 className="text-xl font-bold text-white mb-2">{t('chantsComingSoon')}</h3>
-                    <p>{t('chantsComingSoonDesc')}</p>
-                  </div>
-                </motion.div>
+                <ChantsTab groupSlug={slug} />
               )}
             </div>
 
@@ -584,10 +576,12 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
               {/* Location Card */}
               <Card className="p-6">
                 <h3 className="text-lg font-bold text-white mb-4">{t('location')}</h3>
-                <div className="aspect-video rounded-lg bg-zinc-800 flex items-center justify-center mb-4">
-                  <Globe className="h-12 w-12 text-zinc-700" />
-                </div>
-                <p className="text-zinc-400 text-sm">
+                <GroupMap
+                  coordinates={displayGroup.coordinates}
+                  stadiumName={displayGroup.stadium}
+                  groupName={displayGroup.name}
+                />
+                <p className="text-zinc-400 text-sm mt-4">
                   {displayGroup.stadium ? `${displayGroup.stadium}, ` : ''}{displayGroup.city}
                 </p>
                 <Link href={`/${locale}/map?group=${displayGroup.slug}`}>

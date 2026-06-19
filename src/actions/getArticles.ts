@@ -36,6 +36,9 @@ export async function getArticles({
 
         if (status && status !== 'all') {
             query.status = status;
+        } else if (!status) {
+            // Default to published if no status specified
+            query.status = 'published';
         }
 
         const skip = (page - 1) * limit;
