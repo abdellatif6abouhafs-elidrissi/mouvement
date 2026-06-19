@@ -204,11 +204,19 @@
     }
   },
   "footer": {
+    "description": "Dedicado a preservar e celebrar a cultura Ultra em todo o mundo.",
+    "explore": "Explorar",
     "about": "Sobre",
     "contact": "Contato",
-    "privacy": "Privacidade",
-    "terms": "Termos",
+    "privacy": "Política de Privacidade",
+    "terms": "Termos de Serviço",
+    "cookies": "Política de Cookies",
     "copyright": "Todos os direitos reservados",
+    "worldwide": "Em todo o mundo",
+    "legal": "Legal",
+    "rights": "Todos os direitos reservados.",
+    "madeWith": "Feito com",
+    "forUltraCulture": "para a cultura Ultra",
     "social": {
       "followUs": "Siga-nos",
       "twitter": "Twitter",

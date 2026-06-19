@@ -203,14 +203,20 @@
     "registerButton": "Crear"
   },
   "footer": {
-    "description": "Dedicado a la cultura Ultra.",
+    "description": "Dedicado a preservar y celebrar la cultura Ultra en todo el mundo.",
+    "explore": "Explorar",
+    "about": "Acerca de",
     "quickLinks": "Enlaces",
     "resources": "Recursos",
     "legal": "Legal",
-    "privacy": "Privacidad",
-    "terms": "Terminos",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio",
+    "cookies": "Política de Cookies",
     "copyright": "Derechos reservados.",
-    "madeWith": "Hecho con"
+    "worldwide": "En todo el mundo",
+    "rights": "Todos los derechos reservados.",
+    "madeWith": "Hecho con",
+    "forUltraCulture": "para la cultura Ultra"
   },
   "meta": {
     "title": "MOUVEMENT - Cultura de la Pasion",

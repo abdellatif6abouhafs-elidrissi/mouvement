@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import Link from 'next/link';
-import { useLocale, useTranslations } from 'next-intl';
+import { getLocale, getTranslations } from 'next-intl/server';
 import { ArrowRight, Globe } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import { GroupOfWeek, TifoSpotlight, CulturalPoll } from '@/components/editorial';
@@ -12,8 +12,8 @@ import { getGroups } from '@/actions/getGroups';
 import { getArticles } from '@/actions/getArticles';
 
 export default async function HomePage() {
-  const locale = useLocale() as any;
-  const t = useTranslations('home');
+  const locale = await getLocale();
+  const t = await getTranslations('home');
 
   // Fetch featured groups (limit to 6) with error handling
   let groups: any[] = [];
