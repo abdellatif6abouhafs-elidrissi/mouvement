@@ -1,105 +1,75 @@
-'use client';
-
-import { useState } from 'react';
 import Link from 'next/link';
-import { useTranslations, useLocale } from 'next-intl';
-import { motion } from 'framer-motion';
+import { getTranslations } from 'next-intl/server';
 import {
   Users,
-  Heart,
   MessageCircle,
-  Share2,
-  Bookmark,
+  TrendingUp,
+  FileText,
   ChevronRight,
   PenSquare,
-  Calendar,
-  MapPin,
-  Flag,
-  Quote,
+  Clock,
 } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import Card, { CardContent } from '@/components/ui/Card';
 
-const featuredStories = [
-  {
-    id: 1,
-    title: 'My First Derby Experience',
-    author: 'Ahmed B.',
-    group: 'GREEN BOYS 2005',
-    club: 'Raja Casablanca',
-    country: 'Morocco',
-    date: 'December 2024',
-    excerpt: 'The moment I walked into Stade Mohammed V for my first derby, I knew my life would never be the same. The smoke, the chants, the unity...',
-    likes: 234,
-    comments: 45,
-    image: '/images/groups/green-boys-2005.webp',
-    featured: true,
-  },
-  {
-    id: 2,
-    title: 'Following My Team Across Europe',
-    author: 'Marco R.',
-    group: 'Curva Sud Milano',
-    club: 'AC Milan',
-    country: 'Italy',
-    date: 'November 2024',
-    excerpt: 'After 15 years as an Ultra, I\'ve traveled to over 100 away matches. Each journey strengthens the bond with my brothers.',
-    likes: 189,
-    comments: 32,
-    image: '/images/groups/curva-sud-milano.webp',
-  },
-  {
-    id: 3,
-    title: 'The Tifo That Changed Everything',
-    author: 'Carlos M.',
-    group: 'La 12',
-    club: 'Boca Juniors',
-    country: 'Argentina',
-    date: 'November 2024',
-    excerpt: 'Three months of preparation, 500 volunteers, one magical night. How we created the biggest tifo in La Bombonera history.',
-    likes: 456,
-    comments: 89,
-    image: '/images/tifos/tifo-2.webp',
-  },
-  {
-    id: 4,
-    title: 'Three Generations of Passion',
-    author: 'Hans W.',
-    group: 'Yellow Wall',
-    club: 'Borussia Dortmund',
-    country: 'Germany',
-    date: 'October 2024',
-    excerpt: 'My grandfather started it, my father continued it, and now I carry the torch. The Südtribüne runs in our blood.',
-    likes: 312,
-    comments: 67,
-    image: '/images/groups/yellow-wall.webp',
-  },
-];
+const BASE_URL = 'https://mouvement-liart.vercel.app';
 
-const testimonials = [
-  {
-    quote: 'Being an Ultra is not about violence. It\'s about art, culture, and unconditional love for your colors.',
-    author: 'Anonymous Capo',
-    group: 'GREEN BOYS 2005',
-  },
-  {
-    quote: 'The curva is the only place where a doctor stands next to a worker, equals in passion.',
-    author: 'Marco, 25 years',
-    group: 'Curva Sud Milano',
-  },
-  {
-    quote: 'We don\'t support our team because they win. We support because they are ours.',
-    author: 'Pablo, 30 years',
-    group: 'La 12',
-  },
-];
+async function fetchGroups() {
+  try {
+    const res = await fetch(`${BASE_URL}/api/groups?limit=6&sort=views`, {
+      next: { revalidate: 3600 }
+    });
+    if (res.ok) {
+      const data = await res.json();
+      return data.groups || [];
+    }
+  } catch (error) {
+    console.error('Failed to fetch groups:', error);
+  }
+  return [];
+}
 
-export default function CommunityPage() {
-  const t = useTranslations('community');
-  const locale = useLocale();
+async function fetchArticles() {
+  try {
+    const res = await fetch(`${BASE_URL}/api/articles?limit=3&status=published`, {
+      next: { revalidate: 3600 }
+    });
+    if (res.ok) {
+      const data = await res.json();
+      return data.articles || [];
+    }
+  } catch (error) {
+    console.error('Failed to fetch articles:', error);
+  }
+  return [];
+}
 
-  const mainStory = featuredStories[0];
-  const otherStories = featuredStories.slice(1);
+async function fetchComments() {
+  try {
+    const res = await fetch(`${BASE_URL}/api/comments?limit=5`, {
+      next: { revalidate: 1800 }
+    });
+    if (res.ok) {
+      const data = await res.json();
+      return data.comments || [];
+    }
+  } catch (error) {
+    console.error('Failed to fetch comments:', error);
+  }
+  return [];
+}
+
+export default async function CommunityPage({
+  params: { locale }
+}: {
+  params: { locale: string };
+}) {
+  const t = await getTranslations('community');
+  const [groups, articles, comments] = await Promise.all([
+    fetchGroups(),
+    fetchArticles(),
+    fetchComments()
+  ]);
 
   return (
     <div className="min-h-screen">
@@ -107,212 +77,212 @@ export default function CommunityPage() {
       <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 hero-gradient" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-600/10 border border-green-600/20 text-green-500 text-sm font-medium mb-6">
-              <Users className="h-4 w-4" />
-              Stories
-            </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-              {t('title')} <span className="gradient-text">{t('titleHighlight')}</span>
-            </h1>
-            <p className="text-xl text-zinc-400 max-w-2xl mx-auto mb-8">
-              {t('subtitle')}
-            </p>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-600/10 border border-green-600/20 text-green-500 text-sm font-medium mb-6">
+            <Users className="h-4 w-4" />
+            Community Hub
+          </div>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+            {t('title', 'Connect with the Global Ultra Community')}
+          </h1>
+          <p className="text-xl text-zinc-400 max-w-2xl mx-auto mb-8">
+            {t('subtitle', 'Discover stories, discussions, and insights from Ultra groups around the world')}
+          </p>
+          <Link href={`/${locale}/community/submit`}>
             <Button leftIcon={<PenSquare className="h-5 w-5" />}>
-              {t('submit')}
+              Share Your Story
             </Button>
-          </motion.div>
+          </Link>
         </div>
       </section>
 
-      {/* Featured Story */}
+      {/* Most Viewed Groups */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 border-b border-zinc-800">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center gap-3 mb-8">
-            <Heart className="h-6 w-6 text-green-500" />
-            <h2 className="text-2xl font-bold text-white">{t('featured')}</h2>
+            <TrendingUp className="h-6 w-6 text-green-500" />
+            <h2 className="text-2xl font-bold text-white">Trending Ultra Groups This Week</h2>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="relative rounded-3xl overflow-hidden bg-zinc-900 border border-zinc-800"
-          >
-            <div className="grid lg:grid-cols-2 gap-0">
-              {/* Image */}
-              <div className="relative h-80 lg:h-auto bg-zinc-800">
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-zinc-900/80 z-10 hidden lg:block" />
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent z-10 lg:hidden" />
-                <div className="w-full h-full bg-gradient-to-br from-green-600/20 to-zinc-800 flex items-center justify-center">
-                  <Users className="h-24 w-24 text-zinc-700" />
-                </div>
-              </div>
-
-              {/* Content */}
-              <div className="p-8 lg:p-12">
-                <div className="flex flex-wrap items-center gap-4 text-sm text-zinc-500 mb-4">
-                  <span className="flex items-center gap-1">
-                    <Flag className="h-4 w-4" />
-                    {mainStory.group}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <MapPin className="h-4 w-4" />
-                    {mainStory.country}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <Calendar className="h-4 w-4" />
-                    {mainStory.date}
-                  </span>
-                </div>
-                <h3 className="text-3xl font-bold text-white mb-4">{mainStory.title}</h3>
-                <p className="text-zinc-400 mb-6">{mainStory.excerpt}</p>
-                <div className="flex items-center gap-2 mb-6">
-                  <div className="w-10 h-10 rounded-full bg-green-600 flex items-center justify-center text-white font-bold">
-                    {mainStory.author.charAt(0)}
-                  </div>
-                  <div>
-                    <p className="text-white font-medium">{mainStory.author}</p>
-                    <p className="text-zinc-500 text-sm">{mainStory.club}</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-6">
-                  <button className="flex items-center gap-2 text-zinc-400 hover:text-green-500 transition-colors">
-                    <Heart className="h-5 w-5" />
-                    {mainStory.likes}
-                  </button>
-                  <button className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors">
-                    <MessageCircle className="h-5 w-5" />
-                    {mainStory.comments}
-                  </button>
-                  <button className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors">
-                    <Share2 className="h-5 w-5" />
-                    Share
-                  </button>
-                  <button className="flex items-center gap-2 text-zinc-400 hover:text-white transition-colors ml-auto">
-                    <Bookmark className="h-5 w-5" />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Stories Grid */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {otherStories.map((story, index) => (
-              <motion.div
-                key={story.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <Card hoverable className="h-full group">
-                  {/* Image */}
-                  <div className="relative h-48 bg-zinc-800">
-                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 to-transparent z-10" />
-                    <div className="w-full h-full bg-gradient-to-br from-zinc-700 to-zinc-800 flex items-center justify-center">
-                      <Users className="h-12 w-12 text-zinc-600" />
-                    </div>
-                  </div>
-
-                  <CardContent>
-                    <div className="flex items-center gap-2 text-xs text-zinc-500 mb-3">
-                      <span>{story.group}</span>
-                      <span>-</span>
-                      <span>{story.country}</span>
-                    </div>
-                    <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-green-500 transition-colors">
-                      {story.title}
-                    </h3>
-                    <p className="text-zinc-400 text-sm mb-4 line-clamp-2">{story.excerpt}</p>
-
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-full bg-zinc-800 flex items-center justify-center text-white text-xs font-bold">
-                          {story.author.charAt(0)}
+          {groups.length > 0 ? (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {groups.map((group: any) => (
+                <Link key={group._id} href={`/${locale}/ultras/${group.slug}`}>
+                  <Card hoverable className="h-full group">
+                    <CardContent>
+                      <div className="flex items-start justify-between mb-3">
+                        <div className="flex-1">
+                          <h3 className="text-lg font-semibold text-white group-hover:text-green-500 transition-colors">
+                            {group.name}
+                          </h3>
+                          <p className="text-sm text-zinc-500 mt-1">
+                            {group.club} • {group.country}
+                          </p>
                         </div>
-                        <span className="text-sm text-zinc-400">{story.author}</span>
                       </div>
-                      <div className="flex items-center gap-3 text-sm text-zinc-500">
+                      <p className="text-zinc-400 text-sm mb-4 line-clamp-2">{group.description || 'No description'}</p>
+                      <div className="flex items-center gap-4 text-xs text-zinc-500">
                         <span className="flex items-center gap-1">
-                          <Heart className="h-4 w-4" />
-                          {story.likes}
+                          <Users className="h-4 w-4" />
+                          {group.members || 0} members
                         </span>
                         <span className="flex items-center gap-1">
-                          <MessageCircle className="h-4 w-4" />
-                          {story.comments}
+                          <TrendingUp className="h-4 w-4" />
+                          {group.views || 0} views
                         </span>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <div className="p-8 text-center text-zinc-400">
+              <Users className="h-12 w-12 text-zinc-700 mx-auto mb-4" />
+              <p>No groups available at the moment</p>
+            </div>
+          )}
 
           <div className="mt-12 text-center">
-            <Link href={`/${locale}/community/archive`}>
+            <Link href={`/${locale}/ultras`}>
               <Button variant="outline" rightIcon={<ChevronRight className="h-4 w-4" />}>
-                {t('archives')}
+                View All Groups
               </Button>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 border-t border-zinc-800">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold text-white text-center mb-12">Words from the Curva</h2>
-          <div className="space-y-8">
-            {testimonials.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                className="relative p-8 rounded-2xl bg-zinc-900 border border-zinc-800"
-              >
-                <Quote className="absolute top-6 left-6 h-8 w-8 text-green-600/30" />
-                <blockquote className="relative z-10 text-xl text-white italic mb-4 pl-6">
-                  &ldquo;{item.quote}&rdquo;
-                </blockquote>
-                <div className="pl-6 flex items-center gap-2 text-zinc-400">
-                  <span className="font-medium">{item.author}</span>
-                  <span>-</span>
-                  <span className="text-green-500">{item.group}</span>
-                </div>
-              </motion.div>
-            ))}
+      {/* Latest Articles */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 border-b border-zinc-800">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center gap-3 mb-8">
+            <FileText className="h-6 w-6 text-green-500" />
+            <h2 className="text-2xl font-bold text-white">Latest Articles</h2>
+          </div>
+
+          {articles.length > 0 ? (
+            <div className="grid gap-6">
+              {articles.map((article: any) => (
+                <Link key={article._id} href={`/${locale}/articles/${article.slug}`}>
+                  <Card hoverable className="group">
+                    <CardContent>
+                      <div className="flex items-start justify-between">
+                        <div className="flex-1">
+                          <h3 className="text-xl font-semibold text-white group-hover:text-green-500 transition-colors mb-2">
+                            {article.title}
+                          </h3>
+                          <p className="text-zinc-400 text-sm mb-4 line-clamp-2">
+                            {article.excerpt || article.content?.substring(0, 100)}
+                          </p>
+                          <div className="flex items-center gap-4 text-xs text-zinc-500">
+                            {article.category && (
+                              <span className="px-2 py-1 rounded-full bg-green-600/10 text-green-500">
+                                {article.category}
+                              </span>
+                            )}
+                            {article.createdAt && (
+                              <span className="flex items-center gap-1">
+                                <Clock className="h-4 w-4" />
+                                {new Date(article.createdAt).toLocaleDateString()}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          ) : (
+            <div className="p-8 text-center text-zinc-400">
+              <FileText className="h-12 w-12 text-zinc-700 mx-auto mb-4" />
+              <p>No articles available at the moment</p>
+            </div>
+          )}
+
+          <div className="mt-12 text-center">
+            <Link href={`/${locale}/articles`}>
+              <Button variant="outline" rightIcon={<ChevronRight className="h-4 w-4" />}>
+                Read More Articles
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Submit Story CTA */}
+      {/* Latest Discussions */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 border-b border-zinc-800">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center gap-3 mb-8">
+            <MessageCircle className="h-6 w-6 text-green-500" />
+            <h2 className="text-2xl font-bold text-white">Latest Discussions</h2>
+          </div>
+
+          {comments.length > 0 ? (
+            <div className="space-y-4">
+              {comments.map((comment: any) => (
+                <div
+                  key={comment._id}
+                  className="p-4 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-green-600/30 transition-colors"
+                >
+                  <div className="flex items-start gap-3 mb-2">
+                    <div className="w-10 h-10 rounded-full bg-green-600 flex items-center justify-center text-white font-bold flex-shrink-0">
+                      {comment.author?.charAt(0).toUpperCase() || 'U'}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="font-semibold text-white">
+                        {comment.author || 'Anonymous'}
+                      </p>
+                      <p className="text-sm text-zinc-500">
+                        {comment.createdAt ? new Date(comment.createdAt).toLocaleDateString() : 'Recently'}
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-zinc-300 line-clamp-2">{comment.content || comment.text || ''}</p>
+                  {(comment.likes || 0) > 0 && (
+                    <div className="mt-2 text-xs text-zinc-500 flex items-center gap-1">
+                      <MessageCircle className="h-3 w-3" />
+                      {comment.likes} people liked this
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="p-8 text-center text-zinc-400">
+              <MessageCircle className="h-12 w-12 text-zinc-700 mx-auto mb-4" />
+              <p>No discussions yet. Start the conversation!</p>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Community CTA */}
       <section className="py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="p-12 rounded-3xl bg-gradient-to-r from-green-600/20 to-zinc-900 border border-green-600/30"
-          >
-            <PenSquare className="h-16 w-16 text-green-500 mx-auto mb-6" />
-            <h2 className="text-3xl font-bold text-white mb-4">{t('submit')}</h2>
+          <div className="p-12 rounded-3xl bg-gradient-to-r from-green-600/20 to-zinc-900 border border-green-600/30">
+            <Users className="h-16 w-16 text-green-500 mx-auto mb-6" />
+            <h2 className="text-3xl font-bold text-white mb-4">
+              {t('ctaTitle', 'Join the Global Ultra Community')}
+            </h2>
             <p className="text-zinc-400 mb-8 max-w-lg mx-auto">
-              Every Ultra has a story. Share your experiences, memories, and passion with the global community.
+              {t(
+                'ctaDescription',
+                'Share your stories, connect with other Ultra groups, and celebrate the culture that unites us all.'
+              )}
             </p>
-            <Button size="lg">Submit Your Story</Button>
-          </motion.div>
+            <div className="flex gap-4 justify-center flex-wrap">
+              <Link href={`/${locale}/register`}>
+                <Button size="lg">Join Now</Button>
+              </Link>
+              <Link href={`/${locale}/about`}>
+                <Button variant="outline" size="lg">
+                  Learn More
+                </Button>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
     </div>

@@ -16,19 +16,16 @@ export async function GET(request: NextRequest) {
     const page = parseInt(searchParams.get('page') || '1');
     const limit = parseInt(searchParams.get('limit') || '20');
 
-    if (!targetType || !targetId) {
-      return NextResponse.json(
-        { error: 'targetType and targetId are required' },
-        { status: 400 }
-      );
-    }
-
-    const query = {
-      'target.type': targetType,
-      'target.id': targetId,
+    const query: Record<string, unknown> = {
       status: 'approved',
       parentComment: null, // Only get top-level comments
     };
+
+    // If targetType and targetId are provided, filter by target
+    if (targetType && targetId) {
+      query['target.type'] = targetType;
+      query['target.id'] = targetId;
+    }
 
     const skip = (page - 1) * limit;
 

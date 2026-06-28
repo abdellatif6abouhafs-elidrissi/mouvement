@@ -17,8 +17,9 @@ export async function GET(request: NextRequest) {
     const search = searchParams.get('search');
     const featured = searchParams.get('featured');
     const author = searchParams.get('author');
+    const status = searchParams.get('status') || 'published';
 
-    const query: Record<string, unknown> = { status: 'published' };
+    const query: Record<string, unknown> = { status };
 
     if (category) {
       query.category = category;

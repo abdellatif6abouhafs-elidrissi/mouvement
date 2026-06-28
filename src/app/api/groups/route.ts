@@ -19,6 +19,7 @@ export async function GET(request: NextRequest) {
     const country = searchParams.get('country');
     const search = searchParams.get('search');
     const featured = searchParams.get('featured');
+    const sort = searchParams.get('sort') || 'createdAt';
 
     const query: Record<string, unknown> = { isActive: true };
 
@@ -36,9 +37,26 @@ export async function GET(request: NextRequest) {
 
     const skip = (page - 1) * limit;
 
+    // Build sort object
+    const sortObj: Record<string, 1 | -1> = {};
+    switch (sort) {
+      case 'views':
+        sortObj.views = -1;
+        break;
+      case 'likes':
+        sortObj.likes = -1;
+        break;
+      case 'featured':
+        sortObj.isFeatured = -1;
+        sortObj.createdAt = -1;
+        break;
+      default:
+        sortObj.createdAt = -1;
+    }
+
     const [groups, total] = await Promise.all([
       UltraGroup.find(query)
-        .sort({ createdAt: -1 })
+        .sort(sortObj)
         .skip(skip)
         .limit(limit)
         .lean(),
