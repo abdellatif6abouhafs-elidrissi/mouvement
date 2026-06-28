@@ -16,6 +16,7 @@ import {
   ChevronRight,
   Tag,
   User,
+  Check,
 } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import Card, { CardContent } from '@/components/ui/Card';
@@ -32,9 +33,41 @@ export default function ArticleClient({ params }: ArticleClientProps) {
   const locale = useLocale();
   const [liked, setLiked] = useState(false);
   const [bookmarked, setBookmarked] = useState(false);
+  const [shareStatus, setShareStatus] = useState<'idle' | 'copying' | 'copied'>('idle');
 
   const { data, isLoading, error } = useArticle(slug);
   const article = data?.article;
+
+  const handleShare = async () => {
+    const url = typeof window !== 'undefined' ? window.location.href : '';
+    const title = article?.title || 'Check out this article';
+
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title,
+          url,
+        });
+      } else {
+        setShareStatus('copying');
+        await navigator.clipboard.writeText(url);
+        setShareStatus('copied');
+        setTimeout(() => setShareStatus('idle'), 2000);
+      }
+    } catch (error) {
+      if (error instanceof Error && error.name !== 'AbortError') {
+        console.error('Share failed:', error);
+        setShareStatus('copying');
+        try {
+          await navigator.clipboard.writeText(url);
+          setShareStatus('copied');
+          setTimeout(() => setShareStatus('idle'), 2000);
+        } catch {
+          setShareStatus('idle');
+        }
+      }
+    }
+  };
 
   // Fallback data for demo
   const fallbackArticle = {
@@ -327,8 +360,12 @@ The story of GREEN BOYS is not just about football – it's about youth, creativ
                 >
                   {bookmarked ? 'Saved' : 'Save'}
                 </Button>
-                <Button variant="outline" leftIcon={<Share2 className="h-5 w-5" />}>
-                  Share
+                <Button
+                  variant="outline"
+                  leftIcon={shareStatus === 'copied' ? <Check className="h-5 w-5" /> : <Share2 className="h-5 w-5" />}
+                  onClick={handleShare}
+                >
+                  {shareStatus === 'copied' ? 'Copied!' : 'Share'}
                 </Button>
                 <Button variant="outline" leftIcon={<MessageCircle className="h-5 w-5" />}>
                   Comment

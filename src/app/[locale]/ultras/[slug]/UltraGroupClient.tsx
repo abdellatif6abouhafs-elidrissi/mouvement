@@ -26,6 +26,7 @@ import {
   Facebook,
   Instagram,
   Youtube,
+  Check,
 } from 'lucide-react';
 import Button from '@/components/ui/Button';
 import Card, { CardContent } from '@/components/ui/Card';
@@ -44,9 +45,41 @@ export default function UltraGroupClient({ params }: UltraGroupClientProps) {
   const [activeTab, setActiveTab] = useState<'history' | 'tifos' | 'gallery' | 'chants'>('history');
   const [liked, setLiked] = useState(false);
   const [currentTifoIndex, setCurrentTifoIndex] = useState(0);
+  const [shareStatus, setShareStatus] = useState<'idle' | 'copying' | 'copied'>('idle');
 
   const { data, isLoading, error } = useGroup(slug);
   const group = data?.group;
+
+  const handleShare = async () => {
+    const url = typeof window !== 'undefined' ? window.location.href : '';
+    const title = group?.name || 'Check out this Ultra group';
+
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title,
+          url,
+        });
+      } else {
+        setShareStatus('copying');
+        await navigator.clipboard.writeText(url);
+        setShareStatus('copied');
+        setTimeout(() => setShareStatus('idle'), 2000);
+      }
+    } catch (error) {
+      if (error instanceof Error && error.name !== 'AbortError') {
+        console.error('Share failed:', error);
+        setShareStatus('copying');
+        try {
+          await navigator.clipboard.writeText(url);
+          setShareStatus('copied');
+          setTimeout(() => setShareStatus('idle'), 2000);
+        } catch {
+          setShareStatus('idle');
+        }
+      }
+    }
+  };
 
   // Helper function to get translated text based on locale
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -301,8 +334,14 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
               >
                 {liked ? t('liked') : t('like')} ({((displayGroup.likes || 0) / 1000).toFixed(0)}K)
               </Button>
-              <Button variant="outline" size="sm" leftIcon={<Share2 className="h-4 w-4 sm:h-5 sm:w-5" />} className="text-xs sm:text-sm">
-                {t('share')}
+              <Button
+                variant="outline"
+                size="sm"
+                leftIcon={shareStatus === 'copied' ? <Check className="h-4 w-4 sm:h-5 sm:w-5" /> : <Share2 className="h-4 w-4 sm:h-5 sm:w-5" />}
+                onClick={handleShare}
+                className="text-xs sm:text-sm"
+              >
+                {shareStatus === 'copied' ? 'Copied!' : t('share')}
               </Button>
               <div className="flex items-center gap-1.5 sm:gap-2 text-zinc-400 text-xs sm:text-sm ml-auto">
                 <Eye className="h-4 w-4 sm:h-5 sm:w-5" />
