@@ -243,7 +243,7 @@ The story of GREEN BOYS is not just about football – it's about youth, creativ
       {/* Hero Section */}
       <section className="relative h-[40vh] sm:h-[45vh] lg:h-[50vh] min-h-[280px] sm:min-h-[320px] lg:min-h-[400px] overflow-hidden">
         {/* Background Image */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-zinc-800">
           <Image
             src={displayArticle.coverImage}
             alt={displayArticle.title}
@@ -252,8 +252,8 @@ The story of GREEN BOYS is not just about football – it's about youth, creativ
             sizes="100vw"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/80 to-zinc-950/40" />
         </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/80 to-zinc-950/40" />
 
         {/* Content */}
         <div className="relative z-10 h-full max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-end pb-12">

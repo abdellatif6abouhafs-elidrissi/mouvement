@@ -216,7 +216,7 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.8 }}
-                className="absolute inset-0"
+                className="relative inset-0 w-full h-full"
               >
                 <Image
                   src={typeof displayGroup.tifos[currentTifoIndex] === 'string'
@@ -229,13 +229,15 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
                 />
               </motion.div>
             ) : (
-              <Image
-                src={displayGroup.coverImage || displayGroup.logo}
-                alt={displayGroup.name}
-                fill
-                className="object-cover"
-                sizes="100vw"
-              />
+              <div className="relative w-full h-full">
+                <Image
+                  src={displayGroup.coverImage || displayGroup.logo}
+                  alt={displayGroup.name}
+                  fill
+                  className="object-cover"
+                  sizes="100vw"
+                />
+              </div>
             )}
           </AnimatePresence>
           <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/60 to-transparent" />
