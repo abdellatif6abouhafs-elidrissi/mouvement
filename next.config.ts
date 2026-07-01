@@ -12,7 +12,9 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  serverExternalPackages: ['mongoose', 'bcryptjs'],
+  webpack: (config, { isServer }) => {
+    return config;
+  },
 };
 
 export default withNextIntl(nextConfig);

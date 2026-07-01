@@ -55,7 +55,7 @@ export default function HeroSection() {
               src={heroImages[currentImageIndex]}
               alt="Ultra supporters"
               fill
-              priority
+              priority={currentImageIndex === 0}
               className="object-cover"
               sizes="100vw"
             />

@@ -218,19 +218,23 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
                 transition={{ duration: 0.8 }}
                 className="absolute inset-0"
               >
-                <img
+                <Image
                   src={typeof displayGroup.tifos[currentTifoIndex] === 'string'
                     ? displayGroup.tifos[currentTifoIndex]
                     : displayGroup.tifos[currentTifoIndex]?.image || displayGroup.coverImage}
                   alt={`${displayGroup.name} tifo`}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
+                  sizes="100vw"
                 />
               </motion.div>
             ) : (
-              <img
+              <Image
                 src={displayGroup.coverImage || displayGroup.logo}
                 alt={displayGroup.name}
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                sizes="100vw"
               />
             )}
           </AnimatePresence>
@@ -272,11 +276,13 @@ Leur philosophie repose sur trois piliers : la passion inconditionnelle pour le 
                 transition={{ delay: 0.2, duration: 0.5 }}
                 className="mb-3 sm:mb-4"
               >
-                <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-xl sm:rounded-2xl overflow-hidden border-2 sm:border-4 border-white/20 shadow-2xl bg-zinc-900">
-                  <img
+                <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-xl sm:rounded-2xl overflow-hidden border-2 sm:border-4 border-white/20 shadow-2xl bg-zinc-900 relative">
+                  <Image
                     src={displayGroup.logo}
                     alt={`${displayGroup.name} logo`}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 64px, (max-width: 768px) 80px, 96px"
                   />
                 </div>
               </motion.div>

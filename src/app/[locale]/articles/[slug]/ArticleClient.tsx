@@ -2,6 +2,7 @@
 
 import { useState, use } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import {
@@ -243,10 +244,13 @@ The story of GREEN BOYS is not just about football – it's about youth, creativ
       <section className="relative h-[40vh] sm:h-[45vh] lg:h-[50vh] min-h-[280px] sm:min-h-[320px] lg:min-h-[400px] overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <img
+          <Image
             src={displayArticle.coverImage}
             alt={displayArticle.title}
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            sizes="100vw"
+            priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/80 to-zinc-950/40" />
         </div>
