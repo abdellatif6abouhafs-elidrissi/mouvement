@@ -82,10 +82,10 @@ export default async function CommunityPage({
             Community Hub
           </div>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-            {t('title', 'Connect with the Global Ultra Community')}
+            Connect with the Global Ultra Community
           </h1>
           <p className="text-xl text-zinc-400 max-w-2xl mx-auto mb-8">
-            {t('subtitle', 'Discover stories, discussions, and insights from Ultra groups around the world')}
+            Discover stories, discussions, and insights from Ultra groups around the world
           </p>
           <Link href={`/${locale}/community/submit`}>
             <Button leftIcon={<PenSquare className="h-5 w-5" />}>
@@ -264,13 +264,10 @@ export default async function CommunityPage({
           <div className="p-12 rounded-3xl bg-gradient-to-r from-green-600/20 to-zinc-900 border border-green-600/30">
             <Users className="h-16 w-16 text-green-500 mx-auto mb-6" />
             <h2 className="text-3xl font-bold text-white mb-4">
-              {t('ctaTitle', 'Join the Global Ultra Community')}
+              Join the Global Ultra Community
             </h2>
             <p className="text-zinc-400 mb-8 max-w-lg mx-auto">
-              {t(
-                'ctaDescription',
-                'Share your stories, connect with other Ultra groups, and celebrate the culture that unites us all.'
-              )}
+              Share your stories, connect with other Ultra groups, and celebrate the culture that unites us all.
             </p>
             <div className="flex gap-4 justify-center flex-wrap">
               <Link href={`/${locale}/register`}>
